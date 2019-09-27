@@ -4,6 +4,10 @@ Simplr Router is a easy to use and easy to set up router for Web Components.
 
 Simplr Router supports SPA-like asynchronous page loading for mobile-like experiences and UI:s.
 
+Simplr Router is a minimal set up, which doesn't change your projects' css rules, 
+so you might need to adjust your css (Especially overflows) to accompany the routers' 
+actions.
+
 Installation
 -------------------
 
