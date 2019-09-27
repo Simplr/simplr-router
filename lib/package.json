@@ -1,0 +1,11 @@
+{
+  "name": "simplr-router",
+  "version": "2.0.1",
+  "description": "Simplr Router is a routing solution for Web Components providing a seamless SPA experience with minimal setup.",
+  "main": "simplr-router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matsuuu",
+  "license": "ISC"
+}
