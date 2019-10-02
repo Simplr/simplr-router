@@ -10,7 +10,7 @@
   "author": "Matsuuu",
   "license": "ISC",
   "dependencies": {
-    "simplr-router": "^3.0.2"
+    "simplr-router": "^3.0.4"
   },
   "devDependencies": {
     "express": "^4.17.1",

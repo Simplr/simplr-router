@@ -5,7 +5,7 @@
   "main": "simplr-routes.js",
   "dependencies": {
     "lit-element": "2.2.1",
-    "simplr-router": "^3.0.2"
+    "simplr-router": "^3.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
