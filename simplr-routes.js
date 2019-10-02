@@ -6,7 +6,7 @@ import "views/simplr-foo-bar-with-id";
 import "views/simplr-page-not-found";
 import AuthGuard from "./src/guards/AuthGuard";
 
-export const routes = [
+const routes = [
     {
         "path": "",
         "view": "simplr-frontpage"
@@ -45,3 +45,5 @@ export const routes = [
         "view": "simplr-page-not-found"
     }
 ];
+
+export default routes;

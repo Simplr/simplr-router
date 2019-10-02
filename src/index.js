@@ -3,6 +3,7 @@ import SimplrRouter from "../lib/simplr-router";
 import {TransitionDirection} from "../lib/simplr-router-transition-direction";
 import {TransitionSpeed} from "../lib/simplr-router-transition-speed";
 import "./views/simplr-router-link";
+import routes from "../simplr-routes";
 
 class SimplrRouterIndex extends LitElement {
     static get properties() {
@@ -16,7 +17,7 @@ class SimplrRouterIndex extends LitElement {
     }
 
     firstUpdated(_changedProperties) {
-        SimplrRouter.init(this);
+        SimplrRouter.init(this, routes);
     }
 
     createRenderRoot() {
