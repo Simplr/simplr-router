@@ -8,6 +8,8 @@ Simplr Router is a minimal set up, which doesn't change your projects' css rules
 so you might need to adjust your css (Especially overflows) to accompany the routers' 
 actions.
 
+You can find the project at github: https://github.com/Matsuuu/simplr-router
+
 Installation
 -------------------
 
