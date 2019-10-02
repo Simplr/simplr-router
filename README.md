@@ -137,9 +137,10 @@ import AuthGuard from "./src/guards/AuthGuard";
 
 After initializing the root of you project, add the following code snippet into your javascript:
 ```javascript
-//import SimplrRouter from "simplr-router";
+import SimplrRouter from "simplr-router";
+import routes from "../simplr-routes";
 
-SimplrRouter.init(this);
+SimplrRouter.init(this, routes);
 ```
 
 When using lit elements, you can just pass `this` as the first parameter.

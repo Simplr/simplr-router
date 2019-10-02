@@ -6,11 +6,7 @@ import "./shadow-page";
 class TestIndex extends LitElement {
 
     firstUpdated() {
-        
-        //let routes = import("simplr-routes").then(routes => console.log(routes.routes));
-        setTimeout(() => {
             SimplrRouter.init(this, routes);
-        },500)
     }
 
     render() {
