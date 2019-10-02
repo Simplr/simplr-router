@@ -61,7 +61,7 @@ import "views/simplr-foo-with-id-info";
 import "views/simplr-foo-bar-with-id";
 
 
-export const routes = [
+const routes = [
     {
         "path": "",
         "view": "simplr-frontpage"
@@ -86,7 +86,9 @@ export const routes = [
         "path": "foo/:fooId/bar/:barId",
         "view": "simplr-foo-bar-with-id"
     }
-]
+];
+
+export default routes;
 ```
 
 When working with a framework like Lit Html, 

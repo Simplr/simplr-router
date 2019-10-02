@@ -1,4 +1,4 @@
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html } from "lit-element";
 import SimplrRouter from "simplr-router";
 import routes from "../simplr-routes";
 import "./shadow-page";
