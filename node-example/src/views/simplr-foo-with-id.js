@@ -20,9 +20,6 @@ class SimplrFooWithId extends LitElement {
         `;
     }
 
-    createRenderRoot() {
-        return this;
-    }
 }
 
 if (!customElements.get('simplr-foo-with-id')) {

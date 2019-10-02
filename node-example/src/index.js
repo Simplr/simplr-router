@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element';
-import SimplrRouter from "simplr-router";
+import SimplrRouter from "../../lib/simplr-router";
 import "./views/simplr-router-link";
 import routes from "../simplr-routes";
 
