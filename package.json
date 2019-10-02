@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "Matsuuu",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "express": "^4.17.1",
     "lit-element": "^2.2.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "express": "^4.17.1",
     "webpack-dev-server": "^3.8.1"
   }
 }
