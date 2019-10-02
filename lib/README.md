@@ -15,10 +15,8 @@ Installation
 
 `npm install simplr-router --save`
 
-Usage
+Requirements
 -------------------
-
-#### Set Up
 
 Simplr Router requires a history fallback to work as wanted. 
 
@@ -47,18 +45,43 @@ devServer: {
 On ES Dev server, you can set the app-index -property to your index file, 
 and it should provide the same functionality.
 
-#### Setting up Routes
-Set up the routes for your application by creating a routes-file in the root of your project.
+Setting up
+-----------------
 
-**The Routes file needs to be named 'simplr-routes.js''**
+### Setting up the Router
 
-##### Example routes file
+After initializing the root of you project, add the following code snippet into your javascript:
+```javascript
+import SimplrRouter from "simplr-router";
+import routes from "../simplr-routes.js";
+
+SimplrRouter.init(this, routes);
+```
+
+When using lit elements, you can just pass `this` as the first parameter.
+
+The first parameter initializes the index of the web project.
+
+
+Simplr Router can also be initialized with a boolean flag `useStyles`, 
+which is to true by default. If you want to create your own style/logic 
+for the Router view transition, you can easily turn off the preset styles 
+by initializing the Router with
+```javascript
+SimplrRouter.init(this, routes, false);
+```
+
+### Setting up Routes
+Set up the routes for your application by creating a routes-file somewhere in your project.
+
+**Example routes file**
 ```javascript
 import "views/simplr-foo";
 import "views/simplr-frontpage";
 import "views/simplr-foo-with-id";
 import "views/simplr-foo-with-id-info";
 import "views/simplr-foo-bar-with-id";
+import AuthGuard from "./src/guards/AuthGuard";
 
 
 const routes = [
@@ -84,10 +107,10 @@ const routes = [
     },
     {
         "path": "foo/:fooId/bar/:barId",
-        "view": "simplr-foo-bar-with-id"
+        "view": "simplr-foo-bar-with-id",
+        "guard": AuthGuard.isAuthenticated
     }
 ];
-
 export default routes;
 ```
 
@@ -95,7 +118,7 @@ When working with a framework like Lit Html,
 you need to import the view files into the router,
  or declare the custom elements in some other way.
  
- **Url parameters**
+##### Url parameters
  
  Simplr Router provides routes with dynamic properties.
  
@@ -116,7 +139,7 @@ route will provide a web component with the property appended with the name prov
 <simplr-foo-with-id fooId="12"></simplr-foo-with-id>
 ``` 
  
-**Guards**
+##### Guards
 
 You can set guards for routes, where you want to check for example for user privileges.
 To set a guard, import the class with the guards to the routes file, and add a "guard"-property 
@@ -136,31 +159,12 @@ import AuthGuard from "./src/guards/AuthGuard";
  
  A guard should always return a truthy or a falsy response, and in the case of a falsy 
  response, the router will handle the 401 action set.
- 
-##### Setting up the Router
-
-After initializing the root of you project, add the following code snippet into your javascript:
-```javascript
-//import SimplrRouter from "simplr-router";
-
-SimplrRouter.init(this);
-```
-
-When using lit elements, you can just pass `this` as the first parameter.
-
-The first parameter initializes the index of the web project.
 
 
-Simplr Router can also be initialized with a boolean flag `useStyles`, 
-which is to true by default. If you want to create your own style/logic 
-for the Router view transition, you can easily turn off the preset styles 
-by initializing the Router with
-```javascript
-SimplrRouter.init(this, false);
-```
+### Setting up links
 
 ##### Creating Simplr Router links
-Simplr Router will link to all of the anchor elements on the page, 
+Simplr Router will link to all of the anchor elements on the page,
 which have the property `data-simplr-route`. All other anchor tags will 
 be ignored by the Router
 ```html
@@ -172,11 +176,12 @@ be ignored by the Router
 ```
 
 
-#### Customizing Simplr Router
+
+### Customizing Simplr Router
 You can customize the preset animations of the Simplr Router 
 by modifying the following properties.
 
-**Transition Speed**
+##### Transition Speed
 
 Transition speed between views can be changed to a preset speed
 or a custom speed set by the programmer.
@@ -189,7 +194,8 @@ SimplrRouter.setTransitionSpeed(TransitionSpeed.VERYFAST);
 SimplrRouter.setTransitionSpeed(0.2);
 ```
 
-**Transition direction**
+
+##### Transition direction
 
 Transition direction declares from which direction the new view 
 will be slid from.
@@ -203,7 +209,7 @@ SimplrRouter.setTransitionDirection(TransitionDirection.RIGHT);
 SimplrRouter.setTransitionDirection(TransitionDirection.LEFT);
 ```
 
-**Custom 404 action**
+##### Custom 404 action
 
 When a page is not found from the route file, there are multiple scenarios you might 
 want to execute.
@@ -227,7 +233,7 @@ SimplrRouter.setNotFoundAction(() => console.log("Not found"));
 ```
 
 
-**Custom 401 action**
+##### Custom 401 action
 
 When a guard return a falsy value, a 401 page is displayed, if one is set in the 
 routes file.
