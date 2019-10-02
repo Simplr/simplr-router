@@ -4,7 +4,6 @@
   "description": "",
   "main": "simplr-routes.js",
   "dependencies": {
-    "@polymer/lit-element": "^0.7.1",
     "simplr-router": "^2.1.1"
   },
   "scripts": {
