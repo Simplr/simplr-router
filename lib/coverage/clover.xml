@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1571062301770" clover="3.2.0">
-  <project timestamp="1571062301770" name="All files">
+<coverage generated="1571062371728" clover="3.2.0">
+  <project timestamp="1571062371728" name="All files">
     <metrics statements="211" coveredstatements="198" conditionals="92" coveredconditionals="73" methods="46" coveredmethods="42" elements="349" coveredelements="313" complexity="0" loc="211" ncloc="211" packages="1" files="4" classes="4"/>
     <file name="simplr-router-styler.js" path="/home/matsu/projects/simplr-router/lib/simplr-router-styler.js">
       <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
