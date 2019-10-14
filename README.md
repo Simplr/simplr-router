@@ -19,6 +19,13 @@ Installation
 
 `npm install simplr-router --save`
 
+Testing
+-------------------
+
+Test coverage: [94%](https://i.imgur.com/e08mfO4.png) 
+
+Tests have been written, and can be run with Jest
+
 Requirements
 -------------------
 
