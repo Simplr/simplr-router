@@ -4,7 +4,9 @@
   "description": "Simplr Router is a routing solution for Web Components providing a seamless SPA experience with minimal setup.",
   "main": "simplr-router.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges"
   },
   "author": "Matsuuu",
   "license": "ISC",
@@ -15,5 +17,11 @@
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "mutation-observer": "^1.0.3"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary",
+      "text"
+    ]
   }
 }
