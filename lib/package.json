@@ -5,8 +5,7 @@
   "main": "simplr-router.js",
   "scripts": {
     "test": "jest",
-    "test:coverage": "npm test -- --coverage",
-    "test:badges": "npm run test:coverage  && jest-coverage-badges"
+    "test:coverage": "npm test -- --coverage"
   },
   "author": "Matsuuu",
   "license": "ISC",
