@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.26% </span>
+        <span class="strong">92.27% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>180/193</span>
+        <span class='fraction'>179/194</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">77.91% </span>
+        <span class="strong">76.14% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>67/86</span>
+        <span class='fraction'>67/88</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90% </span>
+        <span class="strong">88.1% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>36/40</span>
+        <span class='fraction'>37/42</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.93% </span>
+        <span class="strong">91.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>171/184</span>
+        <span class='fraction'>170/185</span>
       </div>
     </div>
     <p class="quiet">
@@ -404,7 +404,14 @@
 <a name='L356'></a><a href='#L356'>356</a>
 <a name='L357'></a><a href='#L357'>357</a>
 <a name='L358'></a><a href='#L358'>358</a>
-<a name='L359'></a><a href='#L359'>359</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L359'></a><a href='#L359'>359</a>
+<a name='L360'></a><a href='#L360'>360</a>
+<a name='L361'></a><a href='#L361'>361</a>
+<a name='L362'></a><a href='#L362'>362</a>
+<a name='L363'></a><a href='#L363'>363</a>
+<a name='L364'></a><a href='#L364'>364</a>
+<a name='L365'></a><a href='#L365'>365</a>
+<a name='L366'></a><a href='#L366'>366</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -440,6 +447,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">44x</span>
 <span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -497,9 +510,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -509,9 +526,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -797,7 +811,13 @@ export default class SimplrRouter {
 &nbsp;
     static init(activeView, routes, useStyles) {
         console.info("Initializing Simplr Router...");
-        this.Router = new SimplrRouter(activeView, routes, useStyles);
+        SimplrRouter.Router = new SimplrRouter(activeView, routes, useStyles);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    st</span>atic navigateToPath(path) {
+<span class="cstat-no" title="statement not covered" >        if (SimplrRouter.Router) {</span>
+<span class="cstat-no" title="statement not covered" >            SimplrRouter.Router._goToView(path);</span>
+        }
     }
 &nbsp;
     _addNewElementObserver() {
@@ -855,21 +875,22 @@ export default class SimplrRouter {
         }
         anchor.addEventListener("click", (e) =&gt; {
             e.preventDefault();
-&nbsp;
-            console.log("Did click");
-            console.log(this.transitionInProgress);
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (this.transitionInProgress) {
-<span class="cstat-no" title="statement not covered" >                return;</span>
-            }
-            let anchorAddress = this._handleLeadingSlash(anchor.getAttribute("href"));
-            let transitionSuccessful = this._transitionToView(anchorAddress);
-&nbsp;
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (transitionSuccessful) {
-                window.history.pushState(null, "", anchorAddress);
-            }
+            this._goToView(anchor.getAttribute("href"));
         });
         anchor.removeAttribute("data-simplr-route");
         anchor.setAttribute("data-simplr-route-initialized", "");
+    }
+&nbsp;
+    _goToView(view) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.transitionInProgress) {
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+        let anchorAddress = this._handleLeadingSlash(view);
+        let transitionSuccessful = this._transitionToView(anchorAddress);
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (transitionSuccessful) {
+            window.history.pushState(null, "", anchorAddress);
+        }
     }
 &nbsp;
     _overrideReturnAction() {
@@ -1126,7 +1147,7 @@ export default class SimplrRouter {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 14 2019 17:12:51 GMT+0300 (Eastern European Summer Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 16 2019 20:09:58 GMT+0300 (Eastern European Summer Time)
 </div>
 </div>
 <script src="prettify.js"></script>

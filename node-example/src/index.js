@@ -32,6 +32,7 @@ class SimplrRouterIndex extends LitElement {
             <a href="foo/12/info" data-simplr-route>foo 12 info</a>
             <a href="baz" data-simplr-route>baz</a>
             <a href="https://www.google.com/webhp?ie=UTF-8&rct=j">Google</a>
+            <p @click="${() => SimplrRouter.navigateToPath("foo/12")}">asd</p>
         `;
     }
 
