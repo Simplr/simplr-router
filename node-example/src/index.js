@@ -29,6 +29,7 @@ class SimplrRouterIndex extends LitElement {
             transitionDirection: TransitionDirection.RIGHT,
             debugging: true,
             waitForLoad: true,
+            stackedViews: false,
         });
 
         router.init();
@@ -40,14 +41,7 @@ class SimplrRouterIndex extends LitElement {
 
     render() {
         return html`
-            <p>Hello world</p>
-            <a href="foo" data-simplr-route>foo</a>
-            <simplr-router-link route="foo" title="Foo"></simplr-router-link>
-            <a href="foo/12" data-simplr-route>foo 12</a>
-            <a href="foo/12/info" data-simplr-route>foo 12 info</a>
-            <a href="baz" data-simplr-route>baz</a>
-            <a href="https://www.google.com/webhp?ie=UTF-8&rct=j">Google</a>
-            <p @click="${() => SimplrRouter.navigateToPath('foo/12')}">asd</p>
+            <simplr-frontpage></simplr-frontpage>
         `;
     }
 }
