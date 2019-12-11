@@ -45,6 +45,7 @@ class SimplrRouterIndex extends LitElement {
             <div class="ball-holder">
                 <div class="ball"></div>
             </div>
+            <div style="height: 10px; width: ${window.innerWidth}px; background: black"></div>
         `;
     }
 }
