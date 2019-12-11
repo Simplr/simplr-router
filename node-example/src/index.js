@@ -29,7 +29,7 @@ class SimplrRouterIndex extends LitElement {
             transitionDirection: TransitionDirection.RIGHT,
             debugging: true,
             waitForLoad: true,
-            stackedViews: false,
+            stackedViews: true,
         });
 
         router.init();
