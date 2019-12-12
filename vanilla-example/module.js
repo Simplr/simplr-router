@@ -1,4 +1,4 @@
-import SimplrRouter from 'simplr-router';
+import SimplrRouter from './node_modules/simplr-router/simplr-router.js';
 
 export default class SimplrRouterModule extends HTMLElement {
     connectedCallback() {
