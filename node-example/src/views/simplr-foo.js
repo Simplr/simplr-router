@@ -8,7 +8,7 @@ export default class SimplrFoo extends LitElement {
             loadImages: { type: Boolean },
             loadMoreImages: { type: Boolean },
             loadEvenMoreImages: { type: Boolean },
-            isLoading: { type: Boolean },
+            // isLoading: { type: Boolean },
         };
     }
 
@@ -21,6 +21,7 @@ export default class SimplrFoo extends LitElement {
         super.connectedCallback();
         console.log('I have connected');
         this.innerHTML = '<p>test</p>';
+        this.isLoading = true;
     }
 
     firstUpdated(_changedProperties) {
@@ -29,7 +30,6 @@ export default class SimplrFoo extends LitElement {
 
     async doWaiting() {
         let loadTime = 1000;
-        this.isLoading = true;
         await this.wait(loadTime);
         this.loadImages = true;
         await this.wait(loadTime);

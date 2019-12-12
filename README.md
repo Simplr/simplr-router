@@ -8,9 +8,9 @@ Simplr Router is a minimal set up, which doesn't change your projects' css rules
 so you might need to adjust your css (Especially overflows) to accompany the routers' 
 actions.
 
-You can find the project at github: https://github.com/Matsuuu/simplr-router
-
 You can find a demo setup at https://codesandbox.io/embed/silly-pond-4g7r1?fontsize=14
+
+The demo implementation is bare bones, but shows off the easy setup and a working implementation.
 
 **Navigation to subpages from url doesn't work in codesandbox.io**
 
@@ -21,8 +21,6 @@ Installation
 
 Testing
 -------------------
-
-Test coverage: [94%](https://i.imgur.com/e08mfO4.png) 
 
 Tests have been written, and can be run with Jest
 
@@ -62,25 +60,78 @@ Setting up
 ### Setting up the Router
 
 After initializing the root of you project, add the following code snippet into your javascript:
+
+*Note that:* all of the properties passed to the constructor are not required, and can be left out, in which case
+they will be initialized with the default values. 
+
 ```javascript
 import SimplrRouter from "simplr-router";
 import routes from "../simplr-routes.js";
 
-SimplrRouter.init(this, routes);
+let router = new SimplrRouter({
+    activeView: this,
+    routes: routes,
+    notFoundAction: () => {
+        alert('Page not found');
+    },
+    forbiddenAction: () => {
+        alert('Forbidden');
+    },
+    transitionSpeed: TransitionSpeed.FAST,
+    transitionDirection: TransitionDirection.RIGHT,
+    debugging: true,
+    waitForLoad: true,
+    stackedViews: true,
+});
+
+router.init();
 ```
 
 When using lit elements, you can just pass `this` as the first parameter.
 
 The first parameter initializes the index of the web project.
 
+Parameters that can be passed to the initializer are:
+---
 
-Simplr Router can also be initialized with a boolean flag `useStyles`, 
-which is to true by default. If you want to create your own style/logic 
-for the Router view transition, you can easily turn off the preset styles 
-by initializing the Router with
-```javascript
-SimplrRouter.init(this, routes, false);
-```
+| Param name | Param purpose | Type | Required | Default to |
+|------------|----------------|------|----------|-----------|
+| debugging  | Enable debugging? | Boolean | No | false |
+| activeView | The active view the router is initialized from. Usually set to the root layer of application | Object | Yes | - |
+| routes | Routes JSON array from the simplr-routes file | JSON Array | Yes | - |
+| transitionSpeed | Transition speed of the router | TransitionSpeed object or float | No | TransitionSpeed.FAST |
+| transitionDirection | Direction the new view arrives from | TransitionDirection object | No | TransitionDirection.RIGHT |
+| useStyles | Should Router use the default transitions built into the library? (Recommended) | Boolean | No | true
+| waitForLoad | Should Router wait for the view to load before transitioning? | Boolean | No | false |
+| stackedViews | Should Router stack the loaded views on top of each other or just remove the last view from DOM? | Boolean | No | false |
+---
+
+### Stacked views
+
+Simplr Router supports two types of layouts/transitions.
+
+The first type is non-stacking views. When using non-stacking views, 
+the loaded view will be added to the view, and after the transition finishes, the previous view 
+will be removed from DOM.
+
+The second type is stacking views, which is more familiar from mobile UI's. In stacking views -mode
+the views are simply stacked on top of each other in the DOM, and the previous views will keep running in the background.
+
+##### Pro's and cons of both types:
+
+With non-stacking views, the DOM tree will stay cleaner, since the previous views are removed. This is especially good, if your have 
+a lot of sites with a lot of heavy components. 
+
+The downside in non-stacking views is, that if you move backwards in the sites, all of the actions that are executed when creating the view
+will be executed again, since the view is freshly added to the DOM again.
+
+With stacking views, the DOM tree will be a bit more crowded, since all of the views will be held in the DOM until the user 
+moves away from that layer of the application.
+
+The plus side here is that since the view is never removed from the DOM, none of the progress is lost on the previous layer,
+ nor will the site have to fetch the information needed for that view again on a backwards browser action. (like pressing the previous page -button)
+
+Stacking views are designed to create a more mobile-like experience, where as non-stacking views are for more of a desktop experience.
 
 ### Setting up Routes
 Set up the routes for your application by creating a routes-file somewhere in your project.
@@ -170,6 +221,45 @@ import AuthGuard from "./src/guards/AuthGuard";
  
  A guard should always return a truthy or a falsy response, and in the case of a falsy 
  response, the router will handle the 401 action set.
+
+### Waiting for load
+
+When waitForLoad is set to true, the Simplr Router will wait for the loaded page to load, and after it's loaded, transition it into the view.
+
+Simplr Router will check the property "isLoading" of the loaded view until it returns falsey, and then execute the transition.
+
+This can be achieved by adding a "isLoading" -attribute to the object, or adding a "isLoading" property to the object's dataset.
+
+Example implementations:
+
+```javascript
+// With attributes
+connectedCallback() {
+    console.log('I have connected');
+    this.setAttribute('isLoading', 'true');
+    this.doVeryLongTask();
+}
+
+doVeryLongTask() {
+    // Longs task
+    this.removeAttribute("isLoading");
+}
+```
+
+```javascript
+// With properties
+connectedCallback() {
+    console.log('I have connected');
+    this.isLoading = true;
+    this.doVeryLongTask();
+}
+
+doVeryLongTask() {
+    // Longs task
+    this.isLoading = false;
+}
+```
+
 
 
 ### Setting up links
