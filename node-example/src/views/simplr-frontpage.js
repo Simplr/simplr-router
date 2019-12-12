@@ -1,4 +1,5 @@
 import { html, LitElement } from 'lit-element';
+import SimplrRouter from '../../../lib/simplr-router';
 
 class SimplrFrontpage extends LitElement {
     static get properties() {
@@ -21,6 +22,8 @@ class SimplrFrontpage extends LitElement {
             <a href="baz" data-simplr-route>baz</a>
             <a href="https://www.google.com/webhp?ie=UTF-8&rct=j">Google</a>
             <p @click="${() => SimplrRouter.navigateToPath('foo/12')}">asd</p>
+
+            <a href="foo/12" data-simplr-route><p>foo 12</p></a>
         `;
     }
 
