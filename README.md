@@ -8,11 +8,6 @@ Simplr Router is a minimal set up, which doesn't change your projects' css rules
 so you might need to adjust your css (Especially overflows) to accompany the routers' 
 actions.
 
-You can find a demo setup at https://codesandbox.io/embed/silly-pond-4g7r1?fontsize=14
-
-The demo implementation is bare bones, but shows off the easy setup and a working implementation.
-
-**Navigation to subpages from url doesn't work in codesandbox.io**
 
 Installation
 -------------------
