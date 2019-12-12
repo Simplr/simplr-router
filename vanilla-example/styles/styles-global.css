@@ -1,0 +1,126 @@
+html, body {
+    width: 100%;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 18px;
+    overflow: hidden;
+    color: #FFF;
+}
+
+.top-nav {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    z-index:100;
+    color: #FFF;
+    width: 60%;
+    margin: 2% auto 0;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.top-nav > a {
+    padding: 0 2rem;
+}
+
+
+.container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.wrapper {
+    width: 50%;
+    padding-top: 20%;
+}
+
+.about .wrapper {
+    padding-top: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.homepage {
+    background: #ffa02e;
+    font-size: 1.6rem;
+}
+
+.about {
+    background: #00afff;
+    font-size: 1.2rem;
+}
+
+.intro {
+    margin-bottom: 4rem;
+}
+
+.transition-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.transition-direction-changer, .transition-speed-changer, .go-to-page {
+    font-weight: bold;
+    flex: 1;
+    cursor: pointer;
+}
+
+.page-buttons {
+    text-align: center;
+}
+
+.page-buttons>a {
+    padding: 0 2rem;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.parametrized {
+    background: #373837;
+}
+
+.contributing {
+    background: #373837;
+}
+
+.contributing ul {
+    margin: 3rem auto 0;
+    text-align: left;
+    width: 50%;
+}
+
+.contributing li {
+    padding-bottom: 1rem;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .top-nav {
+        width: 100%;
+        font-size: 1rem;
+        left: 0;
+    }
+
+    .top-nav > a {
+        padding: 0 0.6rem;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
+    .contributing ul {
+        width: 80%;
+    }
+    .about {
+        padding-bottom: 3rem;
+    }
+}

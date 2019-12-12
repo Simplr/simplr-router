@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "simplr-router": "^4.0.6"
+    "simplr-router": "^4.0.7"
   }
 }
