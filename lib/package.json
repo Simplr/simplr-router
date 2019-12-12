@@ -1,6 +1,6 @@
 {
   "name": "simplr-router",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Simplr Router is a routing solution for Web Components providing a seamless SPA experience with minimal setup.",
   "main": "simplr-router.js",
   "scripts": {
