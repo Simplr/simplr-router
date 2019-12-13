@@ -37,7 +37,7 @@ html, body {
     padding-top: 20%;
 }
 
-.about .wrapper {
+.about .wrapper, .contributing .wrapper {
     padding-top: 10%;
 }
 
@@ -55,6 +55,7 @@ a {
 .about {
     background: #00afff;
     font-size: 1.2rem;
+    padding-bottom: 3rem;
 }
 
 .intro {
@@ -64,6 +65,7 @@ a {
 .transition-buttons {
     display: flex;
     flex-direction: row;
+    margin-bottom: 5rem;
 }
 
 .transition-direction-changer, .transition-speed-changer, .go-to-page {
@@ -119,8 +121,5 @@ a {
 
     .contributing ul {
         width: 80%;
-    }
-    .about {
-        padding-bottom: 3rem;
     }
 }

@@ -30,8 +30,11 @@ export default class SimplrRouterAbout extends HTMLElement {
                                         <p class="go-to-page" data-page-num="45">Go to page 45</p>
                                     </div>
                                     
-				    <p><b>This site was created purely with Vanilla Javascript and the Simplr Router</b></p>
-                                    <p>The router has even more cool features, which you can check out at the Github page or the NPM page:</p>
+                                    <div class="transition-buttons">
+				                        <a href="https://github.com/Matsuuu/simplr-router/tree/master/vanilla-example">This site was created purely with Vanilla Javascript and the Simplr Router. Click here to see the code.</a>
+                                    </div>
+                                    
+                                    <p>The router has even more cool features, which you can check out at the Github or the NPM page:</p>
                                     <div class="page-buttons">
                                         <a href="https://github.com/Matsuuu/simplr-router" target="_blank"><i class="fab fa-github"></i></a>
                                         <a href="https://www.npmjs.com/package/simplr-router" target="_blank"><i class="fab fa-npm"></i></a>

@@ -10,12 +10,6 @@ actions.
 
 You can find the project at github: https://github.com/Matsuuu/simplr-router
 
-You can find a demo setup at https://codesandbox.io/embed/silly-pond-4g7r1?fontsize=14
-
-The demo implementation is bare bones, but shows off the easy setup and a working implementation.
-
-**Navigation to subpages from url doesn't work in codesandbox.io**
-
 Installation
 -------------------
 
