@@ -1,0 +1,14 @@
+{
+    "name": "demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "es-dev-server --app-index demo --node-resolve --watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "es-dev-server": "^1.57.4"
+    }
+}

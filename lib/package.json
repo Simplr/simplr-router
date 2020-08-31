@@ -1,27 +1,30 @@
 {
-  "name": "simplr-router",
-  "version": "4.1.0",
-  "description": "Simplr Router is a routing solution for Web Components providing a seamless SPA experience with minimal setup.",
-  "main": "simplr-router.js",
-  "scripts": {
-    "test": "jest",
-    "test:coverage": "npm test -- --coverage"
-  },
-  "author": "Matsuuu",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@types/jest": "^24.0.18",
-    "babel-jest": "^24.9.0",
-    "babel-polyfill": "^6.26.0",
-    "jest": "^24.9.0",
-    "mutation-observer": "^1.0.3"
-  },
-  "jest": {
-    "coverageReporters": [
-      "json-summary",
-      "text"
-    ]
-  }
+    "name": "simplr-router",
+    "version": "4.1.0",
+    "description": "Simplr Router is a routing solution for Web Components providing a seamless SPA experience with minimal setup.",
+    "main": "simplr-router.js",
+    "files": [
+        "simplr-router-*"
+    ],
+    "scripts": {
+        "test": "jest",
+        "test:coverage": "npm test -- --coverage"
+    },
+    "author": "Matsuuu",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.6.4",
+        "@babel/preset-env": "^7.6.3",
+        "@types/jest": "^24.0.18",
+        "babel-jest": "^24.9.0",
+        "babel-polyfill": "^6.26.0",
+        "jest": "^24.9.0",
+        "mutation-observer": "^1.0.3"
+    },
+    "jest": {
+        "coverageReporters": [
+            "json-summary",
+            "text"
+        ]
+    }
 }
