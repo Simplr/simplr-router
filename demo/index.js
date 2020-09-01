@@ -26,7 +26,7 @@ const routes = [
 
 const options = {
     routes: routes,
-    transitionSpeed: TransitionSpeed.SLOW,
+    transitionSpeed: TransitionSpeed.FAST,
     transitionDirection: TransitionDirection.LEFT,
     debugging: true,
 };
