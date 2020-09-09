@@ -1,6 +1,1 @@
-coverage
 node_modules
-test
-jest.*
-package*
-babel*

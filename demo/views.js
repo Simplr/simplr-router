@@ -1,4 +1,4 @@
-import SimplrRouter from '../lib/simplr-router-new.js';
+import SimplrRouter, { changeView } from '../lib/simplr-router.js';
 
 export default class ViewTemplate extends HTMLElement {
     connectedCallback() {
@@ -22,20 +22,23 @@ export default class ViewTemplate extends HTMLElement {
             <p>Current view color:</p>
             <p>${this.viewColor.toUpperCase()}</p>
             <p>Click to cycle through pages</p>
-            <a href="/blue" style="color: blue">Blue</a>
-            <a href="/red" style="color: red">Red</a>
-            <a href="/yellow" style="color: yellow">Yellow</a>
-            <a href="green" style="color: green">Green</a>
+            <a href="/color/blue" style="color: blue">Blue</a>
+            <a href="/color/red" style="color: red">Red</a>
+            <a href="/color/yellow" style="color: yellow">Yellow</a>
+            <a href="/color/green" style="color: green">Green</a>
+            <a href="/color/green/dark" style="color: darkgreen">Dark Green</a>
+            <input type="text" placeholder="Input color name: e.g. 'lightblue'" />
+            <input type="button" value="Go to color">
         </div>`;
 
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
 
-    changeView() {
-        let views = ['blue', 'red', 'yellow', 'green'];
-        views = views.filter((view) => view !== `${this.viewColor}`);
-        const newView = views[Math.floor(Math.random() * views.length)];
-        SimplrRouter.goTo(newView);
+        window.requestAnimationFrame(() => {
+            this.shadowRoot.querySelector('input[type=button]').addEventListener('click', () => {
+                const c = this.shadowRoot.querySelector('input[type=text]').value;
+                changeView(`/custom/${c}`);
+            });
+        });
     }
 }
