@@ -1,33 +1,43 @@
-import SimplrRouter, { TransitionSpeed, TransitionDirection } from '../lib/simplr-router';
+import SimplrRouter from '../lib/simplr-router-new';
 import './views.js';
 
 const routes = [
     {
         path: '',
-        view: 'blue-view',
+        component: 'blue-view',
+        import: '/demo/views/blue-view.js',
     },
     {
         path: 'blue',
-        view: 'blue-view',
+        component: 'blue-view',
+        import: '/demo/views/blue-view.js',
     },
     {
         path: 'green',
-        view: 'green-view',
+        component: 'green-view',
+        import: '/demo/views/green-view.js',
     },
     {
         path: 'red',
-        view: 'red-view',
+        component: 'red-view',
+        import: '/demo/views/red-view.js',
     },
     {
         path: 'yellow',
-        view: 'yellow-view',
+        component: 'yellow-view',
+        import: '/demo/views/yellow-view.js',
+    },
+    {
+        path: 'custom/:viewColor',
+        component: 'custom-color-view',
+        import: '/demo/views/custom-view.js',
     },
 ];
 
 const options = {
     routes: routes,
-    transitionSpeed: TransitionSpeed.FAST,
-    transitionDirection: TransitionDirection.LEFT,
+    transitionSpeed: 200,
+    transitionDirection: 'from-left',
     debugging: true,
 };
 

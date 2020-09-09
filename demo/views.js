@@ -1,10 +1,7 @@
-import SimplrRouter from '../lib/simplr-router.js';
+import SimplrRouter from '../lib/simplr-router-new.js';
 
-class ViewTemplate extends HTMLElement {
-    constructor(color) {
-        super();
-        this.viewColor = color;
-
+export default class ViewTemplate extends HTMLElement {
+    connectedCallback() {
         const template = document.createElement('template');
         template.innerHTML = `
         <style>
@@ -42,31 +39,3 @@ class ViewTemplate extends HTMLElement {
         SimplrRouter.goTo(newView);
     }
 }
-
-class BlueView extends ViewTemplate {
-    constructor() {
-        super('blue');
-    }
-}
-customElements.define('blue-view', BlueView);
-
-class RedView extends ViewTemplate {
-    constructor() {
-        super('red');
-    }
-}
-customElements.define('red-view', RedView);
-
-class YellowView extends ViewTemplate {
-    constructor() {
-        super('yellow');
-    }
-}
-customElements.define('yellow-view', YellowView);
-
-class GreenView extends ViewTemplate {
-    constructor() {
-        super('green');
-    }
-}
-customElements.define('green-view', GreenView);
