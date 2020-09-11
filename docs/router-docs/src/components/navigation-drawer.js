@@ -21,7 +21,7 @@ export default class NavigationDrawer extends LitElement {
                 z-index: 10;
                 background: #fff;
                 height: 100vh;
-                width: 30%;
+                width: 15%;
                 border-right: 1px solid #eaeaea;
             }
 
