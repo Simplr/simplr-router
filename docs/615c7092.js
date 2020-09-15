@@ -1,11 +1,4 @@
-import { L as t, c as e } from './0b10f69c.js';
-let i,
-    d = (t) => t;
-class r extends t {
-    static get styles() {
-        return e(
-            i ||
-                (i = d`
+import{L as t,c as e}from"./f31f1cb8.js";let i,d=t=>t;class r extends t{static get styles(){return e(i||(i=d`
             :host {
                 min-height: 80vh;
                 display: flex;
@@ -52,8 +45,4 @@ class r extends t {
             tr:last-child td {
                 border-bottom: unset;
             }
-        `)
-        );
-    }
-}
-export { r as V };
+        `))}}export{r as V};
