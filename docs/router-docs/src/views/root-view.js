@@ -16,9 +16,17 @@ export class RouterDocsRoot extends ViewTemplate {
             </p>
             <p>
                 Simplr Router creates seamless transitions between views, and
-                created smooth user experiences.
+                provides smooth user experiences.
             </p>
-            <p>Simplr Router ships with 0 dependencies.</p>
+            <p>
+                Simplr Router ships with 0 dependencies, and weighs in at
+                <a
+                    href="https://bundlephobia.com/result?p=@simplr-wc/router"
+                    rel="noreferrer"
+                    target="_blank"
+                    >below 3kb</a
+                >
+            </p>
         `;
     }
 }

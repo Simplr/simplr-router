@@ -1,10 +1,10 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from '/node_modules/lit-element/lit-element.js';
 
 export class ViewTemplate extends LitElement {
     static get styles() {
         return css`
             :host {
-                min-height: 100vh;
+                min-height: 80vh;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;

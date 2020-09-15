@@ -27,6 +27,7 @@ export default class ViewTemplate extends HTMLElement {
             <a href="/color/yellow" style="color: yellow">Yellow</a>
             <a href="/color/green" style="color: green">Green</a>
             <a href="/color/green/dark" style="color: darkgreen">Dark Green</a>
+            <a href="/color/foobar" style="color: #FFF">Not found</a>
             <input type="text" placeholder="Input color name: e.g. 'lightblue'" />
             <input type="button" value="Go to color">
         </div>`;

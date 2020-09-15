@@ -31,7 +31,7 @@ export default class NavigationDrawer extends LitElement {
             }
 
             .routes a {
-                padding: 1rem;
+                padding: 0.5rem;
                 list-style: none;
                 font-size: 1.6rem;
                 text-decoration: none;
@@ -51,6 +51,12 @@ export default class NavigationDrawer extends LitElement {
                 display: flex;
                 flex-direction: column;
                 height: 80%;
+            }
+
+            .routes ul {
+                display: flex;
+                flex-direction: column;
+                margin: 0 0 0.5rem 0;
             }
 
             .social-icons {
@@ -100,11 +106,26 @@ export default class NavigationDrawer extends LitElement {
             <div class="routes">
                 ${this.views.map(view => {
                     return html`<a
-                        ?highlight=${this.shouldHighlightRow(view.path)}
-                        href="${view.path}"
-                        @click=${this.refreshList}
-                        >${view.name}</a
-                    > `;
+                            ?highlight=${this.shouldHighlightRow(view.path)}
+                            href="${view.path}"
+                            @click=${this.refreshList}
+                            >${view.name}</a
+                        >
+
+                        ${view.routes
+                            ? html` <ul>
+                                  ${view.routes.map(r => {
+                                      return html`<a
+                                          ?highlight=${this.shouldHighlightRow(
+                                              r.path
+                                          )}
+                                          href=${r.path}
+                                          @click=${this.refreshList}
+                                          >${r.name}</a
+                                      >`;
+                                  })}
+                              </ul>`
+                            : ''}`;
                 })}
             </div>
             <div class="social-icons">
@@ -119,6 +140,12 @@ export default class NavigationDrawer extends LitElement {
                     href="https://www.npmjs.com/package/@simplr-wc/router"
                     rel="noreferrer"
                     >NPM &#10148;</a
+                >
+                <a
+                    target="_blank"
+                    href="https://twitter.com/matsuuu_"
+                    rel="noreferrer"
+                    >Author &#10148;</a
                 >
             </div>
         `;
