@@ -49,6 +49,17 @@ export class ViewTemplate extends LitElement {
             tr:last-child td {
                 border-bottom: unset;
             }
+
+            @media only screen and (max-width: 900px) {
+                :host {
+                    width: 95%;
+                    margin: 2.5% auto 10%;
+                }
+
+                highlight-js {
+                    width: 100%;
+                }
+            }
         `;
     }
 }

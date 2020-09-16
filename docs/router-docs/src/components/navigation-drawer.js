@@ -7,6 +7,7 @@ export default class NavigationDrawer extends LitElement {
     static get properties() {
         return {
             views: { type: Array },
+            open: { type: Boolean, attribute: true, reflect: true },
         };
     }
 
@@ -72,6 +73,31 @@ export default class NavigationDrawer extends LitElement {
                 text-decoration: none;
                 margin: 5px 0;
             }
+
+            @media only screen and (max-width: 900px) {
+                :host {
+                    overflow: hidden;
+                    width: 0%;
+                    transition: 100ms ease-in;
+                }
+
+                :host([open]) {
+                    width: 100%;
+                }
+
+                :host([open])::after {
+                    content: '';
+                }
+
+                :host::after {
+                    content: '\\2630';
+                    display: block;
+                    position: fixed;
+                    top: 1rem;
+                    left: 1rem;
+                    font-size: 2rem;
+                }
+            }
         `;
     }
 
@@ -87,6 +113,19 @@ export default class NavigationDrawer extends LitElement {
         const router = new SimplrRouter(options);
         this.views = routes;
         router.init();
+
+        this.addEventListener('click', e => {
+            this.handleMenu();
+        });
+    }
+
+    handleMenu() {
+        if (this.open) {
+            this.open = false;
+        } else {
+            this.open = true;
+        }
+        console.log(this.open);
     }
 
     shouldHighlightRow(path) {
