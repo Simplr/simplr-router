@@ -11,14 +11,15 @@
         "start:build": "npm run build && es-dev-server --root-dir dist --app-index index.html --open --compatibility none"
     },
     "devDependencies": {
-        "eslint": "^6.1.0",
+        "@open-wc/building-rollup": "^1.0.0",
         "@open-wc/eslint-config": "^2.0.0",
-        "prettier": "^2.0.4",
+        "@open-wc/rollup-plugin-html": "^1.2.3",
+        "es-dev-server": "^1.5.0",
+        "eslint": "^6.1.0",
         "eslint-config-prettier": "^6.11.0",
         "husky": "^1.0.0",
         "lint-staged": "^10.0.0",
-        "es-dev-server": "^1.5.0",
-        "@open-wc/building-rollup": "^1.0.0",
+        "prettier": "^2.0.4",
         "rimraf": "^2.6.3",
         "rollup": "^2.3.4"
     },
