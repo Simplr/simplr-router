@@ -1,5 +1,5 @@
-import { h as html } from './navigation-drawer-fba396a4.js';
-import { V as ViewTemplate } from './view-template-7b5f94a1.js';
+import { h as html } from './navigation-drawer-f3c0d088.js';
+import { V as ViewTemplate } from './view-template-205ce822.js';
 
 class RouterDocsApiDescription extends ViewTemplate {
     static get styles() {

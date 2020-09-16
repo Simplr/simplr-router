@@ -1,4 +1,4 @@
-import { L as LitElement, c as css } from './navigation-drawer-fba396a4.js';
+import { L as LitElement, c as css } from './navigation-drawer-f3c0d088.js';
 
 class ViewTemplate extends LitElement {
     static get styles() {
@@ -48,6 +48,17 @@ class ViewTemplate extends LitElement {
 
             tr:last-child td {
                 border-bottom: unset;
+            }
+
+            @media only screen and (max-width: 900px) {
+                :host {
+                    width: 95%;
+                    margin: 2.5% auto 10%;
+                }
+
+                highlight-js {
+                    width: 100%;
+                }
             }
         `;
     }

@@ -3010,49 +3010,49 @@ const routes = [
     {
         path: '',
         component: 'router-docs-root',
-        import: () => import('./root-view-f2a5c052.js'),
+        import: () => import('./root-view-19a232d0.js'),
         name: 'Home',
     },
     {
         path: '/getting-started',
         component: 'router-docs-getting-started',
-        import: () => import('./getting-started-9d1b5484.js'),
+        import: () => import('./getting-started-f648ad1a.js'),
         name: 'Getting started',
     },
     {
         path: '/api-description',
         component: 'router-docs-api-description',
-        import: () => import('./api-description-7f89e488.js'),
+        import: () => import('./api-description-6131737b.js'),
         name: 'API description',
     },
     {
         path: '/recipes',
         component: 'router-docs-recipes',
-        import: () => import('./docs-recipes-127ae65f.js'),
+        import: () => import('./docs-recipes-73cd9b03.js'),
         name: 'Recipes',
         routes: [
             {
                 path: '/sub-routes',
                 component: 'router-docs-sub-routes',
-                import: () => import('./docs-sub-routes-a8fa9624.js'),
+                import: () => import('./docs-sub-routes-9cee981a.js'),
                 name: 'Sub routes',
             },
             {
                 path: '/guards',
                 component: 'router-docs-guards',
-                import: () => import('./docs-guard-a49a80c0.js'),
+                import: () => import('./docs-guard-69ab1070.js'),
                 name: 'Guards',
             },
             {
                 path: '/error-pages',
                 component: 'router-docs-error-pages',
-                import: () => import('./docs-error-pages-190a255c.js'),
+                import: () => import('./docs-error-pages-fdc2461d.js'),
                 name: 'Error pages',
             },
             {
                 path: '/code-splitting',
                 component: 'router-docs-code-splitting',
-                import: () => import('./docs-code-splitting-8552a25d.js'),
+                import: () => import('./docs-code-splitting-7ecfb839.js'),
                 name: 'Code splitting',
             },
         ],
@@ -3060,7 +3060,7 @@ const routes = [
     {
         path: '/quick-start',
         component: 'router-docs-quick-start',
-        import: () => import('./quick-start-e6dda987.js'),
+        import: () => import('./quick-start-79752255.js'),
         name: 'Quick start',
     },
 ];
@@ -3071,6 +3071,7 @@ class NavigationDrawer extends LitElement {
     static get properties() {
         return {
             views: { type: Array },
+            open: { type: Boolean, attribute: true, reflect: true },
         };
     }
 
@@ -3136,6 +3137,31 @@ class NavigationDrawer extends LitElement {
                 text-decoration: none;
                 margin: 5px 0;
             }
+
+            @media only screen and (max-width: 900px) {
+                :host {
+                    overflow: hidden;
+                    width: 0%;
+                    transition: 100ms ease-in;
+                }
+
+                :host([open]) {
+                    width: 100%;
+                }
+
+                :host([open])::after {
+                    content: '';
+                }
+
+                :host::after {
+                    content: '\\2630';
+                    display: block;
+                    position: fixed;
+                    top: 1rem;
+                    left: 1rem;
+                    font-size: 2rem;
+                }
+            }
         `;
     }
 
@@ -3151,6 +3177,19 @@ class NavigationDrawer extends LitElement {
         const router = new SimplrRouter(options);
         this.views = routes;
         router.init();
+
+        this.addEventListener('click', e => {
+            this.handleMenu();
+        });
+    }
+
+    handleMenu() {
+        if (this.open) {
+            this.open = false;
+        } else {
+            this.open = true;
+        }
+        console.log(this.open);
     }
 
     shouldHighlightRow(path) {
