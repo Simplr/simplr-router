@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "es-dev-server --app-index demo --node-resolve --watch"
+        "start": "es-dev-server --app-index index.html --base-path regular-demo --node-resolve --watch --open"
     },
     "author": "",
     "license": "ISC",

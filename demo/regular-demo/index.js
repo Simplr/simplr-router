@@ -1,6 +1,8 @@
-import SimplrRouter from '../lib/simplr-router';
+import SimplrRouter from '../../lib/simplr-router.js';
 import './views.js';
 import './views/red-view';
+
+export const rootPath = '/regular-demo';
 
 const routes = [
     {
@@ -39,21 +41,6 @@ const routes = [
                 component: 'yellow-view',
                 import: () => import('./views/yellow-view.js'),
             },
-            {
-                path: ':id',
-                component: 'blue-view',
-                import: () => import('./views/blue-view.js'),
-                routes: [
-                    {
-                        path: 'test',
-                        component: 'yellow-view',
-                        import: () => import('./views/yellow-view'),
-                        guard: () => {
-                            return false;
-                        },
-                    },
-                ],
-            },
         ],
     },
     {
@@ -76,6 +63,7 @@ const routes = [
 const options = {
     routes: routes,
     debugging: true,
+    rootPath: rootPath,
 };
 
 const router = new SimplrRouter(options);

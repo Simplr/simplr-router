@@ -118,6 +118,16 @@ export class RouterDocsApiDescription extends ViewTemplate {
                         routes of Simplr Router.
                     </td>
                 </tr>
+                <tr>
+                    <td><code>rootPath</code></td>
+                    <td>string</td>
+                    <td>
+                        Set the root path for the router to use. For example if
+                        your project is run at
+                        <code>https://www.my-test.com/my-app</code>, you could
+                        set <code>/my-app</code> as your rootPath
+                    </td>
+                </tr>
             </table>
 
             <p><b>Route</b></p>

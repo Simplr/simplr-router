@@ -109,6 +109,7 @@ export default class NavigationDrawer extends LitElement {
     firstUpdated() {
         const options = {
             routes,
+            debugging: true,
         };
         const router = new SimplrRouter(options);
         this.views = routes;
@@ -125,7 +126,6 @@ export default class NavigationDrawer extends LitElement {
         } else {
             this.open = true;
         }
-        console.log(this.open);
     }
 
     shouldHighlightRow(path) {
