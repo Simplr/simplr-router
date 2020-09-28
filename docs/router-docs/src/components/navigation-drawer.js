@@ -133,10 +133,14 @@ export default class NavigationDrawer extends LitElement {
     }
 
     refreshList(e) {
-        this.shadowRoot
-            .querySelector('[highlight]')
-            .removeAttribute('highlight');
-        e.target.setAttribute('highlight', '');
+        const path = e.path || (e.composedPath && e.composedPath());
+        const target = path[0];
+        window.requestAnimationFrame(() => {
+            this.shadowRoot
+                .querySelector('[highlight]')
+                .removeAttribute('highlight');
+            target.setAttribute('highlight', '');
+        });
     }
 
     render() {

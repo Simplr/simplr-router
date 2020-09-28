@@ -47,6 +47,12 @@ const routes = [
                 import: () => import('./views/docs-code-splitting.js'),
                 name: 'Code splitting',
             },
+            {
+                path: '/slots',
+                component: 'router-docs-slots',
+                import: () => import('./views/docs-slots.js'),
+                name: 'Slots',
+            },
         ],
     },
     {
