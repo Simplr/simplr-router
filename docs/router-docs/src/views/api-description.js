@@ -183,6 +183,54 @@ export class RouterDocsApiDescription extends ViewTemplate {
                         <a href="#">here</a>.
                     </td>
                 </tr>
+                <tr>
+                    <td><code>slots</code></td>
+                    <td>Array</td>
+                    <td>An array of slots to append to the route component.</td>
+                </tr>
+            </table>
+
+            <p><b>Slot</b></p>
+
+            <p>
+                A slot element can be appended to a route to be appended inside
+                the route component if needed.
+            </p>
+            <p>
+                This functionality can be used to append other components to the
+                view, for example a customized top-bar.
+            </p>
+
+            <p>
+                For examples on creating slots refer to the recipes
+                <a href="">here</a>
+            </p>
+
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>Slot name (wildcard)</code></td>
+                    <td>String</td>
+                    <td>
+                        Name of the slot, to append to. The value of this
+                        property is the name of the slotted element
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>import</code></td>
+                    <td>Function</td>
+                    <td>
+                        Simplr Router supports lazy component loading for slots
+                        too. You can provide a <code>import</code> -property
+                        with your route, pointing at the file containing your
+                        component to lazily load it during routing. e.g.
+                        <code>() => import("./views/api-description")</code>
+                    </td>
+                </tr>
             </table>
         `;
     }

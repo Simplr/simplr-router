@@ -2550,6 +2550,8 @@ class Config {
     }
 
     _parseOptions(options) {
+        this.routes = options.routes;
+        this.rootPath = options.rootPath;
         this.debugging = options.debugging;
         this.transitionSpeed = options.transitionSpeed == null ? 200 : options.transitionSpeed;
         this.notFoundAction = options.notFoundAction;
@@ -2558,7 +2560,9 @@ class Config {
 }
 
 class Parser {
-    constructor() {}
+    constructor(config) {
+        this.rootPath = config.rootPath ? this.handleLeadingSlash(config.rootPath) : '';
+    }
 
     parseRoutes(routes) {
         if (!routes) {
@@ -2576,22 +2580,22 @@ class Parser {
 
     _iterateRoutes(routes, staticRoutes, dynamicRoutes, parent) {
         for (let route of routes) {
+            const hasParent = parent != null;
             // If subroute, we want the route to inherit the props
-            if (parent) {
+            if (hasParent) {
                 // If the route doesn't specify it's own guard, we inherit our parent guard
                 if (!route.guard) {
                     route.guard = parent.guard;
                 }
                 // Build the path by concatting the parent path
-                const routeSeparator = this._needsSlashBetween(parent.path, route.path) ? '/' : '';
-                route.path = `${parent.path}${routeSeparator}${route.path}`;
+                route.path = `${parent.path}${this._getRouteSeparator(parent.path, route.path)}${route.path}`;
             }
 
             if (route.path.includes(':')) {
-                route.path = this.handleLeadingSlash(route.path);
+                route.path = this.buildFullPath(route.path, !hasParent);
                 dynamicRoutes.push(route);
             } else {
-                route.path = this.handleLeadingSlash(route.path);
+                route.path = this.buildFullPath(route.path, !hasParent);
                 staticRoutes.push(route);
             }
 
@@ -2602,12 +2606,35 @@ class Parser {
     }
 
     _needsSlashBetween(partOne, partTwo) {
-        return partOne.substring(partOne.length - 1) !== '/' && partTwo.substring(0, 1) !== '/';
+        return partOne.charAt(partOne.length - 1) !== '/' && partTwo.charAt(0, 1) !== '/';
     }
 
     parseViewFromUrl() {
         const path = window.location.pathname;
         return path.split('?')[0];
+    }
+
+    buildFullPath(path, addRootPath = true) {
+        let newPath = path;
+        newPath = this.handleLeadingSlash(newPath);
+        if (addRootPath) {
+            newPath = this._addRootPath(newPath);
+        }
+
+        return newPath;
+    }
+
+    /**
+     * When searching for a route, we build a needle to find from
+     * the haystack of routes. If the app has a rootPath set up,
+     * we append that to the route to match the full route and
+     * update the history accordingly
+     * */
+    buildNeedle(path) {
+        if (path.indexOf(this.rootPath) === -1) {
+            return this.buildFullPath(path);
+        }
+        return this.handleLeadingSlash(path);
     }
 
     handleLeadingSlash(path) {
@@ -2638,6 +2665,18 @@ class Parser {
             routeObject.params[routePart.substring(1)] = urlRouteParts[index];
         }
     }
+
+    // If the paths require a slash between, add return the slash, otherwise return empty string
+    _getRouteSeparator(pathA, pathB) {
+        return this._needsSlashBetween(pathA, pathB) ? '/' : '';
+    }
+
+    _addRootPath(path) {
+        if (path === '/') return this.rootPath ? this.rootPath : '/';
+
+        const rootPath = `${this.rootPath}${this._getRouteSeparator(this.rootPath, path)}${path}`;
+        return rootPath.charAt(rootPath.length - 1) === '/' ? rootPath.substring(0, rootPath.length - 1) : rootPath;
+    }
 }
 
 class Builder {
@@ -2646,6 +2685,11 @@ class Builder {
             await view.import();
         }
         const component = document.createElement(view.component);
+
+        if (view.slots) {
+            this._buildSlotElements(view, component);
+        }
+
         if (view.params) {
             Object.keys(view.params).forEach((key) => {
                 component[key] = view.params[key];
@@ -2662,6 +2706,30 @@ class Builder {
 
         return container;
     }
+
+    _buildSlotElements(view, component) {
+        view.slots.forEach(async (slotProperties) => {
+            if (slotProperties.import) {
+                await slotProperties.import();
+            }
+            // The only non-predefined key should be the name of the slot
+            // e.g. { "top-bar": "my-top-bar", import: () => import("./my-top-bar.js") }
+            const slotName = Object.keys(slotProperties)
+                .filter((key) => !Builder.slotElementProperties.includes(key))
+                .pop();
+
+            if (!slotName) {
+                return;
+            }
+
+            const slotComponent = document.createElement(slotProperties[slotName]);
+
+            slotComponent.slot = slotName;
+            component.appendChild(slotComponent);
+        });
+    }
+
+    static slotElementProperties = ['import'];
 
     _determineMovementDirection(transitionBackwards, movingIn) {
         if (transitionBackwards) {
@@ -2752,15 +2820,15 @@ class Dispatcher {
 }
 
 class Router {
-    constructor(routes, notFoundAction, forbiddenAction) {
-        this.parser = new Parser();
+    constructor(config) {
+        this.parser = new Parser(config);
         this.builder = new Builder();
         this.observer = new Observer(this._getObserverFunctions());
 
-        Object.assign(this, this.parser.parseRoutes(routes));
+        Object.assign(this, this.parser.parseRoutes(config.routes));
 
-        this.notFoundAction = notFoundAction;
-        this.forbiddenAction = forbiddenAction;
+        this.notFoundAction = config.notFoundAction;
+        this.forbiddenAction = config.forbiddenAction;
         this.transitionInProgress = false;
     }
 
@@ -2779,14 +2847,16 @@ class Router {
     changeView(viewObject) {
         // Check for the view existence and guards
         Dispatcher.sendTransitionStartEvent(viewObject);
-        this._checkViewValidity(viewObject.view).then(() => {
-            // Create the component for the view
-            this.builder.createComponentElement(viewObject.view).then((component) => {
-                // Create the wrapper for the view component
-                const container = this._wrapViewWithContainer(component, viewObject);
-                this._pushNewViewIntoDom(container);
-            });
-        });
+        this._checkViewValidity(viewObject.view)
+            .then(() => {
+                // Create the component for the view
+                this.builder.createComponentElement(viewObject.view).then((component) => {
+                    // Create the wrapper for the view component
+                    const container = this._wrapViewWithContainer(component, viewObject);
+                    this._pushNewViewIntoDom(container);
+                });
+            })
+            .catch(this._handleNotFoundAction.bind(this));
     }
 
     _wrapViewWithContainer(viewComponent, viewObject) {
@@ -2809,8 +2879,8 @@ class Router {
         this.changeView(new InitialTransitionObject(this._getViewFromUrl()));
     }
 
-    findViewForRoute(route) {
-        const needle = this.parser.handleLeadingSlash(route);
+    findViewForRoute(route, addRootPath) {
+        const needle = addRootPath ? this.parser.buildNeedle(route) : this.parser.handleLeadingSlash(route);
 
         let matchedView = this._findViewFromStaticRoutes(needle);
         if (!matchedView) {
@@ -2892,7 +2962,12 @@ class Router {
             this.notFoundAction.call();
             return;
         }
-        this.changeView(new InitialTransitionObject(this.findViewForRoute('not-found')));
+        const notFoundView = this.findViewForRoute('not-found', true);
+        if (notFoundView) {
+            this.changeView(new InitialTransitionObject(notFoundView));
+        } else {
+            throw Error("No view found and no 'not-found' -route or action set.");
+        }
     }
 
     _handleForbiddenAction() {
@@ -2900,7 +2975,12 @@ class Router {
             this.forbiddenAction.call();
             return;
         }
-        this.changeView(new InitialTransitionObject(this.findViewForRoute('forbidden')));
+        const forbiddenView = this.findViewForRoute('forbidden', true);
+        if (forbiddenView) {
+            this.changeView(new InitialTransitionObject(forbiddenView));
+        } else {
+            throw Error("Forbidden route and no 'forbidden' -route or action set.");
+        }
     }
 }
 
@@ -2984,14 +3064,12 @@ class SimplrRouter {
 
         this.logger = new Logger(options);
         this.config = new Config(options);
-        this.routes = options.routes;
 
         SimplrRouter._instance = this;
     }
 
     init() {
-        this.router = new Router(this.routes, this.config.notFoundAction, this.config.forbiddenAction);
-        this.routes = null;
+        this.router = new Router(this.config);
 
         this.logger.info(`${this.router.routes.length} routes loaded.`);
         SimplrRouterContainer.initialize(this.config.transitionSpeed);
@@ -3001,8 +3079,9 @@ class SimplrRouter {
     }
 
     changeView(viewName) {
-        updateHistory(viewName);
-        this.router.changeView(new ForwardsTransitionObject(this.router.findViewForRoute(viewName)));
+        const needle = this.router.parser.buildNeedle(viewName);
+        updateHistory(needle);
+        this.router.changeView(new ForwardsTransitionObject(this.router.findViewForRoute(needle)));
     }
 }
 
@@ -3010,57 +3089,63 @@ const routes = [
     {
         path: '',
         component: 'router-docs-root',
-        import: () => import('./root-view-19a232d0.js'),
+        import: () => import('./root-view-0e8c9d4b.js'),
         name: 'Home',
     },
     {
         path: '/getting-started',
         component: 'router-docs-getting-started',
-        import: () => import('./getting-started-f648ad1a.js'),
+        import: () => import('./getting-started-2589e2f1.js'),
         name: 'Getting started',
     },
     {
         path: '/api-description',
         component: 'router-docs-api-description',
-        import: () => import('./api-description-6131737b.js'),
+        import: () => import('./api-description-c13240a6.js'),
         name: 'API description',
     },
     {
         path: '/recipes',
         component: 'router-docs-recipes',
-        import: () => import('./docs-recipes-73cd9b03.js'),
+        import: () => import('./docs-recipes-1ef2f260.js'),
         name: 'Recipes',
         routes: [
             {
                 path: '/sub-routes',
                 component: 'router-docs-sub-routes',
-                import: () => import('./docs-sub-routes-9cee981a.js'),
+                import: () => import('./docs-sub-routes-15f3ed23.js'),
                 name: 'Sub routes',
             },
             {
                 path: '/guards',
                 component: 'router-docs-guards',
-                import: () => import('./docs-guard-69ab1070.js'),
+                import: () => import('./docs-guard-94062116.js'),
                 name: 'Guards',
             },
             {
                 path: '/error-pages',
                 component: 'router-docs-error-pages',
-                import: () => import('./docs-error-pages-fdc2461d.js'),
+                import: () => import('./docs-error-pages-6d747aa1.js'),
                 name: 'Error pages',
             },
             {
                 path: '/code-splitting',
                 component: 'router-docs-code-splitting',
-                import: () => import('./docs-code-splitting-7ecfb839.js'),
+                import: () => import('./docs-code-splitting-f654a440.js'),
                 name: 'Code splitting',
+            },
+            {
+                path: '/slots',
+                component: 'router-docs-slots',
+                import: () => import('./docs-slots-30cbc57c.js'),
+                name: 'Slots',
             },
         ],
     },
     {
         path: '/quick-start',
         component: 'router-docs-quick-start',
-        import: () => import('./quick-start-79752255.js'),
+        import: () => import('./quick-start-df7df1c8.js'),
         name: 'Quick start',
     },
 ];
@@ -3173,6 +3258,7 @@ class NavigationDrawer extends LitElement {
     firstUpdated() {
         const options = {
             routes,
+            debugging: true,
         };
         const router = new SimplrRouter(options);
         this.views = routes;
@@ -3189,7 +3275,6 @@ class NavigationDrawer extends LitElement {
         } else {
             this.open = true;
         }
-        console.log(this.open);
     }
 
     shouldHighlightRow(path) {
@@ -3197,10 +3282,14 @@ class NavigationDrawer extends LitElement {
     }
 
     refreshList(e) {
-        this.shadowRoot
-            .querySelector('[highlight]')
-            .removeAttribute('highlight');
-        e.target.setAttribute('highlight', '');
+        const path = e.path || (e.composedPath && e.composedPath());
+        const target = path[0];
+        window.requestAnimationFrame(() => {
+            this.shadowRoot
+                .querySelector('[highlight]')
+                .removeAttribute('highlight');
+            target.setAttribute('highlight', '');
+        });
     }
 
     render() {
