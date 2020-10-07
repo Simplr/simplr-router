@@ -59,6 +59,13 @@ export interface SimplrRouterOptions {
      * Array of routes to use for routing
      * */
     routes: Array<SimplrRoute>;
+    /**
+     * A Root Path for the router to use. Will append it to all of the routes
+     * provided, to create the full actual url.
+     *
+     * e.g. /my-app if the domain's index is hosted at https://example.com/my-app
+     * */
+    rootPath: string;
 }
 
 export interface SimplrRoute {
@@ -87,7 +94,22 @@ export interface SimplrRoute {
      * */
     guard: Function;
     /**
-     * A array of subroutes, which inherit the guards and the path from the parent SimplrRoute
+     * An array of subroutes, which inherit the guards and the path from the parent SimplrRoute
      * */
     routes: Array<SimplrRoute>;
+    /**
+     * An array of slots to append to the route component when loaded
+     *
+     * Format of a slot Object is as follows:
+     *
+     * {
+     *   'top-bar': 'user-topbar',
+     *   import: () => import('./partials/user-top-bar.js')
+     * }
+     *
+     * Where 'top-bar' is the name of the slot the component is appended to,
+     * and import is an optional parameter for dynamic imports.
+     *
+     * */
+    slots: Array<Object>;
 }
