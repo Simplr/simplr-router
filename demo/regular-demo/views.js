@@ -1,12 +1,35 @@
-import SimplrRouter, { changeView } from '../../lib/simplr-router.js';
-import { rootPath } from './index.js';
+import SimplrRouter, {
+  changeView,
+  getBreadcrumbs,
+} from "../../lib/simplr-router.js";
+import { rootPath } from "./index.js";
 
 export default class ViewTemplate extends HTMLElement {
-    connectedCallback() {
-        const template = document.createElement('template');
-        template.innerHTML = `
+  renderBreadcrumbs() {
+    let crumbs = "";
+    getBreadcrumbs().forEach((crumb) => {
+      crumbs += `<a href="${crumb.path}">${crumb.title}</a>`;
+    });
+    return crumbs;
+  }
+
+  connectedCallback() {
+    const template = document.createElement("template");
+    template.innerHTML = `
         <style>
-            div {
+            .breadcrumbs {
+                position: fixed;
+                top: 0;
+                background: #FFF;
+                height: 50px;
+                width: 100%;
+            }
+
+            .breadcrumbs a {
+              margin-right: 1rem;
+            }
+
+            .main {
                 height: 100vh;
                 width: 100vw;
                 display: flex;
@@ -19,7 +42,11 @@ export default class ViewTemplate extends HTMLElement {
 
             }
         </style>
-        <div>
+
+        <div class="breadcrumbs">
+            <p><b>Breadcrumbs:</b> ${this.renderBreadcrumbs()}</p> 
+        </div>
+        <div class="main">
             <p>Current view color:</p>
             <p>${this.viewColor.toUpperCase()}</p>
             <p>Click to cycle through pages</p>
@@ -33,14 +60,16 @@ export default class ViewTemplate extends HTMLElement {
             <input type="button" value="Go to color">
         </div>`;
 
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        window.requestAnimationFrame(() => {
-            this.shadowRoot.querySelector('input[type=button]').addEventListener('click', () => {
-                const c = this.shadowRoot.querySelector('input[type=text]').value;
-                changeView(`${rootPath}/custom/${c}`);
-            });
+    window.requestAnimationFrame(() => {
+      this.shadowRoot
+        .querySelector("input[type=button]")
+        .addEventListener("click", () => {
+          const c = this.shadowRoot.querySelector("input[type=text]").value;
+          changeView(`${rootPath}/custom/${c}`);
         });
-    }
+    });
+  }
 }

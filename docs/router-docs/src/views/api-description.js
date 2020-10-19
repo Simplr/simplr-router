@@ -48,6 +48,14 @@ export class RouterDocsApiDescription extends ViewTemplate {
                         it would be in a <code>a</code> -anchor tag
                     </td>
                 </tr>
+                <tr>
+                    <td>getBreadcrumbs()</td>
+                    <td>(): void</td>
+                    <td>
+                        Get an array of breadcrumb objects. Breadcrumbs are
+                        created when parsing the routes from the JSON structure.
+                    </td>
+                </tr>
             </table>
 
             <p><b>Helper functions</b></p>
@@ -65,6 +73,16 @@ export class RouterDocsApiDescription extends ViewTemplate {
                         A individually exported function, which calls the Simplr
                         Router function with the same name. Can be used to
                         easily programmatically move between views.
+                    </td>
+                </tr>
+                <tr>
+                    <td>getBreadcrumbs()</td>
+                    <td>(): void</td>
+                    <td>
+                        A individually exported function, which calls the Simplr
+                        Router function with the same name. Get an array of
+                        breadcrumb objects. Breadcrumbs are created when parsing
+                        the routes from the JSON structure.
                     </td>
                 </tr>
             </table>
@@ -187,6 +205,15 @@ export class RouterDocsApiDescription extends ViewTemplate {
                     <td><code>slots</code></td>
                     <td>Array</td>
                     <td>An array of slots to append to the route component.</td>
+                </tr>
+                <tr>
+                    <td><code>title</code></td>
+                    <td>string</td>
+                    <td>
+                        The title of the view. Used currently only for
+                        breadcrumbs and can be omitted, if the breadcrumbs API
+                        is not used in app.
+                    </td>
                 </tr>
             </table>
 
