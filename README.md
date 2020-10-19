@@ -4,7 +4,7 @@ Simplr Router is a easy to use, easy to setup Router for Web Components.
 
 Simplr Router creates seamless transitions between views, and provides smooth user experiences.
 
-Simplr Router ships with 0 dependencies, and weighs in at below 3kb
+Simplr Router ships with 0 dependencies, and weighs in at just around 3kb
 
 Check out everything about using the library in [the docs](https://router.matsu.fi/)
 
@@ -26,7 +26,7 @@ import "./views/root-view.js";
 const routes = [
   {
     path: "/",
-    component: "root-view"
+    component: "root-view",
   },
   {
     path: "/hello",
@@ -34,18 +34,17 @@ const routes = [
     routes: [
       {
         path: ":name",
-        component: "hello-view"
-      }
-    ]
-  }
+        component: "hello-view",
+      },
+    ],
+  },
 ];
 
 const routerOptions = {
   routes,
-  debugging: true
+  debugging: true,
 };
 
 const router = new SimplrRouter(routerOptions);
 router.init();
-
 ```

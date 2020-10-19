@@ -24,7 +24,7 @@ export class RouterDocsRoot extends ViewTemplate {
                     href="https://bundlephobia.com/result?p=@simplr-wc/router"
                     rel="noreferrer"
                     target="_blank"
-                    >below 3kb</a
+                    >just around 3kb</a
                 >
             </p>
         `;
