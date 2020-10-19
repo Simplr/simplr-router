@@ -112,4 +112,9 @@ export interface SimplrRoute {
      *
      * */
     slots: Array<Object>;
+
+    /**
+     * The title of the view. Currently only used for breadcrumbs, and can be omitted
+     * */
+    title: string;
 }
