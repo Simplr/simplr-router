@@ -55,6 +55,14 @@ const routes = [
     component: "custom-color-view",
     import: () => import("./views/custom-view.js"),
     title: "Custom color view",
+    routes: [
+      {
+        path: "info",
+        component: "custom-color-view",
+        import: () => import("./views/custom-view.js"),
+        title: "Custom color info view",
+      },
+    ],
   },
   {
     path: "not-found",
