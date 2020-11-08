@@ -8,7 +8,6 @@
 
 ## Features
 
-------
 
 **Simplr Router is a framework agnostic router which is:**
 
@@ -28,7 +27,6 @@
 
 You can check out a quick demo in the [CodeSandBox](https://codesandbox.io/s/quirky-hill-330x0?fontsize=14&hidenavigation=1&theme=dark)
 
---------
 
 ## Usage
 
@@ -38,18 +36,14 @@ Simplr Router ships with 0 dependencies, and weighs in at just around [3kb](http
 
 For a full review of the library, go visit [the docs](https://router.matsu.fi/)
 
-------
 
 ## Getting started
 
 To immediately get started using SimplrRouter, you can follow the Quick Start guide in the [docs](https://router.matsu.fi/quick-start)
 
 
-------
-
 ## Examples
 
----------
 
 ### Minimal
 
