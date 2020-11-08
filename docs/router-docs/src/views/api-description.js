@@ -146,6 +146,16 @@ export class RouterDocsApiDescription extends ViewTemplate {
                         set <code>/my-app</code> as your rootPath
                     </td>
                 </tr>
+                <tr>
+                    <td><code>disableTransition</code></td>
+                    <td>boolean</td>
+                    <td>
+                        Disables the default transitions of Simplr Router, and
+                        enables the possibility to style the transition yourself
+                        as adviced in
+                        <a href="#">The Transition styling page</a>.
+                    </td>
+                </tr>
             </table>
 
             <p><b>Route</b></p>
