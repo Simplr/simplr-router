@@ -53,6 +53,12 @@ const routes = [
                 import: () => import('./views/docs-slots.js'),
                 name: 'Slots',
             },
+            {
+                path: '/transition-styling',
+                component: 'router-docs-transition-styling',
+                import: () => import('./views/docs-transition-styling.js'),
+                name: 'Transition styling',
+            },
         ],
     },
     {
