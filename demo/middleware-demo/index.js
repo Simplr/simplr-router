@@ -1,6 +1,7 @@
 import SimplrRouter from "../../lib/simplr-router.js";
 import "./views.js";
 import "./views/red-view";
+import ReactMiddleware from "./react-middleware.js";
 
 export const rootPath = "/middleware-demo";
 
@@ -83,6 +84,7 @@ const options = {
 };
 
 const router = new SimplrRouter(options);
+router.use(ReactMiddleware());
 
 router.init();
 
