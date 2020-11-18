@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "es-dev-server --app-index index.html --base-path middleware-demo --node-resolve --watch --open"
+        "start": "es-dev-server --app-index index.html --base-path middleware-demo --node-resolve --watch --open",
+        "react:start": ""
     },
     "author": "",
     "license": "ISC",
