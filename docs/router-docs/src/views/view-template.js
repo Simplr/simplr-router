@@ -16,7 +16,7 @@ export class ViewTemplate extends LitElement {
             }
 
             highlight-js {
-                width: 80%;
+                width: 100%;
                 text-align: start;
                 font-size: 1.1rem;
             }

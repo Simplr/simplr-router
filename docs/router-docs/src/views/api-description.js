@@ -121,14 +121,6 @@ export class RouterDocsApiDescription extends ViewTemplate {
                     </td>
                 </tr>
                 <tr>
-                    <td><code>debugging</code></td>
-                    <td>boolean</td>
-                    <td>
-                        If set to <code>true</code>, Simplr Router will log it's
-                        actions into the developer console
-                    </td>
-                </tr>
-                <tr>
                     <td><code>routes</code></td>
                     <td>Array</td>
                     <td>

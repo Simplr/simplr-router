@@ -59,6 +59,12 @@ const routes = [
                 import: () => import('./views/docs-transition-styling.js'),
                 name: 'Transition styling',
             },
+            {
+                path: '/middleware',
+                component: 'router-docs-middleware',
+                import: () => import('./views/docs-middleware.js'),
+                name: 'Middleware',
+            },
         ],
     },
     {
