@@ -21,7 +21,8 @@
         "lint-staged": "^10.0.0",
         "prettier": "^2.0.4",
         "rimraf": "^2.6.3",
-        "rollup": "^2.3.4"
+        "rollup": "^2.3.4",
+        "rollup-plugin-copy": "^3.3.0"
     },
     "eslintConfig": {
         "extends": [

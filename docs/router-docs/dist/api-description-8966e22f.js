@@ -1,5 +1,5 @@
-import { h as html } from './navigation-drawer-84870dea.js';
-import { V as ViewTemplate } from './view-template-182f42f1.js';
+import { h as html } from './navigation-drawer-aa6af123.js';
+import { V as ViewTemplate } from './view-template-f58507f7.js';
 
 class RouterDocsApiDescription extends ViewTemplate {
     static get styles() {
@@ -48,6 +48,14 @@ class RouterDocsApiDescription extends ViewTemplate {
                         it would be in a <code>a</code> -anchor tag
                     </td>
                 </tr>
+                <tr>
+                    <td>getBreadcrumbs()</td>
+                    <td>(): void</td>
+                    <td>
+                        Get an array of breadcrumb objects. Breadcrumbs are
+                        created when parsing the routes from the JSON structure.
+                    </td>
+                </tr>
             </table>
 
             <p><b>Helper functions</b></p>
@@ -65,6 +73,16 @@ class RouterDocsApiDescription extends ViewTemplate {
                         A individually exported function, which calls the Simplr
                         Router function with the same name. Can be used to
                         easily programmatically move between views.
+                    </td>
+                </tr>
+                <tr>
+                    <td>getBreadcrumbs()</td>
+                    <td>(): void</td>
+                    <td>
+                        A individually exported function, which calls the Simplr
+                        Router function with the same name. Get an array of
+                        breadcrumb objects. Breadcrumbs are created when parsing
+                        the routes from the JSON structure.
                     </td>
                 </tr>
             </table>
@@ -103,14 +121,6 @@ class RouterDocsApiDescription extends ViewTemplate {
                     </td>
                 </tr>
                 <tr>
-                    <td><code>debugging</code></td>
-                    <td>boolean</td>
-                    <td>
-                        If set to <code>true</code>, Simplr Router will log it's
-                        actions into the developer console
-                    </td>
-                </tr>
-                <tr>
                     <td><code>routes</code></td>
                     <td>Array</td>
                     <td>
@@ -126,6 +136,16 @@ class RouterDocsApiDescription extends ViewTemplate {
                         your project is run at
                         <code>https://www.my-test.com/my-app</code>, you could
                         set <code>/my-app</code> as your rootPath
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>disableTransition</code></td>
+                    <td>boolean</td>
+                    <td>
+                        Disables the default transitions of Simplr Router, and
+                        enables the possibility to style the transition yourself
+                        as adviced in
+                        <a href="#">The Transition styling page</a>.
                     </td>
                 </tr>
             </table>
@@ -187,6 +207,15 @@ class RouterDocsApiDescription extends ViewTemplate {
                     <td><code>slots</code></td>
                     <td>Array</td>
                     <td>An array of slots to append to the route component.</td>
+                </tr>
+                <tr>
+                    <td><code>title</code></td>
+                    <td>string</td>
+                    <td>
+                        The title of the view. Used currently only for
+                        breadcrumbs and can be omitted, if the breadcrumbs API
+                        is not used in app.
+                    </td>
                 </tr>
             </table>
 

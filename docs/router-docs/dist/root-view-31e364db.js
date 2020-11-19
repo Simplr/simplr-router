@@ -1,5 +1,5 @@
-import { h as html } from './navigation-drawer-84870dea.js';
-import { V as ViewTemplate } from './view-template-182f42f1.js';
+import { h as html } from './navigation-drawer-aa6af123.js';
+import { V as ViewTemplate } from './view-template-f58507f7.js';
 
 class RouterDocsRoot extends ViewTemplate {
     static get styles() {
@@ -24,7 +24,7 @@ class RouterDocsRoot extends ViewTemplate {
                     href="https://bundlephobia.com/result?p=@simplr-wc/router"
                     rel="noreferrer"
                     target="_blank"
-                    >below 3kb</a
+                    >just around 3kb</a
                 >
             </p>
         `;

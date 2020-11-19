@@ -1,4 +1,4 @@
-import { L as LitElement, c as css } from './navigation-drawer-84870dea.js';
+import { L as LitElement, c as css } from './navigation-drawer-aa6af123.js';
 
 class ViewTemplate extends LitElement {
     static get styles() {
@@ -16,7 +16,7 @@ class ViewTemplate extends LitElement {
             }
 
             highlight-js {
-                width: 80%;
+                width: 100%;
                 text-align: start;
                 font-size: 1.1rem;
             }

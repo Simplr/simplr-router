@@ -1,5 +1,5 @@
-import { h as html } from './navigation-drawer-84870dea.js';
-import { V as ViewTemplate } from './view-template-182f42f1.js';
+import { h as html } from './navigation-drawer-aa6af123.js';
+import { V as ViewTemplate } from './view-template-f58507f7.js';
 import './highlight-js-wc-a7f1f169.js';
 
 class RouterDocsSlots extends ViewTemplate {
