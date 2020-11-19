@@ -10,7 +10,7 @@ export default {
             minify: false,
         }),
         copy({
-            targets: [{ src: 'img', dest: 'dist/img' }],
+            targets: [{ src: 'img', dest: 'dist' }],
         }),
         resolve(),
     ],
