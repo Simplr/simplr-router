@@ -1,6 +1,6 @@
 {
     "name": "@simplr-wc/router",
-    "version": "6.0.1",
+    "version": "6.0.3",
     "keywords": ["javascript", "routing", "vanilla", "webcomponents"],
     "description": "Simplr Router is a routing solution for Web Components providing a seamless SPA experience with minimal setup.",
     "homepage": "https://router.matsu.fi/",
