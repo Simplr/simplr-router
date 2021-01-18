@@ -10,9 +10,14 @@ export class ViewTemplate extends LitElement {
                 align-items: flex-start;
                 justify-content: flex-start;
                 font-size: 1.4rem;
-                color: #1a2b42;
                 margin: 2.5% auto;
                 width: 60%;
+                background: #202330;
+                color: #fae8b6;
+            }
+
+            a {
+                color: #ddb97a;
             }
 
             highlight-js {
@@ -22,7 +27,8 @@ export class ViewTemplate extends LitElement {
             }
 
             table {
-                background: #fff;
+                background: #202330;
+                color: #fae8b6;
                 font-size: 1.2rem;
                 border: 2px solid #484848;
                 border-radius: 4px;

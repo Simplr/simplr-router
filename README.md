@@ -26,6 +26,8 @@ You can check out a quick demo in the [CodeSandBox](https://codesandbox.io/s/qui
 
 ## Usage
 
+You can read a quick overlook at the best parts of Simplr Router [in the Dev.to article](https://dev.to/matsuuu/utilizing-the-simplr-router-ai1)
+
 Simplr Router creates seamless transitions between views and provides smooth user experiences.
 
 Simplr Router ships with 0 dependencies, and weighs in at just around [3kb](https://bundlephobia.com/result?p=@simplr-wc/router)

@@ -20,9 +20,10 @@ export default class NavigationDrawer extends LitElement {
                 left: 0;
                 top: 0;
                 z-index: 10;
-                background: #fff;
+                background: #202330;
+                color: #fae8b6;
                 height: 100vh;
-                width: 15%;
+                width: 20%;
                 border-right: 1px solid #eaeaea;
             }
 
@@ -72,6 +73,12 @@ export default class NavigationDrawer extends LitElement {
                 color: inherit;
                 text-decoration: none;
                 margin: 5px 0;
+            }
+
+            @media only screen and (max-width: 1300px) {
+                :host {
+                    width: 20%;
+                }
             }
 
             @media only screen and (max-width: 900px) {
