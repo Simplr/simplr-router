@@ -42,19 +42,19 @@ export interface SimplrRouterOptions {
      *
      * Set to 0 to remove animation.
      * */
-    transitionSpeed: number;
+    transitionSpeed?: number;
     /**
      * Function to be executed, if the wanted route is not found.
      * */
-    notFoundAction: Function;
+    notFoundAction?: Function;
     /**
      * Function to be executed, if the wanted route has a guard that the user fails.
      * */
-    forbiddenAction: Function;
+    forbiddenAction?: Function;
     /**
      * Enable debugging
      * */
-    debugging: boolean;
+    debugging?: boolean;
     /**
      * Array of routes to use for routing
      * */
@@ -65,12 +65,12 @@ export interface SimplrRouterOptions {
      *
      * e.g. /my-app if the domain's index is hosted at https://example.com/my-app
      * */
-    rootPath: string;
+    rootPath?: string;
     /**
     * If you want to disable the default transition, set this to true and write
     * your own transition styles.
     * */
-    disableTransition: boolean;
+    disableTransition?: boolean;
 }
 
 export interface SimplrRoute {
@@ -88,7 +88,7 @@ export interface SimplrRoute {
      *
      * e.g. import("./views/second-module.js")
      * */
-    import: Function;
+    import?: Function;
     /**
      * A guard is a middleware, which is checked before loading the route.
      *
@@ -97,11 +97,11 @@ export interface SimplrRoute {
      * If a truthy value is returned by the guard function, the view is loaded.
      * If a falsy value is returned, the forbiddenAction or forbiddenView is loaded.
      * */
-    guard: Function;
+    guard?: Function;
     /**
      * An array of subroutes, which inherit the guards and the path from the parent SimplrRoute
      * */
-    routes: Array<SimplrRoute>;
+    routes?: Array<SimplrRoute>;
     /**
      * An array of slots to append to the route component when loaded
      *
@@ -116,10 +116,10 @@ export interface SimplrRoute {
      * and import is an optional parameter for dynamic imports.
      *
      * */
-    slots: Array<Object>;
+    slots?: Array<Object>;
 
     /**
      * The title of the view. Currently only used for breadcrumbs, and can be omitted
      * */
-    title: string;
+    title?: string;
 }
