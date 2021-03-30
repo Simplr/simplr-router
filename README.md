@@ -1,7 +1,5 @@
 ![Title Image](simplr-router-title-image.png)
 
-# Simplr-Router
-
 [![npm version](https://badgen.net/npm/v/@simplr-wc/router)](https://www.npmjs.com/package/@simplr-wc/router)
 [![size](https://badgen.net/bundlephobia/minzip/@simplr-wc/router)](https://bundlephobia.com/result?p=@simplr-wc/router)
 [![dependency count](https://badgen.net/bundlephobia/dependency-count/@simplr-wc/router)](https://bundlephobia.com/result?p=@simplr-wc/router)
