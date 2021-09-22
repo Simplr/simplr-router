@@ -80,7 +80,6 @@ const options = {
     routes: routes,
     debugging: true,
     rootPath: rootPath,
-    transitionSpeed: 0
 };
 
 const router = new SimplrRouter(options);
