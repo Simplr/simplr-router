@@ -17,27 +17,6 @@ export class RouterDocsTransitionStyling extends ViewTemplate {
             </p>
 
             <p>
-                To disable the transition, set the
-                <code>disableTransition</code> property in the configuration
-                object to false
-            </p>
-            <!-- prettier-ignore -->
-            <highlight-js lang="javascript" theme="gruvbox-dark">
-
-    const routes = [
-                {
-                    path: '',
-                    component: 'router-docs-root',
-                    import: () => import('./views/root-view.js'),
-                },
-            ],
-        },
-    ];
-
-    const router = new SimplrRouter({ routes, disableTransition: true });
-            </highlight-js>
-
-            <p>
                 The default transition will be disabled, and you can modify the
                 new transition by settings styling to the transition in and
                 transition out objects.

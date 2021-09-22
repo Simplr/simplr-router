@@ -66,11 +66,6 @@ export interface SimplrRouterOptions {
      * e.g. /my-app if the domain's index is hosted at https://example.com/my-app
      * */
     rootPath?: string;
-    /**
-    * If you want to disable the default transition, set this to true and write
-    * your own transition styles.
-    * */
-    disableTransition?: boolean;
 }
 
 export interface SimplrRoute {
