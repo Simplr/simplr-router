@@ -1,6 +1,8 @@
-import SimplrRouter from "../../lib/simplr-router.js";
+import { SimplrRouter, changeView } from "../../lib/simplr-router.js";
 import "./views.js";
 import "./views/red-view";
+
+window.changeView = changeView;
 
 export const rootPath = "/regular-demo";
 
@@ -39,6 +41,7 @@ const routes = [
                         component: "dark-green-view",
                         import: () => import("./views/dark-green-view.js"),
                         title: "Dark green view",
+                        name: "dark green view"
                     },
                 ],
             },
@@ -79,7 +82,7 @@ const routes = [
 const options = {
     routes: routes,
     debugging: true,
-    rootPath: rootPath,
+    rootPath: rootPath
 };
 
 const router = new SimplrRouter(options);
