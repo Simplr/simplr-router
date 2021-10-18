@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "cd examples/router-demo && npm start"
+        "start": "cd examples/router-demo && npm start",
+        "start:outlet": "cd examples/router-outlet-demo && npm start"
     },
     "author": "",
     "license": "ISC"

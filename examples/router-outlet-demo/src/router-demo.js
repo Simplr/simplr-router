@@ -6,7 +6,8 @@ const routerOptions = {
         {
             name: "Home",
             path: "",
-            component: "router-demo"
+            component: "router-frontpage",
+            import: () => import("./router-frontpage.js")
         },
         {
             name: "Example",
