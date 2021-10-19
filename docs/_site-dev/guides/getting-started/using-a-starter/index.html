@@ -1,0 +1,517 @@
+<!doctype html>
+
+<html lang="en" dir="ltr">
+
+
+  
+    <head>
+  
+    
+
+  
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting started: Using a starter: Simplr Router</title>
+<meta property="og:title" content="Getting started: Using a starter: Simplr Router"/>
+
+<meta name="generator" content="rocket 0.1">
+<link rel="canonical" href="/guides/getting-started/using-a-starter/"/>
+
+
+
+<meta name="description" content="Simplr Router is a small and effective routing solution for Web Components"/>
+<meta property="og:description" content="Simplr Router is a small and effective routing solution for Web Components"/>
+
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/_merged_assets/_static/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/_merged_assets/_static/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/_merged_assets/_static/icons/favicon-16x16.png">
+<link rel="manifest" href="/_merged_assets/webmanifest.json">
+<link rel="mask-icon" href="/_merged_assets/_static/icons/safari-pinned-tab.svg" color="#3f93ce">
+<meta name="msapplication-TileColor" content="#1d3557">
+<meta name="theme-color" content="#1d3557">
+
+  
+    <meta property="og:site_name" content="Simplr Router"/>
+<meta property="og:type" content="website"/>
+
+<meta property="og:image" content="."/>
+<meta property="og:url" content="/guides/getting-started/using-a-starter/"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional"
+  rel="stylesheet"
+/>
+
+  
+    <link rel="stylesheet" href="/_merged_assets/variables.css">
+<link rel="stylesheet" href="/_merged_assets/layout.css">
+<link rel="stylesheet" href="/_merged_assets/markdown.css">
+<link rel="stylesheet" href="/_merged_assets/style.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
+
+  
+</head>
+
+  
+
+  
+  <body layout="layout-sidebar">
+  
+
+    
+      <header id="main-header">
+  <div class="content-area">
+    
+      <button id="mobile-menu-trigger" data-action="trigger-mobile-menu">
+	<span class="sr-only">Show Menu</span>
+	      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewbox="0 0 448 512" class="icon">
+        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
+      </svg>
+
+</button>
+
+    
+      
+	<a class="logo-link" href="/">
+  <img src="/_merged_assets/simplr-router-logo-black.png" alt="Simplr Router logo" />
+  <span>Simplr Router</span>
+</a>
+
+
+
+    
+      <rocket-search class="search" json-url="/_merged_assets/_static/rocket-search-index.json">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" style="width: 25px;">
+    <path d="M51.6 96.7c11 0 21-3.9 28.8-10.5l35 35c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-35-35c6.5-7.8 10.5-17.9 10.5-28.8 0-24.9-20.2-45.1-45.1-45.1-24.8 0-45.1 20.3-45.1 45.1 0 24.9 20.3 45.1 45.1 45.1zm0-82c20.4 0 36.9 16.6 36.9 36.9C88.5 72 72 88.5 51.6 88.5S14.7 71.9 14.7 51.6c0-20.3 16.6-36.9 36.9-36.9z"/>
+  </svg>
+</rocket-search>
+
+<script type="module" src="/_merged_assets/scripts/define-rocket-search.js"></script>
+
+    
+      
+  <a href="/docs/" class="
+          
+          
+        ">Docs</a>
+  <a href="/guides/" class="
+          
+           active 
+        ">Guides</a>
+
+    
+      <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
+
+
+    
+      
+	<a class="social-link" href="https://github.com/Simplr/simplr-router" aria-label="Simplr Router on GitHub" rel="noopener noreferrer" target="_blank">
+		<span class="sr-only">GitHub</span>
+		
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 17 16" fill="none">
+  <title>GitHub</title>
+  <path fill="currentColor" fill-rule="evenodd" d="M8.18391.249268C3.82241.249268.253906 3.81777.253906 8.17927c0 3.46933 2.279874 6.44313 5.451874 7.53353.3965.0991.49563-.1983.49563-.3965v-1.3878c-2.18075.4956-2.67638-.9912-2.67638-.9912-.3965-.8922-.89212-1.1895-.89212-1.1895-.69388-.4957.09912-.4957.09912-.4957.793.0992 1.1895.793 1.1895.793.69388 1.2887 1.88338.8922 2.27988.6939.09912-.4956.29737-.8921.49562-1.0904-1.78425-.1982-3.5685-.8921-3.5685-3.96496 0-.89212.29738-1.586.793-2.08162-.09912-.19825-.3965-.99125.09913-2.08163 0 0 .69387-.19825 2.18075.793.59475-.19825 1.28862-.29737 1.9825-.29737.69387 0 1.38775.09912 1.98249.29737 1.4869-.99125 2.1808-.793 2.1808-.793.3965 1.09038.1982 1.88338.0991 2.08163.4956.59475.793 1.28862.793 2.08162 0 3.07286-1.8834 3.66766-3.66764 3.86586.29737.3965.59474.8921.59474 1.586v2.1808c0 .1982.0991.4956.5948.3965 3.172-1.0904 5.4518-4.0642 5.4518-7.53353-.0991-4.3615-3.6676-7.930002-8.02909-7.930002z" clip-rule="evenodd"></path>
+</svg>
+
+		
+	</a>
+	<a class="social-link" href="https://join.slack.com/t/lit-and-friends/shared_invite/zt-llwznvsy-LZwT13R66gOgnrg12PUGqw" aria-label="Simplr Router on Slack" rel="noopener noreferrer" target="_blank">
+		<span class="sr-only">Slack</span>
+		
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 123" fill="currentColor">
+  <title>Slack</title>
+  <path stroke="none" stroke-width="1" stroke-dasharray="none" stroke-linecap="butt" stroke-dashoffset="0" stroke-linejoin="miter" stroke-miterlimit="4" fill-rule="nonzero"
+    d="M26.4 78.2c0 7.1-5.8 12.9-12.9 12.9S.6 85.3.6 78.2c0-7.1 5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V78.2zm12.9-51.8c-7.1 0-12.9-5.8-12.9-12.9S38.7.6 45.8.6s12.9 5.8 12.9 12.9v12.9H45.8zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H13.5C6.4 58.7.6 52.9.6 45.8s5.8-12.9 12.9-12.9h32.3zM97.6 45.8c0-7.1 5.8-12.9 12.9-12.9 7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H97.6V45.8zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9-7.1 0-12.9-5.8-12.9-12.9V13.5C65.3 6.4 71.1.6 78.2.6c7.1 0 12.9 5.8 12.9 12.9v32.3zM78.2 97.6c7.1 0 12.9 5.8 12.9 12.9 0 7.1-5.8 12.9-12.9 12.9-7.1 0-12.9-5.8-12.9-12.9V97.6h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9 0-7.1 5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9 0 7.1-5.8 12.9-12.9 12.9H78.2z"/>
+</svg>
+
+		
+	</a>
+
+    
+  </div>
+</header>
+
+    
+
+    
+  <div id="content-wrapper">
+    <div class="content-area">
+      
+        <rocket-drawer id="sidebar">
+  <nav slot="content" id="sidebar-nav">
+    
+      <a class="logo-link" href="/">
+  <img src="/_merged_assets/simplr-router-logo-black.png" alt="Simplr Router logo" />
+  <span>Simplr Router</span>
+</a>
+
+
+    
+      <rocket-navigation>
+  <ul><li class="menu-item active">
+<a href="/guides/getting-started/">Getting started</a>
+<ul><li class="menu-item">
+<a href="/guides/getting-started/minimal-setup/">Your first setup</a>
+
+</li>
+<li class="menu-item current">
+<a href="/guides/getting-started/using-a-starter/">Using a starter</a>
+<ul>
+  <li class="menu-item anchor">
+    <a href="#initial-setup" class="anchor">Initial setup</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#installing-the-router" class="anchor">Installing the router</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#configuring-history-api-fallback" class="anchor">Configuring History API fallback</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#running-the-application" class="anchor">Running the application</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#creating-your-initial-routing" class="anchor">Creating your initial routing</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#adding-views" class="anchor">Adding views</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#next-steps" class="anchor">Next steps</a>
+  </li>
+</ul>
+
+</li>
+<li class="menu-item">
+<a href="/guides/getting-started/using-an-outlet/">Using an outlet</a>
+
+</li></ul>
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/">Recipes</a>
+<ul><li class="menu-item">
+<a href="/guides/recipes/child-routes/">Child routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/dynamic-routes/">Dynamic routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/error-pages/">Error pages</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/guards/">Guards</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/lazy-loading/">Lazy loading</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/named-routes/">Named routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/programmatic-navigation/">Programmatic navigation</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/redirects/">Redirects</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/slots/">Slots</a>
+
+</li></ul>
+</li>
+<li class="menu-item">
+<a href="/guides/customizing/">Customizing</a>
+<ul><li class="menu-item">
+<a href="/guides/customizing/middleware/">Middleware</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/customizing/styling-transitions/">Styling transitions</a>
+
+</li></ul>
+</li></ul>
+  <div class="sidebar-bottom">
+  <hr/> <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
+
+  
+    <a href="https://github.com/Simplr/simplr-router/issues">Help and Feedback</a>
+  
+</div>
+
+</rocket-navigation>
+
+    
+  </nav>
+</rocket-drawer>
+
+      
+      
+        <main class="markdown-body">
+  
+    <h1 id="getting-started-using-a-starter"><a class="anchor" href="#getting-started-using-a-starter"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Getting started: Using a starter</h1>
+<p>Simplr Router was built to work with Web Component environments and therefore the <a href="https://open-wc.org/guides/developing-components/getting-started/">Open-WC starter</a>
+is a perfect base for using this router.</p>
+<h2 id="initial-setup"><a class="anchor" href="#initial-setup"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Initial setup</h2>
+<p>Start by initializing your project with the Open-WC starter</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> init @open-wc
+</code></pre>
+<p>This will prompt you to generate a starter application for your web component project. You should choose to create
+an application, and add whatever optional tooling you need.</p>
+<p>The setup we're using in this tutorial is as follows:</p>
+<pre><code>✔ What would you like to do today? › Scaffold a new project
+✔ What would you like to scaffold? › Application
+✔ What would you like to add? ›
+✔ Would you like to use typescript? › No
+✔ What is the tag name of your application/web component? … simplr-router-demo
+</code></pre>
+<h2 id="installing-the-router"><a class="anchor" href="#installing-the-router"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installing the router</h2>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @simplr-wc/router
+</code></pre>
+<p>This command will install the Simplr Router to your project and will be ready to use as soon as it's finished installing.</p>
+<h2 id="configuring-history-api-fallback"><a class="anchor" href="#configuring-history-api-fallback"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Configuring History API fallback</h2>
+<p>To have client-side routing functioning correctly, we'll need to add a History API fallback.
+Luckily the <a href="https://modern-web.dev/docs/dev-server/overview/">Web Dev Server</a> allows us to do this easily.</p>
+<p>Open up the <code>web-dev-server.config.mjs</code> -file, and add the following line to your config:</p>
+<pre class="language-properties"><code class="language-properties"><span class="token attr-name">appIndex</span><span class="token punctuation">:</span> <span class="token attr-value">'index.html',</span>
+</code></pre>
+<p>The file should now look something along the lines of</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// import { hmrPlugin, presets } from '@open-wc/dev-server-hmr';</span>
+<span class="token doc-comment comment">
+/** Use Hot Module replacement by adding --hmr to the start command */</span>
+<span class="token keyword">const</span> hmr <span class="token operator">=</span> process<span class="token punctuation">.</span><span class="token property-access">argv</span><span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">'--hmr'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span><span class="token doc-comment comment"> /** <span class="token keyword">@type</span> <span class="token class-name"><span class="token punctuation">{</span>import<span class="token punctuation">(</span>'@web/dev-server'<span class="token punctuation">)</span><span class="token punctuation">.</span>DevServerConfig<span class="token punctuation">}</span></span> */</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  open<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+  watch<span class="token punctuation">:</span> <span class="token operator">!</span>hmr<span class="token punctuation">,</span>
+ <span class="token doc-comment comment"> /** Resolve bare module imports */</span>
+  nodeResolve<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    exportConditions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'browser'</span><span class="token punctuation">,</span> <span class="token string">'development'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  
+ <span class="token doc-comment comment"> /** Compile JS for older browsers. Requires @web/dev-server-esbuild plugin */</span>
+  <span class="token comment">// esbuildTarget: 'auto'</span>
+
+ <span class="token doc-comment comment"> /** Set appIndex to enable SPA routing */</span>
+  appIndex<span class="token punctuation">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
+
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+   <span class="token doc-comment comment"> /** Use Hot Module Replacement by uncommenting. Requires @open-wc/dev-server-hmr plugin */</span>
+    <span class="token comment">// hmr &#x26;&#x26; hmrPlugin({ exclude: ['**/*/node_modules/**/*'], presets: [presets.litElement] }),</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// See documentation for all available options</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Now even if we navigate outside of the index.html file's directory, we'll still load it every time,
+which is required by client side routing.</p>
+<h2 id="running-the-application"><a class="anchor" href="#running-the-application"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Running the application</h2>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> start
+</code></pre>
+<h2 id="creating-your-initial-routing"><a class="anchor" href="#creating-your-initial-routing"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Creating your initial routing</h2>
+<p>Let's start by removing the main web component from our <code>index.html</code> -file.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&#x3C;!-- index.html --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./src/simplr-router-demo.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>Then we'll move on to modifying the file loaded by our index.html. In this case that file is named <code>simplr-router-demo.js</code></p>
+<p>Let's first initialize the routing for our first view:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Then let's create an instance of Simplr Router and pass it the routes as options:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>And finally initialize the router (this will start the routing process).</p>
+<pre class="language-javascript"><code class="language-javascript">router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The file should looks something along the lines of this by now:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouterDemo</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"./SimplrRouterDemo.js"</span><span class="token punctuation">;</span>
+
+customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">"simplr-router-demo"</span><span class="token punctuation">,</span> <span class="token maybe-class-name">SimplrRouterDemo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The starting view should now be visible on your browser.</p>
+<h2 id="adding-views"><a class="anchor" href="#adding-views"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Adding views</h2>
+<p>Next we will want to do some actual routing. This requires a few steps:</p>
+<ol>
+<li>Create a view to navigate to</li>
+<li>Add it as a route</li>
+<li>Create a link to navigate to the page</li>
+</ol>
+<h3 id="create-a-view-to-navigate-to"><a class="anchor" href="#create-a-view-to-navigate-to"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Create a view to navigate to</h3>
+<p>Create a new view into our <code>src</code> folder as a new file called <code>ExampleView.js</code>.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">LitElement</span><span class="token punctuation">,</span> html <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"lit"</span><span class="token punctuation">;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleView</span> <span class="token keyword">extends</span> <span class="token class-name">LitElement</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>Hello from the example view!<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Please take me back!<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">"example-view"</span><span class="token punctuation">,</span> <span class="token maybe-class-name">ExampleView</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="add-it-as-a-route"><a class="anchor" href="#add-it-as-a-route"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Add it as a route</h3>
+<p>Next you'll have to add this new view as a route. Navigate to the file with our routes, and add it there.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouterDemo</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"./SimplrRouterDemo.js"</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token string">"./ExampleView.js"</span><span class="token punctuation">;</span>
+
+customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">"simplr-router-demo"</span><span class="token punctuation">,</span> <span class="token maybe-class-name">SimplrRouterDemo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"example-view"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Notice that you'll need to import the view in this file statically or via <a href="/guides/recipes/lazy-loading/">lazy loading</a></strong></p>
+<h3 id="create-a-link-to-navigate-to-the-page"><a class="anchor" href="#create-a-link-to-navigate-to-the-page"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Create a link to navigate to the page</h3>
+<p>Lastly you'll need a way to navigate to the page. This is where Simplr Router differs from some other
+routing libraries: You'll do it the same way you'd do it with a Multi Page Application:</p>
+<p>Add a anchor tag pointing to the new page into the starting view:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// SimplrRouterDemo.js</span>
+<span class="token comment">// Some code omitted for clarity</span>
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>main</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>open-wc logo<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>logo<span class="token interpolation-punctuation punctuation">}</span></span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">title</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/example<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Take me to the example page!<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>a</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>main</span><span class="token punctuation">></span></span>
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>After doing this, you should be able to navigate between the pages seamlessly!</p>
+<p>You can even use the browser's navigation buttons to navigate between these views.</p>
+<h2 id="next-steps"><a class="anchor" href="#next-steps"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Next steps</h2>
+<p>You're now all set to start building your application on top of Simplr Router. For more configuration
+options and recipes, check out the <strong>recipes</strong> section. For a thorough look into the actual API
+behing Simplr Router, check out the <strong>docs</strong>.</p>
+
+  
+    <div class="content-footer">
+  <p>
+    Caught a mistake or want to contribute to the documentation?
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/getting-started/using-a-starter.md">Edit this page on GitHub!</a>
+  </p>
+</div>
+
+  
+</main>
+
+      
+    </div>
+  </div>
+
+
+    
+      <footer id="main-footer">
+  
+    
+
+  
+    <div id="footer-menu">
+  <div class="content-area">
+    
+      <nav>
+        <h3>Discover</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/Simplr/simplr-router/issues">Help and Feedback</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+      <nav>
+        <h3>Follow</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/Simplr/simplr-router">GitHub</a>
+            </li>
+          
+            <li>
+              <a href="https://twitter.com/matsuuu_">Twitter</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+      <nav>
+        <h3>Support</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/modernweb-dev/rocket/blob/master/CONTRIBUTING.md">Contribute</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+  </div>
+</div>
+
+  
+</footer>
+
+    
+
+    
+  <script type="module" src="/_merged_assets/scripts/init-navigation.js"></script>
+
+
+  
+
+<script>
+  window.__rocketServiceWorkerUrl = '/service-worker.js';
+</script>
+
+
+
+
+  
+
+
+
+  </body>
+</html>
