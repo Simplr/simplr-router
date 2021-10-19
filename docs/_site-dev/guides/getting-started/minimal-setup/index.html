@@ -14,16 +14,16 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Getting started: Your first setup: Rocket</title>
-<meta property="og:title" content="Getting started: Your first setup: Rocket"/>
+<title>Getting started: Your first setup: Simplr Router</title>
+<meta property="og:title" content="Getting started: Your first setup: Simplr Router"/>
 
 <meta name="generator" content="rocket 0.1">
 <link rel="canonical" href="/guides/getting-started/minimal-setup/"/>
 
 
 
-<meta name="description" content="Rocket is the way to build fast static websites with a sprinkle of JavaScript"/>
-<meta property="og:description" content="Rocket is the way to build fast static websites with a sprinkle of JavaScript"/>
+<meta name="description" content="Simplr Router is a small and effective routing solution for Web Components"/>
+<meta property="og:description" content="Simplr Router is a small and effective routing solution for Web Components"/>
 
   
     <link rel="apple-touch-icon" sizes="180x180" href="/_merged_assets/_static/icons/apple-touch-icon.png">
@@ -35,7 +35,7 @@
 <meta name="theme-color" content="#1d3557">
 
   
-    <meta property="og:site_name" content="Rocket"/>
+    <meta property="og:site_name" content="Simplr Router"/>
 <meta property="og:type" content="website"/>
 
 <meta property="og:image" content="."/>
@@ -60,6 +60,9 @@
 <link rel="stylesheet" href="/_merged_assets/layout.css">
 <link rel="stylesheet" href="/_merged_assets/markdown.css">
 <link rel="stylesheet" href="/_merged_assets/style.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
 
   
     <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
@@ -88,11 +91,20 @@
     
       
 	<a class="logo-link" href="/">
-  <img src="/_merged_assets/logo.svg" alt="Rocket Logo" />
-  <span>Rocket</span>
+  <img src="/_merged_assets/simplr-router-logo-black.png" alt="Simplr Router logo" />
+  <span>Simplr Router</span>
 </a>
 
 
+
+    
+      <rocket-search class="search" json-url="/_merged_assets/_static/rocket-search-index.json">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" style="width: 25px;">
+    <path d="M51.6 96.7c11 0 21-3.9 28.8-10.5l35 35c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-35-35c6.5-7.8 10.5-17.9 10.5-28.8 0-24.9-20.2-45.1-45.1-45.1-24.8 0-45.1 20.3-45.1 45.1 0 24.9 20.3 45.1 45.1 45.1zm0-82c20.4 0 36.9 16.6 36.9 36.9C88.5 72 72 88.5 51.6 88.5S14.7 71.9 14.7 51.6c0-20.3 16.6-36.9 36.9-36.9z"/>
+  </svg>
+</rocket-search>
+
+<script type="module" src="/_merged_assets/scripts/define-rocket-search.js"></script>
 
     
       
@@ -111,7 +123,7 @@
 
     
       
-	<a class="social-link" href="https://github.com/modernweb-dev/rocket" aria-label="Rocket on GitHub" rel="noopener noreferrer" target="_blank">
+	<a class="social-link" href="https://github.com/Simplr/simplr-router" aria-label="Simplr Router on GitHub" rel="noopener noreferrer" target="_blank">
 		<span class="sr-only">GitHub</span>
 		
 			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 17 16" fill="none">
@@ -121,7 +133,7 @@
 
 		
 	</a>
-	<a class="social-link" href="https://join.slack.com/t/lit-and-friends/shared_invite/zt-llwznvsy-LZwT13R66gOgnrg12PUGqw" aria-label="Rocket on Slack" rel="noopener noreferrer" target="_blank">
+	<a class="social-link" href="https://join.slack.com/t/lit-and-friends/shared_invite/zt-llwznvsy-LZwT13R66gOgnrg12PUGqw" aria-label="Simplr Router on Slack" rel="noopener noreferrer" target="_blank">
 		<span class="sr-only">Slack</span>
 		
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 123" fill="currentColor">
@@ -147,8 +159,8 @@
   <nav slot="content" id="sidebar-nav">
     
       <a class="logo-link" href="/">
-  <img src="/_merged_assets/logo.svg" alt="Rocket Logo" />
-  <span>Rocket</span>
+  <img src="/_merged_assets/simplr-router-logo-black.png" alt="Simplr Router logo" />
+  <span>Simplr Router</span>
 </a>
 
 
@@ -173,10 +185,6 @@
 <li class="menu-item">
 <a href="/guides/recipes/">Recipes</a>
 <ul><li class="menu-item">
-<a href="/guides/recipes/lazy-loading/">Lazy loading</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/recipes/child-routes/">Child routes</a>
 
 </li>
@@ -185,15 +193,7 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/recipes/named-routes/">Named routes</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/redirects/">Redirects</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/programmatic-navigation/">Programmatic navigation</a>
+<a href="/guides/recipes/error-pages/">Error pages</a>
 
 </li>
 <li class="menu-item">
@@ -201,7 +201,19 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/recipes/error-pages/">Error pages</a>
+<a href="/guides/recipes/lazy-loading/">Lazy loading</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/named-routes/">Named routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/programmatic-navigation/">Programmatic navigation</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/redirects/">Redirects</a>
 
 </li>
 <li class="menu-item">
@@ -212,11 +224,11 @@
 <li class="menu-item">
 <a href="/guides/customizing/">Customizing</a>
 <ul><li class="menu-item">
-<a href="/guides/customizing/styling-transitions/">Styling transitions</a>
+<a href="/guides/customizing/middleware/">Middleware</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/customizing/middleware/">Middleware</a>
+<a href="/guides/customizing/styling-transitions/">Styling transitions</a>
 
 </li></ul>
 </li></ul>
@@ -224,7 +236,7 @@
   <hr/> <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
 
   
-    <a href="https://github.com/modernweb-dev/rocket/issues">Help and Feedback</a>
+    <a href="https://github.com/Simplr/simplr-router/issues">Help and Feedback</a>
   
 </div>
 
@@ -264,7 +276,7 @@ the navigation target is listed as a route.</p>
     <div class="content-footer">
   <p>
     Caught a mistake or want to contribute to the documentation?
-    <a href="https://github.com/modernweb-dev/rocket/edit/master/./docs/guides/getting-started/minimal-setup.md">Edit this page on GitHub!</a>
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/getting-started/minimal-setup.md">Edit this page on GitHub!</a>
   </p>
 </div>
 

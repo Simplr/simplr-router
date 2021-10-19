@@ -1,5 +1,8 @@
 import { rocketLaunch } from '@rocket/launch';
+import { rocketSearch } from '@rocket/search';
 
-export default {
-  presets: [rocketLaunch()],
-};
+const config = {
+    presets: [rocketLaunch(), rocketSearch()],
+}
+
+export default config;

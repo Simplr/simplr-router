@@ -15,5 +15,8 @@
     "@rocket/cli": "^0.10.0",
     "@rocket/launch": "^0.6.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@rocket/search": "^0.5.0"
+  }
 }

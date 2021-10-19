@@ -8,22 +8,20 @@
   
     
 
-  
-
 
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome to Your Rocket Site: Rocket</title>
-<meta property="og:title" content="Welcome to Your Rocket Site: Rocket"/>
+<title>Simplr Router</title>
+<meta property="og:title" content="Simplr Router"/>
 
 <meta name="generator" content="rocket 0.1">
 <link rel="canonical" href="/"/>
 
 
 
-<meta name="description" content="Rocket is the way to build fast static websites with a sprinkle of JavaScript"/>
-<meta property="og:description" content="Rocket is the way to build fast static websites with a sprinkle of JavaScript"/>
+<meta name="description" content="Simplr Router is a small and effective routing solution for Web Components"/>
+<meta property="og:description" content="Simplr Router is a small and effective routing solution for Web Components"/>
 
   
     <link rel="apple-touch-icon" sizes="180x180" href="/_merged_assets/_static/icons/apple-touch-icon.png">
@@ -35,7 +33,7 @@
 <meta name="theme-color" content="#1d3557">
 
   
-    <meta property="og:site_name" content="Rocket"/>
+    <meta property="og:site_name" content="Simplr Router"/>
 <meta property="og:type" content="website"/>
 
 <meta property="og:image" content="."/>
@@ -62,6 +60,9 @@
 <link rel="stylesheet" href="/_merged_assets/style.css">
 
   
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
+
+  
     <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
 
   
@@ -70,7 +71,7 @@
   
 
   
-  <body layout="layout-index">
+  <body layout="layout-home">
   
 
     
@@ -88,11 +89,20 @@
     
       
 	<a class="logo-link" href="/">
-  <img src="/_merged_assets/logo.svg" alt="Rocket Logo" />
-  <span>Rocket</span>
+  <img src="/_merged_assets/simplr-router-logo-black.png" alt="Simplr Router logo" />
+  <span>Simplr Router</span>
 </a>
 
 
+
+    
+      <rocket-search class="search" json-url="/_merged_assets/_static/rocket-search-index.json">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" style="width: 25px;">
+    <path d="M51.6 96.7c11 0 21-3.9 28.8-10.5l35 35c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-35-35c6.5-7.8 10.5-17.9 10.5-28.8 0-24.9-20.2-45.1-45.1-45.1-24.8 0-45.1 20.3-45.1 45.1 0 24.9 20.3 45.1 45.1 45.1zm0-82c20.4 0 36.9 16.6 36.9 36.9C88.5 72 72 88.5 51.6 88.5S14.7 71.9 14.7 51.6c0-20.3 16.6-36.9 36.9-36.9z"/>
+  </svg>
+</rocket-search>
+
+<script type="module" src="/_merged_assets/scripts/define-rocket-search.js"></script>
 
     
       
@@ -111,7 +121,7 @@
 
     
       
-	<a class="social-link" href="https://github.com/modernweb-dev/rocket" aria-label="Rocket on GitHub" rel="noopener noreferrer" target="_blank">
+	<a class="social-link" href="https://github.com/Simplr/simplr-router" aria-label="Simplr Router on GitHub" rel="noopener noreferrer" target="_blank">
 		<span class="sr-only">GitHub</span>
 		
 			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 17 16" fill="none">
@@ -121,7 +131,7 @@
 
 		
 	</a>
-	<a class="social-link" href="https://join.slack.com/t/lit-and-friends/shared_invite/zt-llwznvsy-LZwT13R66gOgnrg12PUGqw" aria-label="Rocket on Slack" rel="noopener noreferrer" target="_blank">
+	<a class="social-link" href="https://join.slack.com/t/lit-and-friends/shared_invite/zt-llwznvsy-LZwT13R66gOgnrg12PUGqw" aria-label="Simplr Router on Slack" rel="noopener noreferrer" target="_blank">
 		<span class="sr-only">Slack</span>
 		
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 123" fill="currentColor">
@@ -143,23 +153,36 @@
   <div id="content-wrapper">
     <div class="content-area">
       
-        <rocket-drawer id="sidebar">
+  <rocket-drawer id="sidebar">
   <nav slot="content" id="sidebar-nav">
     
       <a class="logo-link" href="/">
-  <img src="/_merged_assets/logo.svg" alt="Rocket Logo" />
-  <span>Rocket</span>
+  <img src="/_merged_assets/simplr-router-logo-black.png" alt="Simplr Router logo" />
+  <span>Simplr Router</span>
 </a>
 
 
     
       <rocket-navigation>
-  
+  <ul>
+      <li>
+        <a href="/docs/" class="
+          
+          
+        ">Docs</a>
+      </li>
+      <li>
+        <a href="/guides/" class="
+          
+          
+        ">Guides</a>
+      </li>
+  </ul>
   <div class="sidebar-bottom">
   <hr/> <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
 
   
-    <a href="https://github.com/modernweb-dev/rocket/issues">Help and Feedback</a>
+    <a href="https://github.com/Simplr/simplr-router/issues">Help and Feedback</a>
   
 </div>
 
@@ -169,21 +192,65 @@
   </nav>
 </rocket-drawer>
 
-      
+
       
 	<main class="markdown-body">
   
-    <h1 id="welcome-to-your-rocket-site"><a class="anchor" href="#welcome-to-your-rocket-site"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Welcome to Your Rocket Site</h1>
-<p>Add your markdown content here.</p>
+    <img class="page-logo" src="/_merged_assets/simplr-router-logo-black.png" alt=" Logo"/>
+
+
+
+<h1 class="page-title">Simplr Router</h1>
+
+<p class="page-slogan">A small and effective routing solution for Web Components</p>
+
+<div class="call-to-action-list" role="list">
+  
+    <a class="call-to-action" href="/guides/" role="listitem">Follow Guides</a>
+  
+    <a class="call-to-action" href="/docs/" role="listitem">Browse Docs</a>
+  
+</div>
 
   
-    <button id="layout-index-open-navigation" class="call-to-action" data-action="trigger-mobile-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewbox="0 0 448 512" class="icon">
-        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
-      </svg>
+    <h2 class="reason-header">Why Simplr Router</h2>
 
-  <span>Show Navigation</span>
-</button>
+<section class="reasons">
+  
+    <article>
+      <h3>Quick and simple</h3>
+      Simple to get up and running. Basic setup in just a few lines of code.
+    </article>
+  
+    <article>
+      <h3>Small</h3>
+      No dependencies and a small codebase means less breaking parts. <br>0 dependencies means that what you see is what you get.
+    </article>
+  
+    <article>
+      <h3>Easy to transition into</h3>
+      Works by utilizing the native API's used for navigation and therefore doesn't require any extra steps compared to your every day MPA.
+    </article>
+  
+    <article>
+      <h3>Web Component focused</h3>
+      Built with web components, for web components. Simplr Router was designed from the get go to be used in web component applications.
+    </article>
+  
+    <article>
+      <h3>Customizable</h3>
+      Even though there's no configuration necessary to get started, the router ships with a lot of customizability to fit your needs.
+    </article>
+  
+    <article>
+      <h3>Performant</h3>
+      Allowing for lazy loading and creating dynamic routes, Simplr Router is a great library for projects of all sizes.
+    </article>
+  
+</section>
+
+  
+    
 
   
 </main>
