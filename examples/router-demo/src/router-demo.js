@@ -19,6 +19,16 @@ const routerOptions = {
             path: "param/:id",
             component: "param-example",
             import: () => import("./param-example.js")
+        },
+        {
+            name: "Redirect",
+            path: "foo",
+            redirect: "/example"
+        },
+        {
+            name: "Redirect By name",
+            path: "bar",
+            redirect: { name: "Example" }
         }
     ],
     transitionSpeed: 500
