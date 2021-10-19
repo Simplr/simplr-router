@@ -4,11 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "es-dev-server --app-index index.html --base-path regular-demo --node-resolve --watch --open"
+        "start": "cd examples/router-demo && npm start",
+        "start:outlet": "cd examples/router-outlet-demo && npm start"
     },
     "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "es-dev-server": "^1.57.4"
-    }
+    "license": "ISC"
 }

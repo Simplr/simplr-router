@@ -1,0 +1,20 @@
+{
+  "name": "router-demo",
+  "description": "Webcomponent router-demo following open-wc recommendations",
+  "license": "MIT",
+  "author": "router-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "web-dev-server"
+  },
+  "dependencies": {
+    "@simplr-wc/router": "file:../../lib",
+    "lit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@web/dev-server": "^0.1.25"
+  },
+  "customElements": "custom-elements.json"
+}
