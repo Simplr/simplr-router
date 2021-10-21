@@ -22,6 +22,12 @@ const routes = [
         },
         component: "dynamic-view"
     },
+    {
+        path: "/do-redirect", redirect: "/example"
+    },
+    {
+        path: "/name-redirect", redirect: { name: "Example" }
+    }
 ];
 
 new SimplrRouter({ routes }).init();
