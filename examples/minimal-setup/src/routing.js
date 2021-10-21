@@ -23,10 +23,11 @@ const routes = [
         component: "dynamic-view"
     },
     {
-        path: "/do-redirect", redirect: "/example"
-    },
-    {
-        path: "/name-redirect", redirect: { name: "Example" }
+        path: "/guarded",
+        component: "example-view",
+        guard: () => {
+            return Math.random() >= 0.5
+        }
     }
 ];
 

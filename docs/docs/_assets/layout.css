@@ -132,6 +132,7 @@ hr {
   top: 0;
   position: sticky;
   z-index: 100;
+  min-height: 79px;
   background-color: var(--page-background);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
