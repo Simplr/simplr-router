@@ -1,3 +1,4 @@
+import { changeView } from "@simplr-wc/router";
 import { LitElement, html } from "lit";
 import { viewStyles } from "./view-styles.js";
 
@@ -24,6 +25,8 @@ export class MinimalSetup extends LitElement {
       <main>
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
+
+        <button @click=${() => changeView({ name: "Example" })}>To example view</button>
 
         <ul>
           <li><a href="/">Go to the starting view</a></li>
