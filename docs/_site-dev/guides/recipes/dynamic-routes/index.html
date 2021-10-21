@@ -275,6 +275,27 @@ dynamic routing is needed.</p>
 <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">tableType</span><span class="token punctuation">)</span>
 <span class="token operator">>>></span> <span class="token string">"closed"</span>
 </code></pre>
+<h3 id="pattern-matching-routes"><a class="anchor" href="#pattern-matching-routes"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pattern matching routes</h3>
+<p>If you want more control over the parameters your dynamic views accept, you can provide a <code>pattern</code>  key for each key you want to check against.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"minimal-setup"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">"onlynumbers/:id"</span><span class="token punctuation">,</span>
+        pattern<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            id<span class="token punctuation">:</span> <span class="token string">"[0-9]+"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> <span class="token string">"dynamic-view"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">"onlynumbers/:id/thenword/:specialType"</span><span class="token punctuation">,</span>
+        pattern<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            id<span class="token punctuation">:</span> <span class="token string">"[0-9]+"</span><span class="token punctuation">,</span>
+            specialType<span class="token punctuation">:</span> <span class="token string">"(foo|bar|baz)"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> <span class="token string">"dynamic-view"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
 
   
     <div class="content-footer">

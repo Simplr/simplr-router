@@ -18,7 +18,6 @@ const routes = [
         path: "onlynumbers/:id/thenword/:specialType",
         pattern: {
             id: "[0-9]+",
-            specialType: "(foo|bar|baz)"
         },
         component: "dynamic-view"
     },

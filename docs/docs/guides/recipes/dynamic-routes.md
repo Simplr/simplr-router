@@ -33,3 +33,27 @@ console.log(this.tableType)
 >>> "closed"
 ```
 
+### Pattern matching routes
+
+If you want more control over the parameters your dynamic views accept, you can provide a `pattern`  key for each key you want to check against.
+
+```javascript
+const routes = [
+    { path: "", component: "minimal-setup" },
+    {
+        path: "onlynumbers/:id",
+        pattern: {
+            id: "[0-9]+"
+        },
+        component: "dynamic-view"
+    },
+    {
+        path: "onlynumbers/:id/thenword/:specialType",
+        pattern: {
+            id: "[0-9]+",
+            specialType: "(foo|bar|baz)"
+        },
+        component: "dynamic-view"
+    },
+];
+```
