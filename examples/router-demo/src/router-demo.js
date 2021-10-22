@@ -1,5 +1,7 @@
 import { SimplrRouter } from '@simplr-wc/router';
 import { RouterDemo } from './RouterDemo.js';
+import "./forbidden-view.js";
+import "./not-found-view.js";
 
 const routerOptions = {
     routes: [
@@ -29,9 +31,25 @@ const routerOptions = {
             name: "Redirect By name",
             path: "bar",
             redirect: { name: "Example" }
+        },
+        {
+            name: "Guarded",
+            path: "guarded",
+            component: "router-example",
+            import: () => import("./router-example.js"),
+            guard: () => {
+                return Math.random() >= 0.5;
+            }
+        },
+        {
+            path: "not-found",
+            component: "not-found-view"
+        },
+        {
+            path: "forbidden",
+            component: "forbidden-view"
         }
     ],
-    transitionSpeed: 500
 }
 
 const router = new SimplrRouter(routerOptions);

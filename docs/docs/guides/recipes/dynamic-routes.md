@@ -43,6 +43,9 @@ const routes = [
     {
         path: "onlynumbers/:id",
         pattern: {
+            // Matches routes with numbers as the :id
+            // /onlynumbers/123
+            // /onlynumbers/555
             id: "[0-9]+"
         },
         component: "dynamic-view"
@@ -51,6 +54,11 @@ const routes = [
         path: "onlynumbers/:id/thenword/:specialType",
         pattern: {
             id: "[0-9]+",
+
+            // Matches routes with one of the matched words
+            // /onlynumbers/123/thenword/foo
+            // /onlynumbers/123/thenword/bar
+            // /onlynumbers/123/thenword/baz
             specialType: "(foo|bar|baz)"
         },
         component: "dynamic-view"

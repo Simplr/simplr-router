@@ -282,6 +282,9 @@ dynamic routing is needed.</p>
     <span class="token punctuation">{</span>
         path<span class="token punctuation">:</span> <span class="token string">"onlynumbers/:id"</span><span class="token punctuation">,</span>
         pattern<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Matches routes with numbers as the :id</span>
+            <span class="token comment">// /onlynumbers/123</span>
+            <span class="token comment">// /onlynumbers/555</span>
             id<span class="token punctuation">:</span> <span class="token string">"[0-9]+"</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         component<span class="token punctuation">:</span> <span class="token string">"dynamic-view"</span>
@@ -290,6 +293,11 @@ dynamic routing is needed.</p>
         path<span class="token punctuation">:</span> <span class="token string">"onlynumbers/:id/thenword/:specialType"</span><span class="token punctuation">,</span>
         pattern<span class="token punctuation">:</span> <span class="token punctuation">{</span>
             id<span class="token punctuation">:</span> <span class="token string">"[0-9]+"</span><span class="token punctuation">,</span>
+
+            <span class="token comment">// Matches routes with one of the matched words</span>
+            <span class="token comment">// /onlynumbers/123/thenword/foo</span>
+            <span class="token comment">// /onlynumbers/123/thenword/bar</span>
+            <span class="token comment">// /onlynumbers/123/thenword/baz</span>
             specialType<span class="token punctuation">:</span> <span class="token string">"(foo|bar|baz)"</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         component<span class="token punctuation">:</span> <span class="token string">"dynamic-view"</span>
