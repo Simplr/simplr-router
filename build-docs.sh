@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf docs
+mkdir docs
 cd rocket-docs
 npm run docs
 cd ..
