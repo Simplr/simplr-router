@@ -14,11 +14,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Getting started: Your first setup: Simplr Router</title>
-<meta property="og:title" content="Getting started: Your first setup: Simplr Router"/>
+<title>API: Route: Simplr Router</title>
+<meta property="og:title" content="API: Route: Simplr Router"/>
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="/guides/getting-started/minimal-setup/"/>
+<link rel="canonical" href="/docs/api/route/"/>
 
 
 
@@ -39,7 +39,7 @@
 <meta property="og:type" content="website"/>
 
 <meta property="og:image" content="."/>
-<meta property="og:url" content="/guides/getting-started/minimal-setup/"/>
+<meta property="og:url" content="/docs/api/route/"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 
@@ -110,11 +110,11 @@
       
   <a href="/docs/" class="
           
-          
+           active 
         ">Docs</a>
   <a href="/guides/" class="
           
-           active 
+          
         ">Guides</a>
 
     
@@ -167,72 +167,22 @@
     
       <rocket-navigation>
   <ul><li class="menu-item active">
-<a href="/guides/getting-started/">Getting started</a>
-<ul><li class="menu-item current">
-<a href="/guides/getting-started/minimal-setup/">Your first setup</a>
-
-
-</li>
-<li class="menu-item">
-<a href="/guides/getting-started/using-a-starter/">Using a starter</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/getting-started/using-an-outlet/">Using an outlet</a>
-
-</li></ul>
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/">Recipes</a>
+<a href="/docs/api/">API</a>
 <ul><li class="menu-item">
-<a href="/guides/recipes/dynamic-routes/">Dynamic routes</a>
+<a href="/docs/api/router-options/">Router Options</a>
+
+</li>
+<li class="menu-item current">
+<a href="/docs/api/route/">Route</a>
+
 
 </li>
 <li class="menu-item">
-<a href="/guides/recipes/named-routes/">Named routes</a>
+<a href="/docs/api/router/">Router</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/recipes/redirects/">Redirects</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/guards/">Guards</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/error-pages/">Error pages</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/slots/">Slots</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/child-routes/">Child routes</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/lazy-loading/">Lazy loading</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/recipes/programmatic-navigation/">Programmatic navigation</a>
-
-</li></ul>
-</li>
-<li class="menu-item">
-<a href="/guides/customizing/">Customizing</a>
-<ul><li class="menu-item">
-<a href="/guides/customizing/styling-transitions/">Styling transitions</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/customizing/middleware/">Middleware</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/customizing/rootpaths/">Changing routing root</a>
+<a href="/docs/api/helper-function/">Helper function</a>
 
 </li></ul>
 </li></ul>
@@ -254,33 +204,70 @@
       
         <main class="markdown-body">
   
-    <h1 id="getting-started-your-first-setup"><a class="anchor" href="#getting-started-your-first-setup"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Getting started: Your first setup</h1>
-<p>Simplr Router works by matching url pathing with Custom Element views.</p>
-<p>Simplr Router aims to provide developers a quick-to-setup but configurable routing setup for projects of all size.</p>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token string">"./minimal-setup.js"</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token string">"./example-view.js"</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token string">"./dynamic-view.js"</span><span class="token punctuation">;</span>
+    <h1 id="api-route"><a class="anchor" href="#api-route"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API: Route</h1>
+<p>Type name: SimplrRoute</p>
 
-<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"minimal-setup"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"example-view"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"dynamic/:id"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"dynamic-view"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>The Router sets itself up as you call <code>init()</code> on the router instance. While setting up,
-the router starts listening for navigation events on the page and navigates with it's routing where possible.</p>
-<p>You don't need to create custom navigation methods. Simplr Router overrides the default action of anchor tags when
-the navigation target is listed as a route.</p>
-<iframe src="https://codesandbox.io/embed/simplr-router-demo-c0xno?autoresize=1&#x26;fontsize=12&#x26;theme=light&#x26;module=%2Fsrc%2Frouting.js&#x26;editorsize=60" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="Simplr Router Demo" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>path</td><td>string</td><td>The URL path for the route</td></tr><tr><td>component</td><td>string</td><td>The view component name for the route</td></tr><tr><td>name</td><td>string</td><td>Name of the view route</td></tr><tr><td>import</td><td>Function</td><td>An import function for lazy loading. e.g. () => import("./my-view.js")</td></tr><tr><td>guard</td><td>Function</td><td>A guard function to check view access</td></tr><tr><td>routes</td><td>SimplrRoute[]</td><td>An array of subroutes that inherit paths from the parent route</td></tr><tr><td>slots</td><td>[x: string]: string | Function</td><td>An array of slots to append to the view component</td></tr><tr><td>pattern</td><td>[x: string]: string |</td><td>RegExp pattern to match dynamic route keys</td></tr><tr><td>redirect</td><td>string | { name: string }</td><td>Path to redirect to</td></tr></tbody></table>
 
   
     <div class="content-footer">
   <p>
     Caught a mistake or want to contribute to the documentation?
-    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/getting-started/minimal-setup.md">Edit this page on GitHub!</a>
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/docs/api/route.md">Edit this page on GitHub!</a>
   </p>
 </div>
 

@@ -14,11 +14,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Docs: Simplr Router</title>
-<meta property="og:title" content="Docs: Simplr Router"/>
+<title>API: Helper function: Simplr Router</title>
+<meta property="og:title" content="API: Helper function: Simplr Router"/>
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="/docs/"/>
+<link rel="canonical" href="/docs/api/helper-function/"/>
 
 
 
@@ -39,7 +39,7 @@
 <meta property="og:type" content="website"/>
 
 <meta property="og:image" content="."/>
-<meta property="og:url" content="/docs/"/>
+<meta property="og:url" content="/docs/api/helper-function/"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 
@@ -73,7 +73,7 @@
   
 
   
-  <body layout="layout-index">
+  <body layout="layout-sidebar">
   
 
     
@@ -109,7 +109,7 @@
     
       
   <a href="/docs/" class="
-           current 
+          
            active 
         ">Docs</a>
   <a href="/guides/" class="
@@ -166,7 +166,7 @@
 
     
       <rocket-navigation>
-  <ul><li class="menu-item">
+  <ul><li class="menu-item active">
 <a href="/docs/api/">API</a>
 <ul><li class="menu-item">
 <a href="/docs/api/router-options/">Router Options</a>
@@ -180,8 +180,9 @@
 <a href="/docs/api/router/">Router</a>
 
 </li>
-<li class="menu-item">
+<li class="menu-item current">
 <a href="/docs/api/helper-function/">Helper function</a>
+
 
 </li></ul>
 </li></ul>
@@ -201,25 +202,48 @@
 
       
       
-	<main class="markdown-body">
+        <main class="markdown-body">
   
-    <h1 id="docs"><a class="anchor" href="#docs"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Docs</h1>
-<p>The API documentation has references to most of the public facing API's
-the Simplr Router exposes.</p>
+    <h1 id="api-helper-function"><a class="anchor" href="#api-helper-function"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API: Helper function</h1>
+<p>Helper functions are callable functions that plug into the currently active Simplr Router instance
+without the developer having to hold onto a reference of the router.</p>
+<p>Helper functions are exported from the same package as the router itself.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> getBreadcrumbs <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>getBreadcrumbs()</td><td>Function(): SimplrRouterBreadcrumb[]</td><td>Returns the breadcrumbs for the current route.</td></tr><tr><td>getCurrentView()</td><td>Function(): SimplrRouterNavigationData</td><td>Returns the current view.</td></tr></tbody></table>
 
   
-    <button id="layout-index-open-navigation" class="call-to-action" data-action="trigger-mobile-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewbox="0 0 448 512" class="icon">
-        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
-      </svg>
-
-  <span>Show Navigation</span>
-</button>
+    <div class="content-footer">
+  <p>
+    Caught a mistake or want to contribute to the documentation?
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/docs/api/helper-function.md">Edit this page on GitHub!</a>
+  </p>
+</div>
 
   
 </main>
 
-
+      
     </div>
   </div>
 

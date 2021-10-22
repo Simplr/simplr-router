@@ -1,6 +1,6 @@
 {
     "name": "@simplr-wc/router",
-    "version": "7.0.0-rc1",
+    "version": "7.0.0-rc2",
     "keywords": [
         "javascript",
         "routing",
@@ -22,6 +22,5 @@
         "types": "npx -p typescript tsc ./**/*.js --declaration --allowJs --emitDeclarationOnly --out index.d.ts"
     },
     "author": "Matsuuu <huhta.matias@gmail.com> (https://matsu.fi/)",
-    "license": "ISC",
-    "typings": "simplr-router.d.ts"
+    "license": "ISC"
 }

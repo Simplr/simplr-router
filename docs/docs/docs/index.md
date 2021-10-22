@@ -1,3 +1,4 @@
 # Docs
 
-Add your markdown content here.
+The API documentation has references to most of the public facing API's 
+the Simplr Router exposes.
