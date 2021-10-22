@@ -1,4 +1,4 @@
-import { SimplrRouter } from '@simplr-wc/router';
+import { getBreadcrumbs, SimplrRouter } from '@simplr-wc/router';
 import { RouterDemo } from './RouterDemo.js';
 import "./forbidden-view.js";
 import "./not-found-view.js";
@@ -66,10 +66,15 @@ const routerOptions = {
             component: "forbidden-view"
         }
     ],
-    transitionSpeed: 100
+    transitionSpeed: 100,
+    rootPath: "/my-app"
 }
 
 const router = new SimplrRouter(routerOptions);
 router.init();
 
 customElements.define('router-demo', RouterDemo);
+
+addEventListener("keydown", () => {
+    console.log(getBreadcrumbs());
+})
