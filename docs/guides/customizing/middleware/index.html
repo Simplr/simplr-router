@@ -1,0 +1,447 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+  
+    
+
+  
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customizing: Middleware: Simplr Router</title>
+<meta property="og:title" content="Customizing: Middleware: Simplr Router">
+
+<meta name="generator" content="rocket 0.1">
+<link rel="canonical" href="/guides/customizing/middleware/">
+
+
+
+<meta name="description" content="Simplr Router is a small and effective routing solution for Web Components">
+<meta property="og:description" content="Simplr Router is a small and effective routing solution for Web Components">
+
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/favicon-16x16.png">
+<link rel="manifest" href="../../../assets/webmanifest.json">
+<link rel="mask-icon" href="../../../assets/safari-pinned-tab.svg" color="#3f93ce">
+<meta name="msapplication-TileColor" content="#1d3557">
+<meta name="theme-color" content="#1d3557">
+
+  
+    <meta property="og:site_name" content="Simplr Router">
+<meta property="og:type" content="website">
+
+<meta property="og:image" content="../../../1d9f8c46.png">
+<meta property="og:url" content="/guides/customizing/middleware/">
+
+<meta name="twitter:card" content="summary_large_image">
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../../../dba25cba.css">
+<link rel="stylesheet" href="../../../74a5dba1.css">
+<link rel="stylesheet" href="../../../ac2ea3b8.css">
+<link rel="stylesheet" href="../../../b8c01bc2.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
+
+  
+
+<link rel="preload" href="../../../5280dd3f.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../962426a7.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../78a4a5a2.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
+</head>
+
+  
+
+  
+  <body layout="layout-sidebar">
+  
+
+    
+      <header id="main-header">
+  <div class="content-area">
+    
+      <button id="mobile-menu-trigger" data-action="trigger-mobile-menu">
+	<span class="sr-only">Show Menu</span>
+	      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon">
+        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
+      </svg>
+
+</button>
+
+    
+      
+	<a class="logo-link" href="/">
+  <img src="../../../866a7333.png" alt="Simplr Router logo">
+  <span>Simplr Router</span>
+</a>
+
+
+
+    
+      <rocket-search class="search" json-url="/_merged_assets/_static/rocket-search-index.json">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" style="width: 25px;">
+    <path d="M51.6 96.7c11 0 21-3.9 28.8-10.5l35 35c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-35-35c6.5-7.8 10.5-17.9 10.5-28.8 0-24.9-20.2-45.1-45.1-45.1-24.8 0-45.1 20.3-45.1 45.1 0 24.9 20.3 45.1 45.1 45.1zm0-82c20.4 0 36.9 16.6 36.9 36.9C88.5 72 72 88.5 51.6 88.5S14.7 71.9 14.7 51.6c0-20.3 16.6-36.9 36.9-36.9z"></path>
+  </svg>
+</rocket-search>
+
+
+
+    
+      
+  <a href="/docs/" class="
+          
+          
+        ">Docs</a>
+  <a href="/guides/" class="
+          
+           active 
+        ">Guides</a>
+
+    
+      <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
+
+
+    
+      
+	<a class="social-link" href="https://github.com/Simplr/simplr-router" aria-label="Simplr Router on GitHub" rel="noopener noreferrer" target="_blank">
+		<span class="sr-only">GitHub</span>
+		
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none">
+  <title>GitHub</title>
+  <path fill="currentColor" fill-rule="evenodd" d="M8.18391.249268C3.82241.249268.253906 3.81777.253906 8.17927c0 3.46933 2.279874 6.44313 5.451874 7.53353.3965.0991.49563-.1983.49563-.3965v-1.3878c-2.18075.4956-2.67638-.9912-2.67638-.9912-.3965-.8922-.89212-1.1895-.89212-1.1895-.69388-.4957.09912-.4957.09912-.4957.793.0992 1.1895.793 1.1895.793.69388 1.2887 1.88338.8922 2.27988.6939.09912-.4956.29737-.8921.49562-1.0904-1.78425-.1982-3.5685-.8921-3.5685-3.96496 0-.89212.29738-1.586.793-2.08162-.09912-.19825-.3965-.99125.09913-2.08163 0 0 .69387-.19825 2.18075.793.59475-.19825 1.28862-.29737 1.9825-.29737.69387 0 1.38775.09912 1.98249.29737 1.4869-.99125 2.1808-.793 2.1808-.793.3965 1.09038.1982 1.88338.0991 2.08163.4956.59475.793 1.28862.793 2.08162 0 3.07286-1.8834 3.66766-3.66764 3.86586.29737.3965.59474.8921.59474 1.586v2.1808c0 .1982.0991.4956.5948.3965 3.172-1.0904 5.4518-4.0642 5.4518-7.53353-.0991-4.3615-3.6676-7.930002-8.02909-7.930002z" clip-rule="evenodd"></path>
+</svg>
+
+		
+	</a>
+	<a class="social-link" href="https://join.slack.com/t/lit-and-friends/shared_invite/zt-llwznvsy-LZwT13R66gOgnrg12PUGqw" aria-label="Simplr Router on Slack" rel="noopener noreferrer" target="_blank">
+		<span class="sr-only">Slack</span>
+		
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 123" fill="currentColor">
+  <title>Slack</title>
+  <path stroke="none" stroke-width="1" stroke-dasharray="none" stroke-linecap="butt" stroke-dashoffset="0" stroke-linejoin="miter" stroke-miterlimit="4" fill-rule="nonzero" d="M26.4 78.2c0 7.1-5.8 12.9-12.9 12.9S.6 85.3.6 78.2c0-7.1 5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V78.2zm12.9-51.8c-7.1 0-12.9-5.8-12.9-12.9S38.7.6 45.8.6s12.9 5.8 12.9 12.9v12.9H45.8zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H13.5C6.4 58.7.6 52.9.6 45.8s5.8-12.9 12.9-12.9h32.3zM97.6 45.8c0-7.1 5.8-12.9 12.9-12.9 7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H97.6V45.8zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9-7.1 0-12.9-5.8-12.9-12.9V13.5C65.3 6.4 71.1.6 78.2.6c7.1 0 12.9 5.8 12.9 12.9v32.3zM78.2 97.6c7.1 0 12.9 5.8 12.9 12.9 0 7.1-5.8 12.9-12.9 12.9-7.1 0-12.9-5.8-12.9-12.9V97.6h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9 0-7.1 5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9 0 7.1-5.8 12.9-12.9 12.9H78.2z"></path>
+</svg>
+
+		
+	</a>
+
+    
+  </div>
+</header>
+
+    
+
+    
+  <div id="content-wrapper">
+    <div class="content-area">
+      
+        <rocket-drawer id="sidebar">
+  <nav slot="content" id="sidebar-nav">
+    
+      <a class="logo-link" href="/">
+  <img src="../../../866a7333.png" alt="Simplr Router logo">
+  <span>Simplr Router</span>
+</a>
+
+
+    
+      <rocket-navigation>
+  <ul><li class="menu-item">
+<a href="/guides/getting-started/">Getting started</a>
+<ul><li class="menu-item">
+<a href="/guides/getting-started/your-first-setup/">Your first setup</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/getting-started/using-a-starter/">Using a starter</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/getting-started/using-an-outlet/">Using an outlet</a>
+
+</li></ul>
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/">Recipes</a>
+<ul><li class="menu-item">
+<a href="/guides/recipes/child-routes/">Child routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/dynamic-routes/">Dynamic routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/error-pages/">Error pages</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/guards/">Guards</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/lazy-loading/">Lazy loading</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/named-routes/">Named routes</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/programmatic-navigation/">Programmatic navigation</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/redirects/">Redirects</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/recipes/slots/">Slots</a>
+
+</li></ul>
+</li>
+<li class="menu-item active">
+<a href="/guides/customizing/">Customizing</a>
+<ul><li class="menu-item current">
+<a href="/guides/customizing/middleware/">Middleware</a>
+<ul>
+  <li class="menu-item anchor">
+    <a href="#using-a-middleware" class="anchor">Using a middleware</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#middleware-template" class="anchor">Middleware template</a>
+  </li>
+</ul>
+
+</li>
+<li class="menu-item">
+<a href="/guides/customizing/rootpaths/">Changing routing root</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/customizing/styling-transitions/">Styling transitions</a>
+
+</li></ul>
+</li></ul>
+  <div class="sidebar-bottom">
+  <hr> <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
+
+  
+    <a href="https://github.com/Simplr/simplr-router/issues">Help and Feedback</a>
+  
+</div>
+
+</rocket-navigation>
+
+    
+  </nav>
+</rocket-drawer>
+
+      
+      
+        <main class="markdown-body">
+  
+    <h1 id="customizing-middleware"><a class="anchor" href="#customizing-middleware"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Customizing: Middleware</h1>
+<p>Simplr Router supports middleware to enhance the base functionality of the Router.</p>
+<p>A middleware can be easily plugged into the router and used across the project.</p>
+<p>A middleware instance can implement one or all of the middleware functions exposed by the router. The functions are as follows:</p>
+<h3 id="reactive-events"><a class="anchor" href="#reactive-events"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Reactive events</h3>
+<p>These functions are used to react to events administrated by Simplr Router.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>routerNavigating</td><td>Consumes: viewObject <br><br> Produces: viewObject</td><td>routerNavigating is called after the router has resolved the route it needs to navigate to. The viewObject will contain data about the route, if one was found. <br><br> This function can be used to apply additional checks to the routes, or for manipulating the route data before navigation actually happens. <br><br> Another use-case could be for example logging or analytics</td></tr><tr><td>routerNavigationComplete</td><td>Consumes: container <br><br> Produces: Nothing</td><td>routerNavigationComplete is called after the navigation has finished. <br><br> This middleware hook could be used to apply additional effects to views after navigation has fully completed.</td></tr><tr><td>newViewAddedToDOM</td><td>Consumes: container <br><br> Produces: Nothing</td><td>newViewAddedToDOM is called as soon as the new view element has hit the DOM, and is accessible by javascript.<br><br> This middleware hook could be used to apply some additional effects as soon as possible, even before the whole transition animation has finished.</td></tr></tbody></table>
+<h3 id="overriding-events"><a class="anchor" href="#overriding-events"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Overriding events</h3>
+<p>These functions are used to override the default behavior of Simplr Router</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>addViewToContainerOverride</td><td>Consumes: container, viewObject <br><br> Produces: Nothing</td><td>addViewToContainerOverride overwrites the functionality Simplr Router has for appending a new View component into the Simplr Router Container. <br><br> If this function is defined in a middleware, it overrides the default functionality with the new one. <br><br> A use case for overriding the existing implementation could be for example support for a different javascript framework.<br><br> An example on this can be found from the official <a href="https://github.com/Simplr/simplr-router-react-middleware/blob/main/react-middleware.js#L5">React Middleware implementation</a></td></tr><tr><td>createComponentOverride</td><td>Consumes: view <br><br>Produces: component</td><td>createComponentOverride overwrites the functionality Simplr Router has for creating the View Component before appending it into the Simplr Router Container. <br><br> Some frameworks might have a different way of creating a fresh component from the default implementation of Simplr Router. In these cases it's worth consideration to overwrite this function to impelment a custom builder for the view component. <br><br> The default functionality uses the document.createElement()-function to create the view, so if a different method is needed, this function can do that. <br><br>An example on this can be found from the official <a href="https://github.com/Simplr/simplr-router-react-middleware/blob/main/react-middleware.js#L9">React Middleware implementation</a></td></tr></tbody></table>
+<h2 id="using-a-middleware"><a class="anchor" href="#using-a-middleware"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using a middleware</h2>
+<p>Plugging in a middleware into Simplr Router can be done with the <code>use()</code>-function</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token maybe-class-name">MyMiddleware</span> <span class="token keyword module">from</span> <span class="token string">"./middleware.js"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">MyMiddleware</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="middleware-template"><a class="anchor" href="#middleware-template"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Middleware template</h2>
+<p>A middleware that implements all of the functions would be as follows:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">class</span> <span class="token class-name">SimplrRouterMiddleware</span> <span class="token punctuation">{</span>
+    <span class="token function">routerNavigating</span><span class="token punctuation">(</span><span class="token parameter">viewObject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Navigating to view"</span><span class="token punctuation">,</span> viewObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> viewObject<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">routerNavigationComplete</span><span class="token punctuation">(</span><span class="token parameter">container</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Navigation complete. New container around the new view is "</span><span class="token punctuation">,</span> container<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">newViewAddedToDOM</span><span class="token punctuation">(</span><span class="token parameter">container</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Container containing the new view was added to the DOM"</span><span class="token punctuation">,</span> container<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">addViewToContainerOverride</span><span class="token punctuation">(</span><span class="token parameter">container<span class="token punctuation">,</span> viewObject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// This is actually the default configuration, but I'm overwriting it anyway</span>
+        container<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>viewObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// This Overwrite example is from the React implementation</span>
+    <span class="token function">createComponentOverride</span><span class="token punctuation">(</span><span class="token parameter">view</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>view<span class="token punctuation">.</span><span class="token keyword module">import</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">await</span> view<span class="token punctuation">.</span><span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span>view<span class="token punctuation">.</span><span class="token property-access">component</span><span class="token punctuation">,</span> view<span class="token punctuation">.</span><span class="token property-access">params</span><span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+  
+    <div class="content-footer">
+  <p>
+    Caught a mistake or want to contribute to the documentation?
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/customizing/middleware.md">Edit this page on GitHub!</a>
+  </p>
+</div>
+
+  
+</main>
+
+      
+    </div>
+  </div>
+
+
+    
+      <footer id="main-footer">
+  
+    
+
+  
+    <div id="footer-menu">
+  <div class="content-area">
+    
+      <nav>
+        <h3>Discover</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/Simplr/simplr-router/issues">Help and Feedback</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+      <nav>
+        <h3>Follow</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/Simplr/simplr-router">GitHub</a>
+            </li>
+          
+            <li>
+              <a href="https://twitter.com/matsuuu_">Twitter</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+      <nav>
+        <h3>Support</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/modernweb-dev/rocket/blob/master/CONTRIBUTING.md">Contribute</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+  </div>
+</div>
+
+  
+</footer>
+
+    
+
+    
+  
+
+
+  
+
+<script>
+  window.__rocketServiceWorkerUrl = '/service-worker.js';
+</script>
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<script type="module" src="../../../5280dd3f.js"></script>
+<script type="module" src="../../../78a4a5a2.js"></script>
+<script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
+
+</body></html>
