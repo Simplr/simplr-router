@@ -4,9 +4,9 @@ layout: layout-home
 slogan: A small and effective routing solution for Web Components
 callToActionItems:
   - text: Follow Guides
-    href: /guides/
+    href: guides/
   - text: Browse Docs
-    href: /docs/
+    href: docs/
 
 reasonHeader: Why Simplr Router
 reasons:
