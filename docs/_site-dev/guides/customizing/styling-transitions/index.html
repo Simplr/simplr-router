@@ -251,6 +251,53 @@
         <main class="markdown-body">
   
     <h1 id="customizing-styling-transitions"><a class="anchor" href="#customizing-styling-transitions"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Customizing: Styling transitions</h1>
+<p>You can create transition animations for your views by modifying the css of the wrapper Simplr Router creates.</p>
+<p>To enable transitions, a <code>transitionSpeed</code> property needs to be set in the config.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">"Home"</span><span class="token punctuation">,</span>
+            path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span> <span class="token string">"router-demo"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">"Example"</span><span class="token punctuation">,</span>
+            path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span> <span class="token string">"router-example"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+    transitionSpeed<span class="token punctuation">:</span> <span class="token number">400</span> <span class="token comment">// in ms</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span>routerOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Now all that is needed is to modify the css of the <code>simplr-router-container</code> -element.</p>
+<h3 id="example-transitions"><a class="anchor" href="#example-transitions"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example transitions</h3>
+<h4 id="fade-in-out"><a class="anchor" href="#fade-in-out"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Fade in out</h4>
+<pre class="language-css"><code class="language-css"><span class="token selector">simplr-router-container<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">entering-view</span><span class="token punctuation">]</span></span>,
+simplr-router-container<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">leaving-view</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="slide-in-out"><a class="anchor" href="#slide-in-out"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Slide in out</h4>
+<pre class="language-css"><code class="language-css"><span class="token selector">simplr-router-container<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">entering-view</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token number">-100</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">simplr-router-container<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">leaving-view</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="zoom"><a class="anchor" href="#zoom"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Zoom</h4>
+<pre class="language-css"><code class="language-css"><span class="token selector">simplr-router-container<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">entering-view</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">simplr-router-container<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">leaving-view</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">-1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
   
     <div class="content-footer">

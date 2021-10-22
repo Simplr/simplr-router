@@ -66,6 +66,7 @@ const routerOptions = {
             component: "forbidden-view"
         }
     ],
+    transitionSpeed: 100
 }
 
 const router = new SimplrRouter(routerOptions);
