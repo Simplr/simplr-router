@@ -8,7 +8,7 @@ A small and effective routing solution for Web Components.
 
 ## Getting started
 
-Get started using Simplr Router with [one of the guides from the documentation site](http://localhost:8001/guides/)
+Get started using Simplr Router with [one of the guides from the documentation site](https://simplr.github.io/simplr-router/guides/getting-started/using-a-starter/)
 
 ```javascript
 import { SimplrRouter } from "@simplr-wc/router";
