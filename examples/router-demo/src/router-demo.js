@@ -30,6 +30,24 @@ const routerOptions = {
             import: () => import("./param-example.js")
         },
         {
+            name: "Pattern number",
+            path: "pattern/:id",
+            component: "pattern-example",
+            import: () => import("./pattern-example.js"),
+            pattern: {
+                id: "\\d+"
+            }
+        },
+        {
+            name: "Pattern word",
+            path: "pattern/:word",
+            component: "pattern-example",
+            import: () => import("./pattern-example.js"),
+            pattern: {
+                word: "[A-Za-z]+"
+            }
+        },
+        {
             name: "Redirect",
             path: "foo",
             redirect: "/example"
