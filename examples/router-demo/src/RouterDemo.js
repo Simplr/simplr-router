@@ -61,11 +61,13 @@ export class RouterDemo extends LitElement {
 
     render() {
         return html`
+            <slot name="top-bar"></slot>
       <main>
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
 
         <a href="/example">Press here to navigate to the example page</a>
+      </main>
     `;
     }
 }

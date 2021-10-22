@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Discover",
+    "children": [
+      {
+        "text": "Help and Feedback",
+        "href": "https://github.com/Simplr/simplr-router/issues"
+      }
+    ]
+  },
+  {
+    "name": "Follow",
+    "children": [
+      {
+        "text": "GitHub",
+        "href": "https://github.com/Simplr/simplr-router"
+      },
+      {
+        "text": "Twitter",
+        "href": "https://twitter.com/matsuuu_"
+      }
+    ]
+  },
+  {
+    "name": "Support",
+    "children": [
+      {
+        "text": "Contribute",
+        "href": "https://github.com/modernweb-dev/rocket/blob/master/CONTRIBUTING.md"
+      }
+    ]
+  }
+]
