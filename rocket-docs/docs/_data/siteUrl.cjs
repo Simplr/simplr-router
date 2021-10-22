@@ -1,4 +1,4 @@
-let url = '';
+let url = 'https://simplr.github.io/simplr-router/';
 
 // handling netlify previews
 switch (process.env.CONTEXT) {
