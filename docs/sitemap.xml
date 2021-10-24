@@ -2,108 +2,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-      <loc>https://simplr.github.io/simplr-router//docs/api/helper-function/</loc>
-      <lastmod>2021-10-22T11:32:53.457Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/helper-function/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//docs/api/</loc>
-      <lastmod>2021-10-22T11:32:53.457Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//docs/api/route/</loc>
-      <lastmod>2021-10-22T11:32:53.457Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/route/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//docs/api/router-options/</loc>
-      <lastmod>2021-10-22T11:32:53.457Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/router-options/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//docs/api/router/</loc>
-      <lastmod>2021-10-22T11:32:53.457Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/router/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//docs/</loc>
-      <lastmod>2021-10-22T11:32:53.457Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/customizing/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/customizing/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/customizing/middleware/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/customizing/middleware/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/customizing/rootpaths/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/customizing/rootpaths/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/customizing/styling-transitions/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/customizing/styling-transitions/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/getting-started/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/getting-started/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/getting-started/using-a-starter/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/getting-started/using-a-starter/</loc>
+      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/getting-started/using-an-outlet/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/getting-started/using-an-outlet/</loc>
+      <lastmod>2021-10-24T18:43:13.227Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/getting-started/your-first-setup/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/getting-started/your-first-setup/</loc>
+      <lastmod>2021-10-24T18:43:13.227Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/</loc>
+      <lastmod>2021-10-24T18:43:13.227Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/child-routes/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/child-routes/</loc>
+      <lastmod>2021-10-24T18:43:13.227Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/dynamic-routes/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/dynamic-routes/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/error-pages/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/error-pages/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/guards/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/guards/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/lazy-loading/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/lazy-loading/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/named-routes/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/named-routes/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/programmatic-navigation/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/programmatic-navigation/</loc>
+      <lastmod>2021-10-24T18:43:13.231Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/redirects/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/redirects/</loc>
+      <lastmod>2021-10-24T18:43:13.237Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//guides/recipes/slots/</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/slots/</loc>
+      <lastmod>2021-10-24T18:43:13.237Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//</loc>
-      <lastmod>2021-10-22T11:32:53.460Z</lastmod>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/</loc>
+      <lastmod>2021-10-24T18:43:13.237Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
 </urlset>
