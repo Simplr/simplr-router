@@ -10,10 +10,7 @@ In a regular routing situation, your routing file might look something like this
 
 ```javascript
 import { SimplrRouter } from "@simplr-wc/router";
-import { SimplrRouterDemo } from "./SimplrRouterDemo.js";
 import "./ExampleView.js";
-
-customElements.define("simplr-router-demo", SimplrRouterDemo);
 
 const routes = [
     { path: "", component: "simplr-router-demo" },
@@ -29,9 +26,6 @@ top of the file, and add them as properties to your routes:
 
 ```javascript
 import { SimplrRouter } from "@simplr-wc/router";
-import { SimplrRouterDemo } from "./SimplrRouterDemo.js";
-
-customElements.define("simplr-router-demo", SimplrRouterDemo);
 
 const routes = [
     { path: "", component: "simplr-router-demo" },

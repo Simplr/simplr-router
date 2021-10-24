@@ -253,10 +253,7 @@ allowing for on-demand loading of content as it's needed, reducing initial load 
 of time in your page's initial load times.</p>
 <p>In a regular routing situation, your routing file might look something like this:</p>
 <pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouterDemo</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"./SimplrRouterDemo.js"</span><span class="token punctuation">;</span>
 <span class="token keyword module">import</span> <span class="token string">"./ExampleView.js"</span><span class="token punctuation">;</span>
-
-customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">"simplr-router-demo"</span><span class="token punctuation">,</span> <span class="token maybe-class-name">SimplrRouterDemo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -269,9 +266,6 @@ router<span class="token punctuation">.</span><span class="token method function
 <p>To enable lazy loading, remove the import statements of the views you want to load lazily from the
 top of the file, and add them as properties to your routes:</p>
 <pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouterDemo</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"./SimplrRouterDemo.js"</span><span class="token punctuation">;</span>
-
-customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">"simplr-router-demo"</span><span class="token punctuation">,</span> <span class="token maybe-class-name">SimplrRouterDemo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -344,7 +338,7 @@ and bundle it correctly, even if the file gets renamed.</p>
         <ul>
           
             <li>
-              <a href="https://github.com/modernweb-dev/rocket/blob/master/CONTRIBUTING.md">Contribute</a>
+              <a href="https://github.com/Simplr/simplr-router">Contribute</a>
             </li>
           
         </ul>
