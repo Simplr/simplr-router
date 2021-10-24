@@ -3,6 +3,7 @@ import { rocketSearch } from '@rocket/search';
 
 const config = {
     absoluteBaseUrl: "https://simplr.github.io/simplr-router/",
+    pathPrefix: "/simplr-router/",
     presets: [rocketLaunch(), rocketSearch()]
 }
 
