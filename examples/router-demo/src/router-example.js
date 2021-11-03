@@ -60,6 +60,10 @@ export class RouterExample extends LitElement {
         this.title = 'Welcome to the routing example';
     }
 
+    firstUpdated() {
+        console.log("This roll: ", this.roll);
+    }
+
     renderBreadcrumbs() {
         const breadcrumbs = getBreadcrumbs();
         return html`${breadcrumbs.map(bc => html`<a href="${bc.path}">${bc.name}</a> / `)}`

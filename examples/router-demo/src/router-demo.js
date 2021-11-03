@@ -89,8 +89,10 @@ const routerOptions = {
             path: "guarded",
             component: "router-example",
             import: () => import("./router-example.js"),
-            guard: () => {
-                return Math.random() >= 0.5;
+            guard: (viewParams) => {
+                const roll = Math.random();
+                viewParams.roll = roll;
+                return roll >= 0.5;
             }
         },
         {
