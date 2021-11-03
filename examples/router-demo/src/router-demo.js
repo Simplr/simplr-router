@@ -96,6 +96,16 @@ const routerOptions = {
             }
         },
         {
+            name: "Guarded with param",
+            path: "guarded/:id",
+            component: "router-example",
+            import: () => import("./router-example.js"),
+            guard: (viewParams) => {
+                console.log(viewParams);
+                return viewParams.id > 0;
+            }
+        },
+        {
             path: "not-found",
             component: "not-found-view"
         },

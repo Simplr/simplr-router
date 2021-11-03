@@ -197,7 +197,14 @@
 </li>
 <li class="menu-item current">
 <a href="/simplr-router/guides/recipes/guards/">Guards</a>
-
+<ul>
+  <li class="menu-item anchor">
+    <a href="#binding-values-from-guard-functions" class="anchor">Binding values from guard functions</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#observing-view-parameters-in-guard-functions" class="anchor">Observing view parameters in guard functions</a>
+  </li>
+</ul>
 
 </li>
 <li class="menu-item">
@@ -274,6 +281,43 @@ view a route.</p>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="binding-values-from-guard-functions"><a class="anchor" href="#binding-values-from-guard-functions"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Binding values from guard functions</h2>
+<p>Sometimes in guard functions, you might access data from an external source, like an API. In these
+situations you might want to carry this data onwards into the view.</p>
+<p>The Guard API passes the view params object to the guard function as it's first parameter, and allows
+you to bind values to it, binding them into the view as it's created.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"minimal-setup"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"example-view"</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">"Example"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">"/guarded"</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> <span class="token string">"example-view"</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">guard</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">viewParams</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+            <span class="token comment">// A 50/50 chance to get on page</span>
+            <span class="token keyword">const</span> roll <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            viewParams<span class="token punctuation">.</span><span class="token property-access">roll</span> <span class="token operator">=</span> roll<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> roll <span class="token operator">>=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="observing-view-parameters-in-guard-functions"><a class="anchor" href="#observing-view-parameters-in-guard-functions"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Observing view parameters in guard functions</h2>
+<p>Similiarly to the binding of values, you can also access the view parameters of dynamic routes in your guard functions.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"minimal-setup"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"example-view"</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">"Example"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">"/guarded/:id"</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> <span class="token string">"example-view"</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">guard</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">viewParams</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>viewParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> viewParams<span class="token punctuation">.</span><span class="token property-access">id</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
 
   
