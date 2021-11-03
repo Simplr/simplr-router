@@ -30,7 +30,13 @@ const routerOptions = {
                 }
             ]
         },
-        { path: "", component: "simplr-router-demo" },
+        {
+            name: "Prevent exit",
+            path: "prevent",
+            component: "prevent-example",
+            preventUnload: true,
+            import: () => import("./prevent-example.js")
+        },
         {
             name: "Parameter",
             path: "param/:id",

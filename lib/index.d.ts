@@ -223,6 +223,8 @@ declare module "modules/router" {
         builder: Builder;
         observer: Observer;
         middlewareHandler: MiddlewareHandler;
+        /** @type SimplrRouterNavigationData */
+        currentView: SimplrRouterNavigationData;
         staticRoutes: any[];
         dynamicRoutes: any[];
         notFoundAction: Function;
@@ -237,7 +239,6 @@ declare module "modules/router" {
          * @param {SimplrRouterNavigationData} viewObject
          */
         changeView(viewObject: SimplrRouterNavigationData): Promise<void>;
-        currentView: SimplrRouterNavigationData;
         /**
          * @param {SimplrRouterNavigationData} view
          * @returns {Promise<HTMLElement>}
@@ -290,7 +291,7 @@ declare module "modules/router" {
         /**
          * @param {SimplrRouterNavigationData} newView
          */
-        _checkViewValidity(newView: SimplrRouterNavigationData): Promise<any>;
+        _checkViewValidity(newView: SimplrRouterNavigationData): any;
         /**
          * @param {SimplrRouterNavigationData} view
          */
@@ -356,6 +357,7 @@ declare module "simplr-router" {
     }
     export function changeView(changeViewObject: ChangeViewObject): any;
     export function getBreadcrumbs(): any;
+    export function getCurrentView(): any;
     import { Config } from "modules/config";
     import { Router } from "modules/router";
 }
@@ -464,6 +466,10 @@ type SimplrRoute = {
     redirect?: string | {
         name: string;
     };
+    /**
+     * If navigation from this page should be prevented with a confirmation dialog
+     */
+    preventUnload?: boolean;
 };
 type SimplrRouterOptions = {
     /**
