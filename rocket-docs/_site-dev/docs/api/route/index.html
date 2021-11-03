@@ -261,7 +261,12 @@
 
 
 
-<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>path</td><td>string</td><td>The URL path for the route</td></tr><tr><td>component</td><td>string</td><td>The view component name for the route</td></tr><tr><td>name</td><td>string</td><td>Name of the view route</td></tr><tr><td>import</td><td>Function</td><td>An import function for lazy loading. e.g. () => import("./my-view.js")</td></tr><tr><td>guard</td><td>Function</td><td>A guard function to check view access</td></tr><tr><td>routes</td><td>SimplrRoute[]</td><td>An array of subroutes that inherit paths from the parent route</td></tr><tr><td>slots</td><td>[x: string]: string | Function</td><td>An array of slots to append to the view component</td></tr><tr><td>pattern</td><td>[x: string]: string |</td><td>RegExp pattern to match dynamic route keys</td></tr><tr><td>redirect</td><td>string | { name: string }</td><td>Path to redirect to</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>path</td><td>string</td><td>The URL path for the route</td></tr><tr><td>component</td><td>string</td><td>The view component name for the route</td></tr><tr><td>name</td><td>string</td><td>Name of the view route</td></tr><tr><td>import</td><td>Function</td><td>An import function for lazy loading. e.g. () => import("./my-view.js")</td></tr><tr><td>guard</td><td>Function</td><td>A guard function to check view access</td></tr><tr><td>routes</td><td>SimplrRoute[]</td><td>An array of subroutes that inherit paths from the parent route</td></tr><tr><td>slots</td><td>[x: string]: string | Function</td><td>An array of slots to append to the view component</td></tr><tr><td>pattern</td><td>[x: string]: string |</td><td>RegExp pattern to match dynamic route keys</td></tr><tr><td>redirect</td><td>string | { name: string }</td><td>Path to redirect to</td></tr><tr><td>preventUnload</td><td>boolean</td><td>If the router should intercept navigation from this page with a confirmation dialog</td></tr></tbody></table>
 
   
     <div class="content-footer">
