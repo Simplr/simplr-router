@@ -21,8 +21,16 @@ const routerOptions = {
             name: "Example",
             path: "example",
             component: "router-example",
-            import: () => import("./router-example.js")
+            import: () => import("./router-example.js"),
+            routes: [
+                {
+                    path: "foo",
+                    component: "router-example",
+                    import: () => import("./router-example.js"),
+                }
+            ]
         },
+        { path: "", component: "simplr-router-demo" },
         {
             name: "Parameter",
             path: "param/:id",
@@ -36,7 +44,17 @@ const routerOptions = {
             import: () => import("./pattern-example.js"),
             pattern: {
                 id: "\\d+"
-            }
+            },
+            routes: [
+                {
+                    path: "/andname/:name",
+                    component: "pattern-with-name-example",
+                    import: () => import("./pattern-with-name-example.js"),
+                    pattern: {
+                        name: "[A-Za-z]+"
+                    }
+                }
+            ]
         },
         {
             name: "Pattern word",
@@ -90,6 +108,7 @@ const routerOptions = {
 
 const router = new SimplrRouter(routerOptions);
 router.init();
+console.log(router.router.routes);
 
 customElements.define('router-demo', RouterDemo);
 

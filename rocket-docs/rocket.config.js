@@ -5,6 +5,7 @@ import { adjustPluginOptions } from "plugins-manager";
 const config = {
     absoluteBaseUrl: "https://simplr.github.io/simplr-router/",
     pathPrefix: "/simplr-router/",
+    urlPath: "/simplr-router/",
     setupEleventyComputedConfig: [
         adjustPluginOptions("socialMediaImage", {
             createSocialImageSvg: async ({
