@@ -31,6 +31,30 @@ const routerOptions = {
             ]
         },
         {
+            name: "Users",
+            path: "users",
+            component: "users-view",
+            import: () => import("./users-view.js"),
+            children: [
+                {
+                    path: "",
+                    component: "users-list-view",
+                    import: () => import("./users-list-view.js")
+                },
+                {
+                    path: ":userId",
+                    component: "user-profile-view",
+                    import: () => import("./user-profile-view.js"),
+                    pattern: { userId: "\\d+" }
+                },
+                {
+                    path: "new",
+                    component: "user-add-view",
+                    import: () => import("./user-add-view.js")
+                }
+            ]
+        },
+        {
             name: "Prevent exit",
             path: "prevent",
             component: "prevent-example",

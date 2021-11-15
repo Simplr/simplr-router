@@ -163,8 +163,9 @@ declare module "modules/parser" {
          * @param {SimplrRouterNavigationData[]} staticRoutes
          * @param {SimplrRouterNavigationData[]} dynamicRoutes
          * @param {SimplrRouterNavigationData} [parent]
+         * @param {boolean} [isNested = false]
          */
-        _iterateRoutes(routes: SimplrRoute[], staticRoutes: SimplrRouterNavigationData[], dynamicRoutes: SimplrRouterNavigationData[], parent?: SimplrRouterNavigationData): void;
+        _iterateRoutes(routes: SimplrRoute[], staticRoutes: SimplrRouterNavigationData[], dynamicRoutes: SimplrRouterNavigationData[], parent?: SimplrRouterNavigationData, isNested?: boolean): void;
         /**
          * @param {string} partOne
          * @param {string} partTwo
@@ -237,8 +238,9 @@ declare module "modules/router" {
         get routes(): any[];
         /**
          * @param {SimplrRouterNavigationData} viewObject
+         * @param {string} historyPath
          */
-        changeView(viewObject: SimplrRouterNavigationData): Promise<void>;
+        changeView(viewObject: SimplrRouterNavigationData, historyPath: string): Promise<void>;
         /**
          * @param {SimplrRouterNavigationData} view
          * @returns {Promise<HTMLElement>}
@@ -409,6 +411,10 @@ type SimplrRouterNavigationDataProps = {
      * The breadcrumbs to the current path
      */
     crumbs: SimplrRouterBreadcrumb[];
+    /**
+     * The parent view of a nested route
+     */
+    nestedParent?: SimplrRouterNavigationData;
 };
 type SimplrRouterNavigationData = SimplrRoute & SimplrRouterNavigationDataProps;
 type SimplrRouterBreadcrumb = {
@@ -448,6 +454,10 @@ type SimplrRoute = {
      * An array of subroutes that inherit paths from the parent route
      */
     routes?: SimplrRoute[];
+    /**
+     * An array of nested routes that are rendered inside a nested router outlet
+     */
+    children?: SimplrRoute[];
     /**
      * An array of slots to append to the view component
      */

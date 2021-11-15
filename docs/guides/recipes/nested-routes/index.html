@@ -8,11 +8,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipes: Lazy loading: Simplr Router</title>
-<meta property="og:title" content="Recipes: Lazy loading: Simplr Router">
+<title>Recipes: Nested routes: Simplr Router</title>
+<meta property="og:title" content="Recipes: Nested routes: Simplr Router">
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="https://simplr.github.io/guides/recipes/lazy-loading/">
+<link rel="canonical" href="https://simplr.github.io/guides/recipes/nested-routes/">
 
 
 
@@ -32,8 +32,8 @@
     <meta property="og:site_name" content="Simplr Router">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="https://simplr.github.io/a108fe31.png">
-<meta property="og:url" content="https://simplr.github.io/simplr-router/guides/recipes/lazy-loading/">
+<meta property="og:image" content="https://simplr.github.io/d5808608.png">
+<meta property="og:url" content="https://simplr.github.io/simplr-router/guides/recipes/nested-routes/">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -191,9 +191,8 @@
 <a href="/simplr-router/guides/recipes/guards/">Guards</a>
 
 </li>
-<li class="menu-item current">
+<li class="menu-item">
 <a href="/simplr-router/guides/recipes/lazy-loading/">Lazy loading</a>
-
 
 </li>
 <li class="menu-item">
@@ -216,8 +215,9 @@
 <a href="/simplr-router/guides/recipes/preventing-navigation/">Preventing navigation</a>
 
 </li>
-<li class="menu-item">
+<li class="menu-item current">
 <a href="/simplr-router/guides/recipes/nested-routes/">Nested routes</a>
+
 
 </li></ul>
 </li>
@@ -254,47 +254,75 @@
       
         <main class="markdown-body">
   
-    <h1 id="recipes-lazy-loading"><a class="anchor" href="#recipes-lazy-loading"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Recipes: Lazy loading</h1>
-<p>Lazy loading is a technique in which the content of the web page is split between multiple files,
-allowing for on-demand loading of content as it's needed, reducing initial load on your app.</p>
-<p>Simplr Router supports lazy loading for it's view routes. This has the potential of saving a lot
-of time in your page's initial load times.</p>
-<p>In a regular routing situation, your routing file might look something like this:</p>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token string">"./ExampleView.js"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <h1 id="recipes-nested-routes"><a class="anchor" href="#recipes-nested-routes"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Recipes: Nested routes</h1>
+<p>In some situations, just a top level navigation might not be enough, you might need to
+have a dynamic sub-view on your page that is updated on navigation to another view.</p>
+<p>For these situations you can use nested views. In nested views, only the inner part of your view changed
+when navigating between nested views.</p>
+<p><strong>The content will be rendered inside the parent view, so if you're using web components, you will need
+to have a slot to display the nested view</strong></p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"example-view"</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">"users"</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> <span class="token string">"users-view"</span><span class="token punctuation">,</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> <span class="token string">"users-list-view"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">":userId"</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> <span class="token string">"user-profile-view"</span><span class="token punctuation">,</span>
+                pattern<span class="token punctuation">:</span> <span class="token punctuation">{</span> userId<span class="token punctuation">:</span> <span class="token string">"\\d+"</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">"new"</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> <span class="token string">"user-add-view"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>To enable lazy loading, remove the import statements of the views you want to load lazily from the
-top of the file, and add them as properties to your routes:</p>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">SimplrRouter</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"example"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"example-view"</span><span class="token punctuation">,</span> <span class="token function-variable function">import</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">"./ExampleView.js"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>The mapping above will create the following routes:</p>
+<pre><code>/
+/users
+/users/{id}
+/users/new
 </code></pre>
-<p>Now the view is only imported as the page is loaded, reducing initial load on your web app.
-It goes without saying that this might have magnitudes of effect on web applications where you have a large
-collections of views.</p>
-<h3 id="bundlers"><a class="anchor" href="#bundlers"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Bundlers</h3>
-<p>Due to the nature of the import being in code, most bundlers should be able to grasp onto the import statement
-and bundle it correctly, even if the file gets renamed.</p>
+<p>When navigating to the view <code>/users</code> the page view <code>users-view</code> will be rendered, and inside it, as it's
+Light DOM child, will be rendered the component <code>users-list-view</code>. This is because <code>users-list-view</code>'s path
+is blank. This marks it as the "base" nested view for this view.</p>
+<p>When the user navigates from <code>/users</code> to <code>/users/new</code>, only the nested view will be changed, not the whole view.</p>
+<pre><code>
+  /users                                         /users/new
+┌────────────────────────────────┐            ┌──────────────────────────────────┐
+│                                │            │                                  │
+│    users-view                  │            │    users-view                    │
+│                                │ ───────►   │                                  │
+│          ┌─────────┐           │            │           ┌──────────┐           │
+│          │ users-  │           │            │           │ user-    │           │
+│          │ list-   │           │            │           │ add-     │           │
+│          │ view    │           │ ───────►   │           │ view     │           │
+└──────────┴─────────┴───────────┘            └───────────┴──────────┴───────────┘
+
+</code></pre>
+<p>The DOM nodes of this view will be as follows:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simplr-router-container</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>users-view</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user-add-view</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user-add-view</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>users-view</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simplr-router-container</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
 
   
     <div class="content-footer">
   <p>
     Caught a mistake or want to contribute to the documentation?
-    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/recipes/lazy-loading.md">Edit this page on GitHub!</a>
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/recipes/nested-routes.md">Edit this page on GitHub!</a>
   </p>
 </div>
 
