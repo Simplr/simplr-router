@@ -5,6 +5,12 @@ import "./not-found-view.js";
 import "./special-top-bar.js";
 import "./regular-top-bar.js";
 
+window.addEventListener("simplr-router-navigated", e => {
+    const historyPath = e.detail.historyPath;
+    const view = e.detail.view;
+    console.log({ historyPath, view });
+})
+
 const routerOptions = {
     routes: [
         {

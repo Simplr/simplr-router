@@ -67,6 +67,7 @@ export class RouterDemo extends LitElement {
         <h1>${this.title}</h1>
 
         <a href="/example">Press here to navigate to the example page</a>
+        <a href="#foo">Hash</a>
       </main>
     `;
     }
