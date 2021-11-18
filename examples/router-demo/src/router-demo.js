@@ -11,6 +11,16 @@ window.addEventListener("simplr-router-navigated", e => {
     console.log({ historyPath, view });
 })
 
+const siteOptions = {
+    locale: "fi_FI",
+    doc: document,
+    someFunc: () => {
+        console.log("You called somefunc. The locale will be changed");
+        console.log(siteOptions);
+        siteOptions.locale = siteOptions.locale === "fi_FI" ? "en_EN" : "fi_FI";
+    }
+}
+
 const routerOptions = {
     routes: [
         {
@@ -28,6 +38,7 @@ const routerOptions = {
             path: "example",
             component: "router-example",
             import: () => import("./router-example.js"),
+            properties: { options: siteOptions },
             routes: [
                 {
                     path: "foo",

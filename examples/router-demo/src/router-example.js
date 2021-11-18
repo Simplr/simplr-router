@@ -7,6 +7,7 @@ export class RouterExample extends LitElement {
     static get properties() {
         return {
             title: { type: String },
+            options: { type: Object }
         };
     }
 
@@ -64,6 +65,13 @@ export class RouterExample extends LitElement {
         console.log("This roll: ", this.roll);
     }
 
+    callSomefunc() {
+
+        console.log("Site options: ", this.options);
+        this.options.someFunc();
+        console.log("Site options: after call", this.options);
+    }
+
     renderBreadcrumbs() {
         const breadcrumbs = getBreadcrumbs();
         return html`${breadcrumbs.map(bc => html`<a href="${bc.path}">${bc.name}</a> / `)}`
@@ -74,6 +82,7 @@ export class RouterExample extends LitElement {
       <main>
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
+            <button @click=${() => this.callSomefunc()}>Call somefunc</button>
 
         <a href="/param/11">Go to parametrized url</a>
 

@@ -80,6 +80,7 @@ declare module "modules/dispatcher" {
     export function sendTransitionStartEvent(view: any): void;
     export function sendTransitionFinishEvent(): void;
     export function sendRouterInitializedEvent(routes: any): void;
+    export function sendNavigatedEvent(view: any, historyPath: any): void;
 }
 declare module "modules/helper" {
     export function getEventPath(event: any): any;
@@ -231,6 +232,8 @@ declare module "modules/router" {
         notFoundAction: Function;
         forbiddenAction: Function;
         transitionInProgress: boolean;
+        activeView: SimplrRouterContainer;
+        activeViewObject: SimplrRouterNavigationData;
         /**
          * @returns { ObserverFunctions  }
          * */
@@ -276,7 +279,21 @@ declare module "modules/router" {
          * @param {SimplrRouterNavigationData} viewObject
          */
         _pushNewViewIntoDom(component: HTMLElement, viewObject: SimplrRouterNavigationData): void;
-        activeView: SimplrRouterContainer;
+        /**
+         * @param {HTMLElement} component
+         * @param {SimplrRouterNavigationData} viewObject
+         */
+        _handleNestedView(component: HTMLElement, viewObject: SimplrRouterNavigationData): void;
+        /**
+         * @param {HTMLElement} component
+         * @param {SimplrRouterNavigationData} viewObject
+         */
+        _handleFreshView(component: HTMLElement, viewObject: SimplrRouterNavigationData): void;
+        /**
+         * @param {Element} outlet
+         * @param {Element} container
+         */
+        _addContainerToView(outlet: Element, container: Element): void;
         handleUrlPathing(): void;
         /**
          * @param {string} name
@@ -293,7 +310,7 @@ declare module "modules/router" {
         /**
          * @param {SimplrRouterNavigationData} newView
          */
-        _checkViewValidity(newView: SimplrRouterNavigationData): any;
+        _checkViewValidity(newView: SimplrRouterNavigationData): Promise<any>;
         /**
          * @param {SimplrRouterNavigationData} view
          */
@@ -415,6 +432,12 @@ type SimplrRouterNavigationDataProps = {
      * The parent view of a nested route
      */
     nestedParent?: SimplrRouterNavigationData;
+    /**
+     * Properties to be passed to the view component
+     */
+    properties?: {
+        [x: string]: string;
+    };
 };
 type SimplrRouterNavigationData = SimplrRoute & SimplrRouterNavigationDataProps;
 type SimplrRouterBreadcrumb = {
