@@ -14,3 +14,4 @@ Type name: SimplrRoute
 | pattern       | [x: string]: string \|          | RegExp pattern to match dynamic route keys                                          |
 | redirect      | string \| { name: string }      | Path to redirect to                                                                 |
 | preventUnload | boolean                         | If the router should intercept navigation from this page with a confirmation dialog |
+| properties    | [x: string]: string             | Properties to pass to the view.                                                     |

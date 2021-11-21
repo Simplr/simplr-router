@@ -10,10 +10,6 @@
       <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
     </url><url>
-      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/route/</loc>
-      <lastmod>2021-10-24T18:43:13.224Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url><url>
       <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/router-options/</loc>
       <lastmod>2021-10-24T18:43:13.224Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -116,6 +112,14 @@
     </url><url>
       <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/events/</loc>
       <lastmod>2021-11-16T16:00:17.028Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url><url>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/docs/api/route/</loc>
+      <lastmod>2021-11-21T15:21:25.675Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url><url>
+      <loc>https://simplr.github.io/simplr-router//simplr-router/guides/recipes/passing-properties/</loc>
+      <lastmod>2021-11-21T15:21:25.675Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
 </urlset>

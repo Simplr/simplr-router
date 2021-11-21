@@ -8,11 +8,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipes: Programmatic navigation: Simplr Router</title>
-<meta property="og:title" content="Recipes: Programmatic navigation: Simplr Router">
+<title>Recipes: Passing properties: Simplr Router</title>
+<meta property="og:title" content="Recipes: Passing properties: Simplr Router">
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="https://simplr.github.io/guides/recipes/programmatic-navigation/">
+<link rel="canonical" href="https://simplr.github.io/guides/recipes/passing-properties/">
 
 
 
@@ -32,8 +32,8 @@
     <meta property="og:site_name" content="Simplr Router">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="https://simplr.github.io/28cea4e0.png">
-<meta property="og:url" content="https://simplr.github.io/simplr-router/guides/recipes/programmatic-navigation/">
+<meta property="og:image" content="https://simplr.github.io/f563d575.png">
+<meta property="og:url" content="https://simplr.github.io/simplr-router/guides/recipes/passing-properties/">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -199,9 +199,8 @@
 <a href="/simplr-router/guides/recipes/named-routes/">Named routes</a>
 
 </li>
-<li class="menu-item current">
+<li class="menu-item">
 <a href="/simplr-router/guides/recipes/programmatic-navigation/">Programmatic navigation</a>
-
 
 </li>
 <li class="menu-item">
@@ -220,8 +219,9 @@
 <a href="/simplr-router/guides/recipes/nested-routes/">Nested routes</a>
 
 </li>
-<li class="menu-item">
+<li class="menu-item current">
 <a href="/simplr-router/guides/recipes/passing-properties/">Passing properties</a>
+
 
 </li></ul>
 </li>
@@ -258,28 +258,40 @@
       
         <main class="markdown-body">
   
-    <h1 id="recipes-programmatic-navigation"><a class="anchor" href="#recipes-programmatic-navigation"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Recipes: Programmatic navigation</h1>
-<p>You might run into a situation while writing your web page, where you want to programmatically
-navigate to a path. For these situations you can use the built in function <code>changeView</code>.</p>
-<p><code>changeView</code> can be called with either the path of the page, or the name of the page.
-The function can also be provided with a page hash if needed.</p>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token punctuation">{</span> changeView <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">"@simplr-wc/router"</span><span class="token punctuation">;</span>
+    <h1 id="recipes-passing-properties"><a class="anchor" href="#recipes-passing-properties"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Recipes: Passing properties</h1>
+<p>Sometimes we might want to "inject" some properties to our views while we render them. This is where the <code>properties</code> property comes to play.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> localeOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    locale<span class="token punctuation">:</span> <span class="token string">"fi_FI"</span>
+<span class="token punctuation">}</span>
 
-<span class="token comment">// With path</span>
-<span class="token function">changeView</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/user/123"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> <span class="token string">"simplr-router-demo"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> <span class="token string">"user-view"</span><span class="token punctuation">,</span>
+        properties<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            localeOptions<span class="token punctuation">:</span> localeOptions
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token comment">// With name</span>
-<span class="token function">changeView</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">"home"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// With hash</span>
-<span class="token function">changeView</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/docs/foo"</span><span class="token punctuation">,</span> hash<span class="token punctuation">:</span> <span class="token string">"#important-info"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimplrRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> routes <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<p>The property is then accessible from the view itself</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Inside user-view</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">localeOptions</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { locale: "fi_FI" }</span>
+</code></pre>
+<p>This can be useful for unit testing your application as you can provide separate implementations of properties into
+your views depending on the environment.</p>
 
   
     <div class="content-footer">
   <p>
     Caught a mistake or want to contribute to the documentation?
-    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/recipes/programmatic-navigation.md">Edit this page on GitHub!</a>
+    <a href="https://github.com/Simplr/simplr-router/edit/master/./docs/guides/recipes/passing-properties.md">Edit this page on GitHub!</a>
   </p>
 </div>
 
