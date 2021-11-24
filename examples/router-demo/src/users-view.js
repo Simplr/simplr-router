@@ -1,7 +1,7 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from "lit";
 import { getBreadcrumbs } from "@simplr-wc/router";
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
 export class UsersView extends LitElement {
     static get properties() {
@@ -57,7 +57,7 @@ export class UsersView extends LitElement {
 
     constructor() {
         super();
-        this.title = 'Nested routes';
+        this.title = "Nested routes";
     }
 
     render() {
@@ -67,7 +67,10 @@ export class UsersView extends LitElement {
         <h1>${this.title}</h1>
         <a href="/">Back to home page</a>
 
-        <slot></slot>
+        <div style="border: 2px solid green;">
+          <h3>First subview will come here</h3>
+          <slot></slot>
+        </div>
       </main>
     `;
     }
