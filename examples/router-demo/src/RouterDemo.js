@@ -66,6 +66,7 @@ export class RouterDemo extends LitElement {
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
 
+        <a href="/users">Press here to navigate to the users</a>
         <a href="/example">Press here to navigate to the example page</a>
         <a href="#foo">Hash</a>
       </main>

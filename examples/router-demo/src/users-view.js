@@ -65,6 +65,7 @@ export class UsersView extends LitElement {
       <main style="border: 2px solid green;">
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
+        <a href="/">Back to home page</a>
 
         <slot></slot>
       </main>
