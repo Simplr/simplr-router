@@ -9,9 +9,11 @@ export class UserProfileView extends LitElement {
 
     render() {
         return html`
-      <main>
+      <main style="border: 2px solid red">
         <p>This is the page of user ${this.userId}</p>
+        <a href="/users/${this.userId}/edit">Edit</a>
         <a href="/users">Go back</a>
+        <slot></slot>
       </main>
     `;
     }

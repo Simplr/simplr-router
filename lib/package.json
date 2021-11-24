@@ -1,10 +1,6 @@
 {
     "name": "@simplr-wc/router",
-<<<<<<< HEAD
-    "version": "7.0.0-rc9",
-=======
     "version": "7.0.0-rc10",
->>>>>>> 5065dfde7adfe4bc9239ce336cf5bec910a8119e
     "keywords": [
         "javascript",
         "routing",

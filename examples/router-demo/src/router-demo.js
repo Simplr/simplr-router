@@ -62,7 +62,14 @@ const routerOptions = {
                     path: ":userId",
                     component: "user-profile-view",
                     import: () => import("./user-profile-view.js"),
-                    pattern: { userId: "\\d+" }
+                    pattern: { userId: "\\d+" },
+                    children: [
+                        {
+                            path: "edit",
+                            component: "user-edit-view",
+                            import: () => import("./user-edit-view.js")
+                        }
+                    ]
                 },
                 {
                     path: "new",
@@ -162,12 +169,13 @@ const routerOptions = {
         }
     ],
     transitionSpeed: 100,
-    rootPath: "/my-app"
 }
 
 const router = new SimplrRouter(routerOptions);
 router.init();
 console.log(router.router.routes);
+console.log(router.router.dynamicRoutes);
+console.log(router.router.staticRoutes);
 
 customElements.define('router-demo', RouterDemo);
 

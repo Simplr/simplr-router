@@ -62,7 +62,7 @@ export class UsersView extends LitElement {
 
     render() {
         return html`
-      <main>
+      <main style="border: 2px solid green;">
         <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
 
