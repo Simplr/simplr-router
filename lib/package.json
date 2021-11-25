@@ -1,6 +1,6 @@
 {
     "name": "@simplr-wc/router",
-    "version": "7.0.0-rc11",
+    "version": "7.0.0-rc13",
     "keywords": [
         "javascript",
         "routing",
@@ -17,9 +17,11 @@
         "type": "git",
         "url": "https://github.com/Simplr/simplr-router"
     },
+    "types": "./simplr-router.d.ts",
     "main": "simplr-router.js",
     "scripts": {
-        "types": "npx -p typescript tsc ./**/*.js --declaration --allowJs --emitDeclarationOnly --out index.d.ts"
+        "clean-types": "rm -rf ./*.d.ts && rm -rf ./modules/*.d.ts && rm -rf ./types/*.d.ts",
+        "types": "npm run clean-types && npx -p typescript tsc ./**/*.js --declaration --allowJs --emitDeclarationOnly"
     },
     "author": "Matsuuu <huhta.matias@gmail.com> (https://matsu.fi/)",
     "license": "ISC"
