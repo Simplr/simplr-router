@@ -1,0 +1,34 @@
+{
+  "name": "application-demo",
+  "description": "Webcomponent application-demo following open-wc recommendations",
+  "license": "MIT",
+  "author": "application-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "rimraf dist && tsc && rollup -c rollup.config.js",
+    "start:build": "web-dev-server --root-dir dist --app-index index.html --open",
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
+  },
+  "dependencies": {
+    "@simplr-wc/router": "file:../../lib",
+    "lit": "^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.0",
+    "@open-wc/building-rollup": "^1.10.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@web/dev-server": "^0.1.21",
+    "@web/rollup-plugin-html": "^1.9.1",
+    "@web/rollup-plugin-import-meta-assets": "^1.0.7",
+    "babel-plugin-template-html-minifier": "^4.1.0",
+    "concurrently": "^5.3.0",
+    "deepmerge": "^4.2.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-workbox": "^6.2.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.3.5"
+  }
+}
