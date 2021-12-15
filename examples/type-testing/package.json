@@ -1,0 +1,19 @@
+{
+  "name": "type-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@simplr-wc/router": "file:../../lib",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}
