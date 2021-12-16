@@ -9,19 +9,32 @@
     <meta name="Description" content="Put your description here." />
     <base href="/" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       html,
       body {
+        height: 100%;
         margin: 0;
         padding: 0;
-        font-family: sans-serif;
+        font-family: "Roboto", sans-serif;
         background-color: #ededed;
+      }
+
+      body {
+        display: flex;
       }
     </style>
     <title>application-demo</title>
   </head>
 
   <body>
+    <side-nav></side-nav>
+    <simplr-router-outlet></simplr-router-outlet>
     <script type="module" src="./out-tsc/src/index.js"></script>
   </body>
 </html>
