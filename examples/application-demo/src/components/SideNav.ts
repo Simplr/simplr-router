@@ -16,6 +16,7 @@ export class SideNav extends LitElement {
                 background: grey;
                 padding: 1rem 0;
                 background: #2f2f2f;
+                box-sizing: border-box;
             }
 
             .logo {
