@@ -1,4 +1,4 @@
-![Title Image](assets/simplr-router-logo-banner.png)
+![Title Image](assets/simplr-router-logo-banner.png).
 
 [![npm version](https://badgen.net/npm/v/@simplr-wc/router)](https://www.npmjs.com/package/@simplr-wc/router)
 
