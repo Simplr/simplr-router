@@ -28,13 +28,13 @@ export class DataPageCommitPanel extends LitElement {
 			<h2>${this.commit.sha}</h2>
 			<p>${this.commit.commit.message}</p>
 
-			<p>Created: ${this.commit.commit.committer.date}</p>
+			<p>Created: ${new Date(this.commit.commit.committer.date).toUTCString()}</p>
 
 			<ul>
 				${this.commit.files.map(
             (file: any) => html`
 						<li>
-							<span>${file.filename}</span>
+							<a href="${file.blob_url}">${file.filename}</a>
 							<ins>+${file.additions}</ins>
 							<del>-${file.deletions}</del>
 						</li>
@@ -50,6 +50,7 @@ export class DataPageCommitPanel extends LitElement {
         return css`
         ul {
             list-style: none;
+            padding: 0;
         }
 
         li {

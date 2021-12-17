@@ -27,7 +27,7 @@ const routerOptions: SimplrRouterOptions = {
                         {
                             path: ":issueNumber",
                             pattern: {
-                                issueNumber: "[0-9]+"
+                                issueNumber: "[0-9]+",
                             },
                             component: "data-page-issue-panel",
                             import: () =>
@@ -40,6 +40,19 @@ const routerOptions: SimplrRouterOptions = {
                     component: "data-page-pull-requests",
                     import: () =>
                         import("./views/data-views/DataPagePullRequests"),
+                    children: [
+                        {
+                            path: ":prNumber",
+                            pattern: {
+                                prNumber: "[0-9]+",
+                            },
+                            component: "data-page-pull-request-panel",
+                            import: () =>
+                                import(
+                                    "./views/data-views/DataPagePullRequestPanel"
+                                ),
+                        },
+                    ],
                 },
                 {
                     path: "/commits",

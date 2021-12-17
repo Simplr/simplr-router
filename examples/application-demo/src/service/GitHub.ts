@@ -35,3 +35,21 @@ export async function getCommit(sha: string) {
             return [];
         })
 }
+
+export async function getPullRequests() {
+    return fetch(ROUTER_REPO_URL + "/pulls")
+        .then(res => res.json())
+        .catch(err => {
+            console.error("Can't fetch data", err);
+            return [];
+        })
+}
+
+export async function getPullRequest(prNumber: number) {
+    return fetch(ROUTER_REPO_URL + "/pulls/" + prNumber)
+        .then(res => res.json())
+        .catch(err => {
+            console.error("Can't fetch data", err);
+            return [];
+        })
+}

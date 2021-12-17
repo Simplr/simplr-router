@@ -16,12 +16,12 @@ export class SideNavItem extends LitElement {
     static get styles() {
         return css`
       :host {
-        padding: 1rem 2rem;
         color: #fff;
         font-size: 1.6rem;
         background: inherit;
         cursor: pointer;
         transition: 200ms ease-in-out;
+        display: flex;
       }
 
       :host(:hover) {
@@ -30,6 +30,8 @@ export class SideNavItem extends LitElement {
       }
 
       a {
+          width: 100%;
+        padding: 1rem 2rem;
         color: inherit;
         text-decoration: none;
       }

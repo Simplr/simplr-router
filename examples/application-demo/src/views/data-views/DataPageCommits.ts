@@ -23,6 +23,7 @@ export class DataPageCommits extends LitElement {
     render() {
         return html`
 			<section>
+                ${this.commits.length <= 0 ? html`<p>No commits found</p>` : ''}
 				<item-list>
 					${this.commits.map(
             (comm) => html`

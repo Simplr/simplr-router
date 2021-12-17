@@ -23,12 +23,13 @@ export class DataPageIssues extends LitElement {
     render() {
         return html`
 			<section>
+                ${this.issues.length <= 0 ? html`<p>No issues found</p>` : ''}
 				<item-list>
 					${this.issues.map(
             (iss) => html`
 							<item-list-entry
 								.title=${iss.title}
-								.content=${iss.body}
+								.content=${iss.body ?? ''}
 								.href=${this._createIssueUrl(iss)}
 							></item-list-entry>
 						`
