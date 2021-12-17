@@ -22,7 +22,7 @@ export class DataPageIssues extends LitElement {
 
     render() {
         return html`
-			<section class="listing">
+			<section>
 				<item-list>
 					${this.issues.map(
             (iss) => html`
@@ -35,7 +35,7 @@ export class DataPageIssues extends LitElement {
         )}
 				</item-list>
 			</section>
-            <section class="issue-panel">
+            <section>
                 <slot></slot>
             </section>
 		`;
@@ -51,6 +51,8 @@ export class DataPageIssues extends LitElement {
 
 			section {
 				flex-basis: 40%;
+                max-height: 600px;
+                overflow-y: scroll;
 			}
 		`;
     }

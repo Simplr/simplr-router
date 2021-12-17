@@ -24,8 +24,16 @@ const routerOptions: SimplrRouterOptions = {
                     component: "data-page-issues",
                     import: () => import("./views/data-views/DataPageIssues"),
                     children: [
-                        { path: ":issueNumber", component: "data-page-issue-panel", import: () => import("./views/data-views/DataPageIssuePanel") }
-                    ]
+                        {
+                            path: ":issueNumber",
+                            pattern: {
+                                issueNumber: "[0-9]+"
+                            },
+                            component: "data-page-issue-panel",
+                            import: () =>
+                                import("./views/data-views/DataPageIssuePanel"),
+                        },
+                    ],
                 },
                 {
                     path: "/pull-requests",
@@ -37,6 +45,16 @@ const routerOptions: SimplrRouterOptions = {
                     path: "/commits",
                     component: "data-page-commits",
                     import: () => import("./views/data-views/DataPageCommits"),
+                    children: [
+                        {
+                            path: ":commitSha",
+                            component: "data-page-commit-panel",
+                            import: () =>
+                                import(
+                                    "./views/data-views/DataPageCommitPanel"
+                                ),
+                        },
+                    ],
                 },
             ],
         },
@@ -47,7 +65,7 @@ const routerOptions: SimplrRouterOptions = {
             import: () => import("./views/AboutPage"),
         },
     ],
-    transitionSpeed: 50
+    transitionSpeed: 50,
 };
 
 const router = new SimplrRouter(routerOptions);

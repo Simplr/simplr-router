@@ -29,6 +29,7 @@ export class ItemListEntry extends LitElement {
 				padding: 0.5rem 1rem;
 				color: inherit;
 				text-decoration: none;
+                width: 100%;
 			}
 		`;
     }
