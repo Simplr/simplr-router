@@ -48,6 +48,7 @@ export class SideNav extends LitElement {
             <side-nav-item href="/data" label="Data fields"></side-nav-item>
             <side-nav-item href="/about" label="About"></side-nav-item>
             <side-nav-item external href="https://simplr.github.io/simplr-router/" label="Docs"></side-nav-item>
+            <side-nav-item external href="https://github.com/Simplr/simplr-router/tree/master/examples/application-demo" label="Source"></side-nav-item>
         `;
     }
 }

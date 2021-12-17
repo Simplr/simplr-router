@@ -31,6 +31,7 @@ export class LandingPage extends LitElement {
         <ul>
           <li>The use of a router outlet to display content</li>
           <li>And external navigation component</li>
+          <li>Code splitting</li>
           <li>Page transitions</li>
           <li>Nested views</li>
           <li>Dynamic views</li>

@@ -1,6 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators/custom-element.js";
-import { getRepositoryData } from "../service/GitHub";
+import "../components/ItemList";
+import "../components/ItemListEntry";
 
 @customElement("data-page")
 export class DataPage extends LitElement {

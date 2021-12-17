@@ -12,3 +12,12 @@ export async function getIssues() {
             return [];
         })
 }
+
+export async function getIssue(issueNumber: number) {
+    return fetch(ROUTER_REPO_URL + "/issues/" + issueNumber)
+        .then(res => res.json())
+        .catch(err => {
+            console.error("Can't fetch data", err);
+            return [];
+        })
+}

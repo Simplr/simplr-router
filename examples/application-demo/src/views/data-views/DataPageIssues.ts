@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators/custom-element.js";
 import { property } from "lit/decorators/property.js";
 import { getIssues } from "../../service/GitHub";
@@ -16,16 +16,42 @@ export class DataPageIssues extends LitElement {
         this.issues = await getIssues();
     }
 
+    _createIssueUrl(issue: any) {
+        return "/data/issues/" + issue.number;
+    }
+
     render() {
-        return html` <ul>
-			${this.issues.map(
+        return html`
+			<section class="listing">
+				<item-list>
+					${this.issues.map(
             (iss) => html`
-					<li>
-						<h2>${iss.title}</h2>
-						<p>${iss.body.substring(0, 50)}...</p>
-					</li>
-				`
+							<item-list-entry
+								.title=${iss.title}
+								.content=${iss.body}
+								.href=${this._createIssueUrl(iss)}
+							></item-list-entry>
+						`
         )}
-		</ul>`;
+				</item-list>
+			</section>
+            <section class="issue-panel">
+                <slot></slot>
+            </section>
+		`;
+    }
+
+    static get styles() {
+        return css`
+			:host {
+				margin: 4rem 0 0;
+				display: flex;
+                justify-content: space-between;
+			}
+
+			section {
+				flex-basis: 40%;
+			}
+		`;
     }
 }
